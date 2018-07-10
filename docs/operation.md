@@ -12,4 +12,4 @@ Please provide a relevant list of known errors that may be experienced and any u
 
 ## Supporting Scripts
 
-Where supporting scripts exist that need to be accessible or orchestrated by other components, please describe them and thier operations here.
+Where supporting scripts exist that need to be accessible or orchestrated by other components, please describe them and their operations here.
