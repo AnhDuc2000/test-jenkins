@@ -1,7 +1,7 @@
 # Confluence Upgrade 5.9.5 to 6.4.3 User Acceptance Testing Instructions
 ## About this document
 
-This document provides information and details to those users participating in the User Acceptance Testing (UAT) of the Confluence Upgrade 5.9.5 to 6.4.3. The upgrade date it to be announced shortly.
+This document provides information and details to those users participating in the User Acceptance Testing (UAT) of the Confluence Upgrade 5.9.5 to 6.4.3. The upgrade date is to be announced shortly.
 
 ## System Information
 
