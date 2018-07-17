@@ -1,5 +1,10 @@
 # Confluence Upgrade 5.9.5 to 6.4.3 UAT Instructions
+## About this document
+
+This document provides information and details to those users participating in the User Acceptance Testing (UAT) of the Confluence Upgrade 5.9.5 to 6.4.3. The upgrade date it to be announced shortly.
+
 ## System Information
+
 * This system is a replica of production, copied as of about July 1, 2018. It is not being kept in synchronization with the production system.
 * URL for Testing: https://confluencepentest.dxcdevcloud.net/
 ## What's changing?
