@@ -7,4 +7,4 @@
 
 ## Licensing
 
-We use standard licensing for our production instance, and  developer licensing for our PenTest instance.
+We use purchased software license keys for our production instance, and developer license keys for our PenTest instance.
