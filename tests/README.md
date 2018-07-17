@@ -14,10 +14,9 @@ In addition, the user must then be granted access to Confluence (`confluence-use
 
 ## Manual Unit Testing
 
-
-
 * Display login screen
-    - Access your given URL. See [archtiecture](../docs/architecture.md) for a list of URLs.
+    - Access your given URL. See [architecture](../docs/architecture.md) for a list of URLs.
+    - 
 * Login with User ID and Password
 * Logout - this is not technically testable on a working instance the way the SSO redirect works
 * View Confluence Spaces
