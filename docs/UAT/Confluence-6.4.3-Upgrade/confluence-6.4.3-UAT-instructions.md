@@ -9,6 +9,13 @@ This document provides information and details to those users participating in t
 * URL for Testing: https://confluencepentest.dxcdevcloud.net/
 ## What's changing?
 * Refer to the Confluence Release Notes at https://confluence.atlassian.com/doc/confluence-release-notes-327.html/ for associated changes relating to versions 5.9.5 to 6.4.3.
+  * 5.9:  https://confluence.atlassian.com/doc/confluence-5-9-release-notes-785333580.html
+  * 5.10:  https://confluence.atlassian.com/doc/confluence-5-10-release-notes-826894762.html 
+  * 6.0 https://confluence.atlassian.com/doc/confluence-6-0-release-notes-844235309.html#Confluence6.0ReleaseNotes-6-0-2 
+  * 6.1:  https://confluence.atlassian.com/doc/confluence-6-1-release-notes-872277785.html 
+  * 6.2:  https://confluence.atlassian.com/doc/confluence-6-2-release-notes-894219485.html 
+  * 6.3: https://confluence.atlassian.com/doc/confluence-6-3-release-notes-909642701.html 
+  * 6.4: https://confluence.atlassian.com/doc/confluence-6-4-release-notes-934721238.html
 * The Confluence Documentation Space theme is deprecated in Confluence 6.0 and beyond. Refer to this link for more information.
   * https://confluence.atlassian.com/doc/documentation-theme-migration-faq-847355042.html
 * Hipchat for Confluence, a free add-on, is no longer supported post Confluence 6.3.4. 
