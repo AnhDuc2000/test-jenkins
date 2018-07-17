@@ -29,7 +29,7 @@ This document provides information and details to those users participating in t
   * Please provide lots of detail, screen shots, how to reproduce the issue.
 * **If you have problems with GitHub or reporting issues please ensure you send a note to our whole team**
   * Nguyen, Tien Van <tien.nguyen3@dxc.com>
-  * Hansen, Linda <linda.hansen@hpe.com>
+  * Hansen, Linda <linda.hansen@dxc.com>
   * Harvey, Adam <adam.harvey@dxc.com>
   * Balusu, Ravi <rbalusu3@csc.com>
 
