@@ -5,7 +5,7 @@ This document provides information and details to those users participating in t
 
 ## System Information
 
-* This system is a replica of production, copied as of about July 1, 2018. It is not being kept in synchronization with the production system.
+* This system is a replica of production, cloned as of about July 13, 2018. It is not being kept in synchronization with the production system.
 * URL for Testing: https://confluencepentest.dxcdevcloud.net/
 ## What's changing?
 * Refer to the Confluence Release Notes at https://confluence.atlassian.com/doc/confluence-release-notes-327.html/ for associated changes relating to versions 5.9.5 to 6.4.3.
