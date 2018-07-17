@@ -11,6 +11,7 @@ This document provides information and details to those users participating in t
 * Refer to the Confluence Release Notes at https://confluence.atlassian.com/doc/confluence-release-notes-327.html/ for associated changes relating to versions 5.9.5 to 6.4.3.
 * The Confluence Documentation Space theme is deprecated in Confluence 6.0 and beyond. Refer to this link for more information.
   * https://confluence.atlassian.com/doc/documentation-theme-migration-faq-847355042.html
+* Hipchat for Confluence, a free add-on, is no longer supported post Confluence 6.3.4. 
 
 ## How to access the test system
 * Each of you will be getting a test Global Pass account. 
