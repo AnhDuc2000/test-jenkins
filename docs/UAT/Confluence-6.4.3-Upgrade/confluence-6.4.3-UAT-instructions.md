@@ -32,7 +32,7 @@ This document provides information and details to those users participating in t
 * We want you to basically test the same things you normally do in real life, but on this test system
 * In addition, please review the release notes (see link above) 
 ## Time-frame for testing
-* Thursday 7/19/2018 and finish by following Tues 7/24/2018
+* Friday 7/20/2018 and finish by following Wed 7/25/2018
 ## How to report issues
 * All issues should be reported via GitHub by going to the following link - https://github.dxc.com/Platform-DXC/confluence/issues/new
   * Please provide lots of detail, screen shots, how to reproduce the issue.
@@ -41,4 +41,3 @@ This document provides information and details to those users participating in t
   * Hansen, Linda <linda.hansen@dxc.com>
   * Harvey, Adam <adam.harvey@dxc.com>
   * Balusu, Ravi <rbalusu3@csc.com>
-
