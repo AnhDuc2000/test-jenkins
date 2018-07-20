@@ -14,7 +14,7 @@ In addition, the user must then be granted access to Confluence (`confluence-use
 
 ## Manual Unit Testing
 
-Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge InPriate browser window. This starts you fresh with no cookies/previous login info, and better replicates a brand new user.
+Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/IE InPrivate browser window. This starts you fresh with no cookies/previous login info, and better replicates a brand new user.
 
 * TEST-UNIT-1 Display login screen
     - Access your given URL. See [architecture](../docs/architecture.md) for a list of URLs.
