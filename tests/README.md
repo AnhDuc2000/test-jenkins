@@ -14,20 +14,43 @@ In addition, the user must then be granted access to Confluence (`confluence-use
 
 ## Manual Unit Testing
 
-* Display login screen
-    - Access your given URL. See [architecture](../docs/architecture.md) for a list of URLs.
-    - 
-* Login with User ID and Password
-* Logout - this is not technically testable on a working instance the way the SSO redirect works
-* View Confluence Spaces
-* Search Confluence Space
-    - Click the search box at the top right
-    - Search for the word "Newcastle"
-    - You should see two results, "Newcastle DevOps Home" and "Newcastle DTC Home"
-    - At the bottom of the search popup, click the `:mag: Search for 'newcastle'` line
-    - Search results should appear in a refreshed window, showing at least 9 results
-* View Add-Ons
+Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge InPriate browser window. This starts you fresh with no cookies/previous login info, and better replicates a brand new user.
 
+* TEST-UNIT-1 Display login screen
+    - Access your given URL. See [architecture](../docs/architecture.md) for a list of URLs.
+    - Expect to quickly see a page that presents a box which says: "Select Identity Provider, What kind of user are you?, DXCGLOBALPASS DXCGLOBALPASS, Login with username and password"
+    - The page stops here.
+    - Verify the Confluence version in the footer of this page is 5.9.5
+    - Verify the dropdown menu at far top left has these values:
+        * JIRA
+        * Confluence
+        * Artifactory
+        * Confluence (note - Yes, this is a duplicate in current production)
+        * Github
+        * Jenkins
+        * sonarqube
+    - This is a success of this step, do not worry about any further redirection or entering credentials.
+* TEST-UNIT-2 Login with User ID and Password
+    - Access your given URL. See [architecture](../docs/architecture.md) for a list of URLs.
+    - Expect to quickly see a page that presents a box which says: "Select Identity Provider, What kind of user are you?, Select or wait 3 seconds to use DXCGLOBALPASS,DXCGLOBALPASS DXCGLOBALPASS, Login with username and password"
+    - You must click "Login with username and password" within three (3) seconds.
+* TEST-UNIT-3 Logout
+    - Click your user profile at top right, and select Log Out.
+    - Expect to quickly see a page that presents a box which says: "Select Identity Provider, What kind of user are you?, Select or wait 3 seconds to use DXCGLOBALPASS,DXCGLOBALPASS DXCGLOBALPASS, Login with username and password"
+    - You should be automatically logged back in.  (it is not acutally possible to stay logged out)
+* TEST-UNIT-4 View Confluence Spaces
+    - After logging in, click "Spaces" in the top navigation and select "Space Directory".
+    - You should see a list of spaces.
+    - If you scroll to the bottom, you should see at least nine (9) separate pages listed. ("Prev 1 2 3 4 5 6 7 8 9 Next")
+* TEST-UNIT-5 Search Confluence Space
+    - Click the search box at the top right
+    - Search for the word "CPS Upgrade"
+    - You should see at least 1700 results.
+    - The first result should be a space called "CPS Upgrade", with a small circle space icon.
+    - CLick the "CPS Upgrade" space.
+    - You should see the "CPS Upgrade" spac ehomepage titled "CPS Upgrade Home".
+* TEST-UNIT-6 View Add-Ons
+    - Adam doesn't have access in prod to do this.
 
 ## Unit Testing
 
@@ -38,8 +61,11 @@ Please describe the tools used and how you are managing unit test generation and
 
 Please describe the tools used and how you are managing integration test generation and execution
 
-* Login with SAML Single Sign-On (DXC GlobalPass)
-* Integration with JIRA?
+* TEST-INT-1 Login with SAML Single Sign-On (DXC GlobalPass)
+    - Access your given URL. See [architecture](../docs/architecture.md) for a list of URLs.
+    - Expect to quickly see a page that presents a box which says: "Select Identity Provider, What kind of user are you?, Select or wait 3 seconds to use DXCGLOBALPASS,DXCGLOBALPASS DXCGLOBALPASS, Login with username and password"
+    - After three seconds, you should be redirected either to a) a black and yellow DXC GlobalPass login screen, or b) directly to your Confluence homepage.
+* TEST-INT-2 Integration with JIRA?
 
 ## Functional Testing
 
