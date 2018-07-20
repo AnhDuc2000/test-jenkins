@@ -2,6 +2,7 @@ package pacConfluenceTest;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -326,14 +327,19 @@ public class ConfluenceAutoTest {
 			driver.findElement(By.id("admin-menu-link")).click();
 			driver.findElement(By.id("plugin-administration-link")).click();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			WebElement element=driver.findElement(By.id("password"));
-			boolean status=element.isDisplayed(); if (status) {
-				driver.findElement(By.id("password")).sendKeys(auth.password);
-				driver.findElement(By.id("authenticateButton")).click();
-			}
+			
+			
+			driver.findElement(By.id("password")).sendKeys(auth.password);
+			driver.findElement(By.id("authenticateButton")).click();
+			
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		} catch (Exception e) {
+		} 
+		catch (NoSuchElementException  e1)
+		{
+			driver.quit();
+		}
+		catch (Exception e) {
 			System.out.println(e);
 			org.testng.Assert.fail("Test case failed for view Add-Ons ");
 		driver.quit();
