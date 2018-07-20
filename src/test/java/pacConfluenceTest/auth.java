@@ -7,4 +7,5 @@ public interface auth {
 	String SAMLusername = "rbalusu3";
 	String SAMLpassword = "GP@jul12!RB";
 	String strURL  ="https://confluencepentest.dxcdevcloud.net/";
+	
 }

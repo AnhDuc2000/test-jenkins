@@ -322,7 +322,6 @@ public class ConfluenceAutoTest {
 			// enter the login button
 			driver.findElement(By.id("loginButton")).click();
 			// Wait For Page To Load
-
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.findElement(By.id("admin-menu-link")).click();
 			driver.findElement(By.id("plugin-administration-link")).click();
