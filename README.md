@@ -1,8 +1,8 @@
 # Platform DXC Confluence
 
 Atlassian Confluence is an enterprise wiki tool for use by DXC Technology employees. It provides deep integration with Atlassian JIRA.
-
 **https://confluence.csc.com**
+
 How to instal the confluence automation Test project
   Create the Maven project in your eclipse editor
   Clone the project from Github 
