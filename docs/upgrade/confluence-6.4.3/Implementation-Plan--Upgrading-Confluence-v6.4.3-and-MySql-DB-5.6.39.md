@@ -353,8 +353,8 @@ Zone:	us-east-1a
                     rm -rf *
                     #
 
-### 6. Upgrade Confluence – Node 1 (1 hr + 30 min for GP + 2 min for add-ons)
-##### a. Perform upgrade on 1st node (8 min)
+### 6. Upgrade Confluence – Node 1 (1 hr + 15 min)
+##### a. Perform upgrade on 1st node (10 min)
   Make sure you don't have any opened sessions currently under folder "/opt/*".
 	Make sure there is not any backup file in the "/opt/atlassian/confluence-data/temp".  Otherwise it will take a lot of time for backing up the confluence folders during upgrade process
 
@@ -772,7 +772,7 @@ Zone:	us-east-1a
               		  Confluence Server 5.10.0 - 6.10.0
               		  Released 2018-06-20
 
-##### g. Post-Upgrade Checklist and other integration test
+##### g. Post-Upgrade Checklist and other integration test (15 min)
         ([https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html](https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html))
         	a. Layout and Menu
             	Visit the Confluence dashboard and check that it is accessible and displays as expected. Test the different Internet browsers that you have in use in your environment. In addition, confirm that the layout appears as expected and that the menus are clickable and functioning.
@@ -797,31 +797,31 @@ Zone:	us-east-1a
 ​Copy upgraded Confluence v6.4.3 directories on Node 1 to Node 2
 ##### a. Stop Confluence on the first node.
 
-##### b. Copy the installation directory and local home directory from the first node to the next node. (6 min)
+##### b. Copy the installation directory and local home directory from the first node to the next node. (10 min)
 			Create tar file
 					cd /opt
-					tar -czvf atlassian-6.4.3-node1.tar.gz atlassian		(4 min)
+					tar -czvf atlassian-6.4.3-node1.tar.gz atlassian		
 
 			Copy tar file to destination node (1 min)
 					scp -i /home/ec2-user/cscdevcloudcustomerzero.pem /opt/atlassian-6.4.3-node1.tar.gz ec2-user@35.153.252.171:/tmp
 
-			Putty to Node 2 and copy tar file to "/opt" folder (1 min)
+			Putty to Node 2 and copy tar file to "/opt" folder 
 					cd /opt
 					mv /tmp/atlassian-6.4.3-node1.tar.gz .
 					chown root:root atlassian-6.4.3-node1.tar.gz
 					tar -xzvf atlassian-6.4.3-node1.tar.gz
 
-			Change node name from node1 to node2 (< 1 min)
+			Change node name from node1 to node2 
 					vi /opt/atlassian/confluence/bin/setenv.sh
 						change
 							 from:	CATALINA_OPTS="-Dconfluence.cluster.node.name=node1 ${CATALINA_OPTS}"
 							 to:		CATALINA_OPTS="-Dconfluence.cluster.node.name=node2 ${CATALINA_OPTS}"
 
-			Confirm Node 2 Private IP address in the Confluence config file (< 1 min)
+			Confirm Node 2 Private IP address in the Confluence config file 
 				vi /opt/atlassian/confluence-data/confluence.cfg.xml
              <property name="confluence.cluster.peers">10.0.0.197,10.0.0.245</property>
 
-##### c. Start Confluence on second node, and confirm that you can log in and view pages on this node. (4 min)
+##### c. Start Confluence on second node, and confirm that you can log in and view pages on this node. (6 min)
 			service confluence start
 
       Check Tomcat log file for any errors
