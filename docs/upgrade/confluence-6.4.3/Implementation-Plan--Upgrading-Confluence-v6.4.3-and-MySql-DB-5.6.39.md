@@ -48,13 +48,13 @@ This implementation plan is for upgrading Confluence v5.9.5 to v6.4.3 and MySql 
 VPC:	vpc-5b49163f - csc-devcloud-os-customer-zero
 Zone:	us-east-1a
 
-  | Type | Name           | Elastic IP  | Public IP  | Private IP  | Public DNS (IPv4)  |
-  | -----|:-------------:| -----:|
-  | ec2  | confluence-node01-prod | 52.73.177.83 | 52.73.177.83 | 10.0.0.197 | ec2-52-73-177-83.compute-1.amazonaws.com |
-  | ec2  | confluence-node02-prod | 35.153.252.171 | 35.153.252.171 | 10.0.0.245 | ec2-35-153-252-171.compute-1.amazonaws.com |
-  | ec2  | confluence-node03-prod-backup |  | 54.210.129.196 | 10.0.0.90 | ec2-54-210-129-196.compute-1.amazonaws.com |
-  | efs  | confluence-efs |  |  | 10.0.0.72 |  |
-  | rds  | cz-mysqldb |  |  |  |  |
+| Type |             Name              |     Elastic IP | Public IP      | Private IP | Public DNS (IPv4)                          |
+| ---- |:-----------------------------:| --------------:| -------------- | ---------- | ------------------------------------------ |
+| ec2  |    confluence-node01-prod     |   52.73.177.83 | 52.73.177.83   | 10.0.0.197 | ec2-52-73-177-83.compute-1.amazonaws.com   |
+| ec2  |    confluence-node02-prod     | 35.153.252.171 | 35.153.252.171 | 10.0.0.245 | ec2-35-153-252-171.compute-1.amazonaws.com |
+| ec2  | confluence-node03-prod-backup |                | 54.210.129.196 | 10.0.0.90  | ec2-54-210-129-196.compute-1.amazonaws.com |
+| efs  |        confluence-efs         |                |                | 10.0.0.72  |                                            |
+| rds  |          cz-mysqldb           |                |                |            |                                            |
 
 ## Pre-upgrade
 	node 1:
@@ -73,19 +73,19 @@ Zone:	us-east-1a
 
 	AWS
 		Need to log in AWS prod on RDS, EC2
-        https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstances:
-        https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:search=confluence;sort=instanceId
+        [https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstances](https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstances)
+        [https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:search=confluence;sort=instanceId](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:search=confluence;sort=instanceId)
 
 
 ### Complete the pre-upgrade checks
 ##### a. Perform the health checks (this can be done in advance before startint MTP) (0 min)
               Go to "Confluence administration" > General Configuration > Atlassian Support Tools
-                (https://confluence.csc.com/plugins/servlet/stp/view/)
+                ([https://confluence.csc.com/plugins/servlet/stp/view/](https://confluence.csc.com/plugins/servlet/stp/view/))
                 Problems Detected > Database > InnoDB Log File Size
                   Result: Your innodb_log_file_size of 134,217,728 is too small. You should increase innodb_log_file_size to 256M.
                   Resolve: On AWS, create a new parameter group and set the following
                       Set innodb_log_file_size to 512M
-                        (https://confluence.atlassian.com/confkb/mysqlsyntaxerrorexception-row-size-too-large-658735905.html?utm_campaign=stp-health-checks-beta&utm_medium=stp-jdk-health-check&utm_source=stp)
+                        ([https://confluence.atlassian.com/confkb/mysqlsyntaxerrorexception-row-size-too-large-658735905.html?utm_campaign=stp-health-checks-beta&utm_medium=stp-jdk-health-check&utm_source=stp](https://confluence.atlassian.com/confkb/mysqlsyntaxerrorexception-row-size-too-large-658735905.html?utm_campaign=stp-health-checks-beta&utm_medium=stp-jdk-health-check&utm_source=stp))
 
                 Problems Detected > Database > WarningMax Allowed Packets
                   Result: Your packet size of 4,194,304 is too small. You should increase max_allowed_packets to 34M.
@@ -93,7 +93,7 @@ Zone:	us-east-1a
                       Set max_allowed_packet to 512M
 
 ##### b. Create a new parameter group (done in advance) (5 min)
-                              On AWS, go to RDS > Parameter groups	(https://console.aws.amazon.com/rds/home?region=us-east-1#parameter-groups:)
+                              On AWS, go to RDS > Parameter groups	([https://console.aws.amazon.com/rds/home?region=us-east-1#parameter-groups](https://console.aws.amazon.com/rds/home?region=us-east-1#parameter-groups))
                                 Click on "Create parameter group" button
                       			       Parameter group family = "mysql5.6"
                       			       Group name = "confluence-mysql"
@@ -108,7 +108,7 @@ Zone:	us-east-1a
 
 ##### c. Perform Confluence Update Check (this can be done in advance before startint MTP) (0 min)
               Go to "Confluence administration" > "Manage add-ons" > "Confluence Update Check" > "Check compatibility for update to" > "Select 6.4.3 and click "Check" button to check the compatibility of the add-ons.
-                (https://confluence.csc.com/plugins/servlet/upm/check?source=manage)
+                ([https://confluence.csc.com/plugins/servlet/upm/check?source=manage](https://confluence.csc.com/plugins/servlet/upm/check?source=manage))
                     Disable “SAML SingleSignOn for Confluence”
 
 
@@ -132,7 +132,7 @@ Zone:	us-east-1a
 ### 2. Perform screen captures and DB queries (5 min)
 
 ##### a. Capture screen for "Confluence Usage" (1 min)
-				(https://confluence.csc.com/admin/systeminfo.action)
+				([https://confluence.csc.com/admin/systeminfo.action](https://confluence.csc.com/admin/systeminfo.action))
 					Search for "Confluence Usage"
 					Take a screenshot of it
 
@@ -202,7 +202,7 @@ Zone:	us-east-1a
 ##### c. perform snapshot of xvda and xvdb (4 min, in parallel with efs)
 			Node1:
 				Take snapshot of confluence-node01-prod root  -- confluence-node01-prod-new -- vol-bdd98219 -- 80 GiB
-					(https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-bdd98219;sort=desc:createTime)
+					([https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-bdd98219;sort=desc:createTime](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-bdd98219;sort=desc:createTime))
 						--> Action --> Create Snapshot
 								Description:  confluence-node01-prod-ebs-volume-sda1-root
 								Tag:
@@ -210,7 +210,7 @@ Zone:	us-east-1a
 										Value: 	confluence-node01-prod-ebs-volume-sda1-root
 
 				Take snapshot of confluence-node01-prod opt  -- confluence-node01-prod-new -- vol-74da81d0 -- 100 GiB
-					(https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-74da81d0;sort=desc:createTime)
+					([https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-74da81d0;sort=desc:createTime](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-74da81d0;sort=desc:createTime))
 						--> Action --> Create Snapshot
 								Description:  confluence-node01-prod-ebs-volume-sdb-opt
 								Tag:
@@ -220,7 +220,7 @@ Zone:	us-east-1a
 
 			Node2:
 				Take snapshot of confluence-node02-prod root  -- confluence-node02-prod-new -- vol-0de1a38ce41034c1b -- 80 GiB
-					(https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-0de1a38ce41034c1b;sort=desc:createTime)
+					([https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-0de1a38ce41034c1b;sort=desc:createTime](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-0de1a38ce41034c1b;sort=desc:createTime))
 						--> Action --> Create Snapshot
 								Description:  confluence-node02-prod-ebs-volume-sda1-root
 								Tag:
@@ -228,7 +228,7 @@ Zone:	us-east-1a
 										Value: 	confluence-node02-prod-ebs-volume-sda1-root
 
 				Take snapshot of confluence-node02-prod opt  -- confluence-node02-prod-ebs-xvdb-opt -- vol-0eff49e243c56dbb8 -- 100 GiB
-					(https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-0eff49e243c56dbb8;sort=desc:createTime)
+					([https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-0eff49e243c56dbb8;sort=desc:createTime](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-0eff49e243c56dbb8;sort=desc:createTime))
 						--> Action --> Create Snapshot
 								Description:  confluence-node02-prod-ebs-volume-sdb-opt
 								Tag:
@@ -238,12 +238,12 @@ Zone:	us-east-1a
 ### 4. Perform MySQL database upgrade (50 min)
 ** Make sure the database is not "backing up" status
 ##### a. perform snapshot of DB (5 min, in parallel with efs)
-					(https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstance:id=cz-mysqldb)
+					([https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstance:id=cz-mysqldb](https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstance:id=cz-mysqldb))
 						--> Instance actions --> Take snapshot --> Snapshot name: cz-mysqldb-v5-6-27-d2018-08-03
 
 							Note: you might see the message "backup-up" under >>>> RDS > Instances
 ##### b. Change DB version with new parameter group "confluence-mysql" (30 min upgrade + 3 min reboot to apply update db parameter option)
-       	  On AWS, goto RDS > Instances	(https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstances:)
+       	  On AWS, goto RDS > Instances	([https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstances](https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstances))
        	  Find "cz-mysqldb" and click on it
        	  Scroll down to the middle of the page and click on "Modify" button
 
@@ -297,14 +297,14 @@ Zone:	us-east-1a
 
         On Confluence, check "Instance Health" (1 min)
               Go to "Confluence administrator"
-              Click on "Support Tools" (https://confluence.csc.com/plugins/servlet/stp/view/)
+              Click on "Support Tools" ([https://confluence.csc.com/plugins/servlet/stp/view/](https://confluence.csc.com/plugins/servlet/stp/view/))
               Click on "Instance health" tab
                   Make sure very thing is passed checks especially database.
 
         On Confluence, go to "Space Directory" and try to navigate to any spaces and confirm it is working fine. (1 min)
             Click on Confluence Home Page (Confluence Dashboard)
             Click on "Spaces" --> "Space directory"
-               (https://confluence.csc.com/spacedirectory/view.action)
+               ([https://confluence.csc.com/spacedirectory/view.action](https://confluence.csc.com/spacedirectory/view.action))
 
 
 **Go/No-go Decision on MySQL Upgrade**
@@ -428,13 +428,13 @@ Zone:	us-east-1a
                     already done so.
 
                     Please refer to the following URL for back up guidelines:
-                    http://docs.atlassian.com/confluence/docs-64/Production+Backup+Strategy
+                    [http://docs.atlassian.com/confluence/docs-64/Production+Backup+Strategy](http://docs.atlassian.com/confluence/docs-64/Production+Backup+Strategy)
 
                     Check plugin compatibility
                     Check that your non-bundled plugins are compatible with Confluence 6.4.3.
 
                     For more information see our documentation at the following URL:
-                    http://docs.atlassian.com/confluence/docs-64/Installing+and+Configuring+Plugins+using+the+Universal+Plugin+Manager
+                    [http://docs.atlassian.com/confluence/docs-64/Installing+and+Configuring+Plugins+using+the+Universal+Plugin+Manager](http://docs.atlassian.com/confluence/docs-64/Installing+and+Configuring+Plugins+using+the+Universal+Plugin+Manager)
 
 
                     Please ensure you have read the above checklist before upgrading.
@@ -463,7 +463,7 @@ Zone:	us-east-1a
                     Your previous Confluence installation contains customisations (eg
                     server.xml) that must be manually transferred. Refer to our documentation
                     more information:
-                    http://docs.atlassian.com/confluence/docs-64/Upgrading+Confluence#UpgradingConfluence-custommodifications
+                    [http://docs.atlassian.com/confluence/docs-64/Upgrading+Confluence#UpgradingConfluence-custommodifications](http://docs.atlassian.com/confluence/docs-64/Upgrading+Confluence#UpgradingConfluence-custommodifications)
                     Finishing installation ...
 
 
@@ -532,13 +532,13 @@ Zone:	us-east-1a
       					already done so.
 
       					Please refer to the following URL for back up guidelines:
-      					http://docs.atlassian.com/confluence/docs-64/Production+Backup+Strategy
+      					[http://docs.atlassian.com/confluence/docs-64/Production+Backup+Strategy](http://docs.atlassian.com/confluence/docs-64/Production+Backup+Strategy)
 
       					Check plugin compatibility
       					Check that your non-bundled plugins are compatible with Confluence 6.4.3.
 
       					For more information see our documentation at the following URL:
-      					http://docs.atlassian.com/confluence/docs-64/Installing+and+Configuring+Plugins+using+the+Universal+Plugin+Manager
+      					[http://docs.atlassian.com/confluence/docs-64/Installing+and+Configuring+Plugins+using+the+Universal+Plugin+Manager](http://docs.atlassian.com/confluence/docs-64/Installing+and+Configuring+Plugins+using+the+Universal+Plugin+Manager)
 
 
       					Please ensure you have read the above checklist before upgrading.
@@ -567,7 +567,7 @@ Zone:	us-east-1a
       					Your previous Confluence installation contains customisations (eg
       					server.xml) that must be manually transferred. Refer to our documentation
       					more information:
-      					http://docs.atlassian.com/confluence/docs-64/Upgrading+Confluence#UpgradingConfluence-custommodifications
+      					[http://docs.atlassian.com/confluence/docs-64/Upgrading+Confluence#UpgradingConfluence-custommodifications](http://docs.atlassian.com/confluence/docs-64/Upgrading+Confluence#UpgradingConfluence-custommodifications)
       					Finishing installation ...
 
 ##### b. For MySQL database, replace the latest jdbc driver and backup older one. (1 min)
@@ -637,12 +637,12 @@ Zone:	us-east-1a
                   				(after 1 min, you should see below message)
                   					atlassian-confluence.log:2018-07-22 21:18:37,303 INFO [localhost-startStop-1] [atlassian.confluence.upgrade.AbstractUpgradeManager] entireUpgradeFinished Upgrade completed successfully
 
-                If you do not see the line in your log similar to the one above, this means that your upgrade may not have completed successfully. Please check our Upgrade Troubleshooting https://confluence.atlassian.com/confkb/upgrade-troubleshooting-180847191.html documentation to check for a suitable recommendation or fix.  In this case, we need to make the decision to roll back or continue.
+                If you do not see the line in your log similar to the one above, this means that your upgrade may not have completed successfully. Please check our Upgrade Troubleshooting [https://confluence.atlassian.com/confkb/upgrade-troubleshooting-180847191.html](https://confluence.atlassian.com/confkb/upgrade-troubleshooting-180847191.html) documentation to check for a suitable recommendation or fix.  In this case, we need to make the decision to roll back or continue.
 
                 **Note: During the upgrade process, you might see the warning message "java.lang.OutOfMemoryError: Java heap space".  Do not terminate the process and wait for its process to finished, This might take a few minutes.  This error does not occur if you have below setup in "setenv.sh"
                         CATALINA_OPTS="-Dconfluence.upgrade.recovery.file.enabled=false ${CATALINA_OPTS}"
 
-                **If you see this error in Confluence UI "Confluence cluster node will not start up because the build number in the database [6212] doesn't match either the application build number [7402] or the home directory build number [7402].", it means the upgrade is not successful.  See here for the fix https://confluence.atlassian.com/confkb/confluence-will-not-start-up-because-the-build-number-in-the-home-directory-doesn-t-match-the-build-number-in-the-database-after-upgrade-376834096.html.  In this case, we need to make the decision to roll back or continue.
+                **If you see this error in Confluence UI "Confluence cluster node will not start up because the build number in the database [6212] doesn't match either the application build number [7402] or the home directory build number [7402].", it means the upgrade is not successful.  See here for the fix [https://confluence.atlassian.com/confkb/confluence-will-not-start-up-because-the-build-number-in-the-home-directory-doesn-t-match-the-build-number-in-the-database-after-upgrade-376834096.html](https://confluence.atlassian.com/confkb/confluence-will-not-start-up-because-the-build-number-in-the-home-directory-doesn-t-match-the-build-number-in-the-database-after-upgrade-376834096.html).  In this case, we need to make the decision to roll back or continue.
 
     ii. Check MySQL DB using this "select * from CONFVERSION;" to confirm all the previous versions upgraded successfully like in below (< 1 min)
 
@@ -675,12 +675,12 @@ Zone:	us-east-1a
 
     v. Check Clustering (< 1 min)
     		Go to "Confluence administrator"
-    		Click on "Clustering"  (https://confluence.csc.com/plugins/servlet/cluster-monitoring)
+    		Click on "Clustering"  ([https://confluence.csc.com/plugins/servlet/cluster-monitoring](https://confluence.csc.com/plugins/servlet/cluster-monitoring))
     		Confirm Node name "node1" is currently running
 
     vi. Check "Instance Health" (< 2 min)
     		Go to "Confluence administrator"
-    		Click on "Support Tools" (https://confluence.csc.com/plugins/servlet/stp/view/)
+    		Click on "Support Tools" ([https://confluence.csc.com/plugins/servlet/stp/view/](https://confluence.csc.com/plugins/servlet/stp/view/))
     		Click on "Instance health" tab
         Make sure very thing is passed checks.
 
@@ -689,8 +689,8 @@ Zone:	us-east-1a
                   Resolution: For this check to pass Confluence will need to be using an SSO solution or:
                         1. An Internal User Directory that is active.
                         2. A System Admin User in that Internal Directory.
-                          (https://confluence.atlassian.com/confkb/health-check-internal-administrator-user-829068290.html)
-                          (https://www.redradishtech.com/display/KB/Reordering+User+Directories+in+JIRA+and+Confluence)
+                          ([https://confluence.atlassian.com/confkb/health-check-internal-administrator-user-829068290.html](https://confluence.atlassian.com/confkb/health-check-internal-administrator-user-829068290.html))
+                          ([https://www.redradishtech.com/display/KB/Reordering+User+Directories+in+JIRA+and+Confluence](https://www.redradishtech.com/display/KB/Reordering+User+Directories+in+JIRA+and+Confluence))
 
         	Check System Information
         				Go to "Confluence administrator"
@@ -703,13 +703,13 @@ Zone:	us-east-1a
 	 vii. On Confluence, go to "Space Directory" and try to navigate to any spaces and confirm it is working fine (< 3 min)
 			   Click on Confluence Home Page (Confluence Dashboard)
 			   Click on "Spaces" --> "Space directory"
-				      (https://confluence.csc.com/spacedirectory/view.action)
+				      ([https://confluence.csc.com/spacedirectory/view.action](https://confluence.csc.com/spacedirectory/view.action))
 
     viii. Check and confirm re-Index automatically started right after 1 or 2 min from this message "init Confluence is ready to serve" on Node 1 (40 min)
           Go to "Confluence administrator"
           Select "Content Indexing"
           Click on "Search Indexes" and confirm the index is running
-              (https://Confluence.csc.com/secure/admin/IndexAdmin.jspa)
+              ([https://Confluence.csc.com/secure/admin/IndexAdmin.jspa](https://Confluence.csc.com/secure/admin/IndexAdmin.jspa))
 
 ##### e. Global Pass – upgrade SAML Configuration (15 minutes) – need GP team onboard
 				i.	Configure SAML Configuration with Global Pass metadata (ACS url, Entity ID, certificate)
@@ -717,7 +717,7 @@ Zone:	us-east-1a
                 Click on "SAML Authentication" on the left menu
                       Authentication method:  checked "SAML single sign-on"
                       Single sign-on issuer:  urn:federation:csc
-                      Identity provider single sign-on URL: https://gpl.amer.csc.com/affwebservices/public/saml2sso
+                      Identity provider single sign-on URL: [https://gpl.amer.csc.com/affwebservices/public/saml2sso](https://gpl.amer.csc.com/affwebservices/public/saml2sso)
                       X.509 Certificate: <copy and paste from the metadata file provided by Global Pass>
                       Login mode: checked "Use SAML as secondary authentication"
                       Remember user logins: checked
@@ -773,7 +773,7 @@ Zone:	us-east-1a
               		  Released 2018-06-20
 
 ##### g. Post-Upgrade Checklist and other integration test
-        (https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html)
+        ([https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html](https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html))
         	a. Layout and Menu
             	Visit the Confluence dashboard and check that it is accessible and displays as expected. Test the different Internet browsers that you have in use in your environment. In addition, confirm that the layout appears as expected and that the menus are clickable and functioning.
 
@@ -833,7 +833,7 @@ Zone:	us-east-1a
 			Login to Confluence Dashboard and confirm you are login on node2.  This "node2" is displayed in the foot note like "Powered by Atlassian Confluence 6.4.3 (node2: xxxxxxxx)".  Or you check if you are on node2 by goto "Confluence administration" --> Clustering --> Confirm "node2" has circle green and with black bolded color text.
 
 ##### d. Post-Upgrade Checklist on Node 2 (10 min)
-			(https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html)
+			([https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html](https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html))
 			> Layout and Menu
 					Visit the Confluence dashboard and check that it is accessible and displays as expected. Test the different Internet browsers that you have in use in your environment. In addition, confirm that the layout appears as expected and that the menus are clickable and functioning.
 
