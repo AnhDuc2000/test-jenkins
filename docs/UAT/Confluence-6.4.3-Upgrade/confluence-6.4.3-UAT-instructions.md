@@ -21,6 +21,7 @@ This document provides information and details to those users participating in t
 * The Confluence Documentation Space theme is deprecated in Confluence 6.0 and beyond. Refer to this link for more information.
   * https://confluence.atlassian.com/doc/documentation-theme-migration-faq-847355042.html
 * Hipchat for Confluence, a free add-on, is no longer supported post Confluence 6.3.4. 
+* The Favorite Space Feature has been changed to Saved For Later.
 
 ## How to access the test system
 * Each of you will be getting a test Global Pass account. 
