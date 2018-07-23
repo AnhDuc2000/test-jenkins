@@ -21,7 +21,8 @@ This document provides information and details to those users participating in t
 * The Confluence Documentation Space theme is deprecated in Confluence 6.0 and beyond. Refer to this link for more information.
   * https://confluence.atlassian.com/doc/documentation-theme-migration-faq-847355042.html
 * Hipchat for Confluence, a free add-on, is no longer supported post Confluence 6.3.4. 
-* The Favorite Space Feature has been changed to Saved For Later.
+* The Favorite Space Feature has been changed to Save For Later.
+* The option to Change to Old Dashboard is no longer available
 
 ## How to access the test system
 * Each of you will be getting a test Global Pass account. 
@@ -33,7 +34,7 @@ This document provides information and details to those users participating in t
 * We want you to basically test the same things you normally do in real life, but on this test system
 * In addition, please review the release notes (see link above) 
 ## Time-frame for testing
-* Friday 7/20/2018 and finish by following Wed 7/25/2018
+* Monday 7/23/2018 and finish by following Thurs 7/26/2018
 ## How to report issues
 * All issues should be reported via GitHub by going to the following link - https://github.dxc.com/Platform-DXC/confluence/issues/new
   * Please provide lots of detail, screen shots, how to reproduce the issue.
@@ -42,3 +43,5 @@ This document provides information and details to those users participating in t
   * Hansen, Linda <linda.hansen@dxc.com>
   * Harvey, Adam <adam.harvey@dxc.com>
   * Balusu, Ravi <rbalusu3@csc.com>
+  * Shain, Jay <jay.shain@dxc.com>
+  NOTE: Jay is Out of the Office and Unavailable -  7/26/18 - 7/29/2018
