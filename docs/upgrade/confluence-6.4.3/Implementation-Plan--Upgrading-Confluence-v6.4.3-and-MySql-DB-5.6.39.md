@@ -1,12 +1,12 @@
 # Implementation Plan for upgrading Confluence v6.4.3 and MySql Db v5.6.39
 
-This implementation plan is for upgrading Confluence v5.9.5 to v6.4.3 and MySql Db v5.6.27 to v5.6.39 on production.  Plus configure the Global Pass with the new integrated SAML Authentication within Confluence.
+This implementation plan is for upgrading Confluence v5.9.5 to v6.4.3 and MySql Db v5.6.27 to v5.6.39 on production.  Plus, Global Pass will be configured the new integrated SAML Authentication within Confluence.
 
 | Task Name                                                                                                        | Duration (minutes) | Start (pm) | End (pm) | Remark                        |
 | ---------------------------------------------------------------------------------------------------------------- | ------------------ | ---------- | -------- | ----------------------------- |
 | AWS Production Information                                                                                       | 0                  |            |          |                               |
 | Pre-upgrade                                                                                                      | 0                  |            |          |                               |
-| -----	a. Perform the health checks (this can be done in advance before startint MTP) (1 min)                     | 1                  |            |          |                               |
+| -----	a. Perform the health checks (this can be done in advance before starting MTP) (1 min)                     | 1                  |            |          |                               |
 | -----	b. Create a new parameter group (done in advance) (5 min)                                                  | 5                  |            |          |                               |
 | -----	c. Perform Confluence Update Check (1 min)                                                                 | 1                  |            |          |                               |
 | 0. Assumptions                                                                                                   | 0                  | 3:00       |          | MTP Start at 3pm PST          |
