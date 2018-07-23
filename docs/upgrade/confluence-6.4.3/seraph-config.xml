@@ -1,0 +1,12 @@
+<init-param>
+            <param-name>login.url</param-name>
+
+        <!-- <param-value>/login.action?os_destination=${originalurl}&amp;permissionViolation=true</param-value>-->
+        <!--<param-value>/login.action?os_destination=loginpageoption.vm&amp;permissionViolation=true</param-value>-->
+         <param-value>/loginpageoption.vm</param-value>
+        </init-param>
+        <init-param>
+            <param-name>link.login.url</param-name>
+           <!-- <param-value>/login.action</param-value>-->
+             <param-value>/loginpageoption.vm</param-value>
+        </init-param>
