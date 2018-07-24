@@ -31,7 +31,7 @@ This implementation plan is for upgrading Confluence v5.9.5 to v6.4.3 and MySql 
 | -----	b. For MySQL database, replace the latest jdbc driver and backup older one. (1 min)                        | 1                  |            |          |                               |
 | -----	c. Reapply any customizations, like JVM properties, from the old version to the new one. (3 min)           | 3                  |            |          |                               |
 | -----	d. Start Confluence. During this step, your database will be upgraded. (28 min)                            | 28                 |            |          |                               |
-| -----	e. Global Pass – upgrade SAML Configuration (15 minutes) – need GP team onboard                            | 15                 |            |          |                               |
+| -----	e. Global Pass – upgrade SAML Configuration (15 minutes)                                                   | 15                 |            |          |                               |
 | -----	f. Upgrade Confluence plugins to the supported versions. (3 min)                                           | 3                  |            |          |                               |
 | -----	g. Post-Upgrade Checklist and other integration test (15 min)                                              | 15                 |            |          |                               |
 | 7. Upgrade Confluence – Node 2 (20 min)                                                                          | 20                 | 5:16       | 5:36     |                               |
@@ -61,6 +61,12 @@ Zone:	us-east-1a
 		copy the following files on the folder "/opt"
 			atlassian-confluence-6.4.3-x64.bin
 			mysql-connector-java-5.1.46-bin.jar
+			backup-atlassian-5.9.5.sh
+			cleanup-file.sh
+			enhance-multiple-login.sh
+			update-mysql-driver.sh
+			loginpageoption.vm
+			seraph-config.xml
 
 	node 2:
 		copy this file below on the folder "/home/ec2-user" for ssh copying the files from node 1 to node 2
@@ -78,7 +84,7 @@ Zone:	us-east-1a
 
 
 ### Complete the pre-upgrade checks
-##### a. Perform the health checks (this can be done in advance before startint MTP) (0 min)
+##### a. Perform the health checks (this can be done in advance before starting MTP) (0 min)
               Go to "Confluence administration" > General Configuration > Atlassian Support Tools
                 ([https://confluence.csc.com/plugins/servlet/stp/view/](https://confluence.csc.com/plugins/servlet/stp/view/))
                 Problems Detected > Database > InnoDB Log File Size
@@ -106,7 +112,7 @@ Zone:	us-east-1a
                       			       change parameter value of "max_allowed_packet" to 536870912 	(512M )
 
 
-##### c. Perform Confluence Update Check (this can be done in advance before startint MTP) (0 min)
+##### c. Perform Confluence Update Check (this can be done in advance before starting MTP) (0 min)
               Go to "Confluence administration" > "Manage add-ons" > "Confluence Update Check" > "Check compatibility for update to" > "Select 6.4.3 and click "Check" button to check the compatibility of the add-ons.
                 ([https://confluence.csc.com/plugins/servlet/upm/check?source=manage](https://confluence.csc.com/plugins/servlet/upm/check?source=manage))
                     Disable “SAML SingleSignOn for Confluence”
@@ -711,7 +717,7 @@ Zone:	us-east-1a
           Click on "Search Indexes" and confirm the index is running
               ([https://Confluence.csc.com/secure/admin/IndexAdmin.jspa](https://Confluence.csc.com/secure/admin/IndexAdmin.jspa))
 
-##### e. Global Pass – upgrade SAML Configuration (15 minutes) – need GP team onboard
+##### e. Global Pass – upgrade SAML Configuration (15 minutes)
 				i.	Configure SAML Configuration with Global Pass metadata (ACS url, Entity ID, certificate)
                 Go to "Confluence administration"
                 Click on "SAML Authentication" on the left menu
@@ -736,6 +742,12 @@ Zone:	us-east-1a
                           #update "seraph-config.xml".  This file must be updated first
                           cp /opt/seraph-config.xml /opt/atlassian/confluence/confluence/WEB-INF/classes/seraph-config.xml
 
+    ix.  Update the keep alive in AWS
+    		Open AWS Console
+		Go to ELB Settings
+		Find the Confluence Prod ELB element
+		Open health checks
+		Change the health check from /plugins/servlet/samlsso to /status
 
 ##### f. Upgrade Confluence plugins to the supported versions. (3 min)
     Go to "Confluence administration"
