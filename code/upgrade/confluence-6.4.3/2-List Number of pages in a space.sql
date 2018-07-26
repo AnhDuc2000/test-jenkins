@@ -1,0 +1,8 @@
+select SPACES.SPACENAME, count(CONTENTID) as 'number of pages'
+from CONTENT
+join SPACES on CONTENT.SPACEID = SPACES.SPACEID
+where CONTENT.SPACEID is not null
+and CONTENT.PREVVER is null
+and CONTENT.CONTENTTYPE = 'PAGE'
+group by SPACES.SPACENAME
+order by SPACES.SPACENAME;
