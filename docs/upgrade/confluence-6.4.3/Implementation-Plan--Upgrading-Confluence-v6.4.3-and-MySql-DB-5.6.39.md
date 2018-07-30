@@ -59,6 +59,11 @@ Zone:	us-east-1a
 
 All this work can be done in advance of the MTP downtime
 
+**Disable the root crontab until the manual rsync completed by comment out the line below**
+	```
+	0 10,22 * * * /usr/local/bin/confluence-rsync-efs.sh
+	```
+
 **Node 1**
 
 - assumes the following files are available under "/opt". These files were copied from <https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3>
@@ -186,7 +191,7 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
 		./confluence-rsync-efs.sh
 	```
 	- For copy of bash script, click [confluence-rsync-efs.sh](https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3/confluence-rsync-efs.sh)
-	- Disable the script after the rsync complete.
+	
 
 3. Perform snapshot of xvda and xvdb (4 min, in parallel with efs)
 	- Node1:
