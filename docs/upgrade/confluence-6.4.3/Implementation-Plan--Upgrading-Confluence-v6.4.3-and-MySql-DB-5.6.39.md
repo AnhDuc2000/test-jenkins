@@ -186,6 +186,7 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
 		./confluence-rsync-efs.sh
 	```
 	- For copy of bash script, click [confluence-rsync-efs.sh](https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3/confluence-rsync-efs.sh)
+	- Disable the script after the rsync complete.
 
 3. Perform snapshot of xvda and xvdb (4 min, in parallel with efs)
 	- Node1:
@@ -740,6 +741,7 @@ NOTE: Most of the testing would have already occurred based on checklist. Review
 If no-go, do back-out. See **9. Back-out Plan**
 If go, communicate to the users and update Announcement banner and celebrate!!
 
+ **Enable the rsync script after the whole upgrade complete.
 
 ## 9. Back-out Plan (30 min)
 - AWS
@@ -766,6 +768,8 @@ If go, communicate to the users and update Announcement banner and celebrate!!
      ​	Contact Global Pass team to change the ACS URL and Entity ID back to previous setup, if issue 	
 
   2. Test and confirm everything is working fine.
+  
+  **Enable the rsync script after the whole upgrade complete.
 
 ## 10.	Coordination Needed
 
