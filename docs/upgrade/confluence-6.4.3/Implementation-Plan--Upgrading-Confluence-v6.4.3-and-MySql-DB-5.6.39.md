@@ -5,27 +5,27 @@ This implementation plan is for upgrading Confluence v5.9.5 to v6.4.3 and MySql 
 | Task Name                                                    | Duration (minutes) | Start (pm) | End (pm) | Remark                        | Downtime Notes                                         |
 | ------------------------------------------------------------ | ------------------ | ---------- | -------- | ----------------------------- | ------------------------------------------------------ |
 | [AWS Production Information](#aws-production-information)                                   | 0                  |            |          |                               |                                                        |
-| Pre-upgrade                                                  | 0                  |            |          |                               |                                                        |
+| [Pre-upgrade](#pre-upgrade)                                  | 0                  |            |          |                               |                                                        |
 | -----	1. Perform the health checks (this can be done in advance before starting MTP) (1 min) | 1                  |            |          |                               |                                                        |
 | -----	2. Create a new parameter group (done in advance) (5 min) | 5                  |            |          |                               |                                                        |
 | -----	3. Perform Confluence Update Check (1 min)          | 1                  |            |          |                               |                                                        |
-| 1. Backup atlassian folder (Continue without waiting for this complete) (3 min) | 3                  | 3:00       | 3:03     | MTP Start at 3pm PST          | Note: systems are still up                             |
-| 2. Perform screen captures and DB queries (5 min)            | 10                 | 3:03       | 3:13     | a & b in parallel             |                                                        |
+| [1. Backup atlassian folder (Continue without waiting for this complete) (3 min)](#1-backup-atlassian-folder-continue-without-waiting-for-this-complete-3-min) | 3                  | 3:00       | 3:03     | MTP Start at 3pm PST          | Note: systems are still up                             |
+| [2. Perform screen captures and DB queries (5 min)](#2-perform-screen-captures-and-db-queries-10-min)            | 10                 | 3:03       | 3:13     | a & b in parallel             |                                                        |
 | -----	1. Capture screen for "Confluence Usage" (1 min)    | 1                  |            |          |                               |                                                        |
 | -----	2. Run DB queries (10 min)                          | 5                  |            |          |                               |                                                        |
-| 3. Back up (40 min)                                          | 40                 | 3:13       | 3:53     | 3 & 4 can be done in parallel | Start of downtime 3:13pm PST                           |
+| [3. Back up (40 min)](#3-back-up-40-min)                                          | 40                 | 3:13       | 3:53     | 3 & 4 can be done in parallel | Start of downtime 3:13pm PST                           |
 | -----	1. Stop the cluster (1 min)                         | 1                  |            |          |                               |                                                        |
 | -----	2. Back up rsynch (40 min)                          | 40                 |            |          |                               |                                                        |
 | -----	3. perform snapshot of xvda and xvdb (4 min, in parallel with efs) | 4                  |            |          |                               |                                                        |
-| 4. Perform MySQL database upgrade (50 min)                   | 50                 | 3:13       | 4:03     | 3 & 4 can be done in parallel |                                                        |
+| [4. Perform MySQL database upgrade (50 min)](#4-perform-mysql-database-upgrade-50-min)                   | 50                 | 3:13       | 4:03     | 3 & 4 can be done in parallel |                                                        |
 | -----	1. Perform snapshot of DB (5 min)                   | 5                  |            |          |                               |                                                        |
 | -----	2. Change DB version with new parameter group "confluence-mysql" (33) | 33                 |            |          |                               |                                                        |
 | -----	3. Run DB queries and compare with pre db upgrade (5 min) | 5                  |            |          |                               |                                                        |
 | -----	4. Start Confluence on node 1 (5 min)               | 5                  |            |          |                               |                                                        |
-| 5. Clear old add-on cache, index, and temp files (3 min)     | 3                  | 4:03       | 4:07     |                               |                                                        |
+| [5. Clear old add-on cache, index, and temp files (3 min)](#5-clear-old-add-on-cache-index-and-temp-files-4-min)     | 3                  | 4:03       | 4:07     |                               |                                                        |
 | -----	1. Shutdown Confluence on Node 1 (1 min)            | 1                  |            |          |                               |                                                        |
 | -----	2. Deleting the content of the indexes, old add-on cache and temp files (2 min) | 2                  |            |          |                               |                                                        |
-| 6. Upgrade Confluence – Node 1 (1 hr + 15 min)               | 75                 | 4:07       | 5:22     |                               | About 5:15pm Node 1 will be up with GP, but reindexing |
+| [6. Upgrade Confluence – Node 1 (1 hr + 15 min)](#6-upgrade-confluence--node-1-1-hr--15-min)               | 75                 | 4:07       | 5:22     |                               | About 5:15pm Node 1 will be up with GP, but reindexing |
 | -----	1. Perform upgrade on 1st node (10 min)             | 10                 |            |          |                               |                                                        |
 | -----	2. For MySQL database, replace the latest jdbc driver and backup older one. (1 min) | 1                  |            |          |                               |                                                        |
 | -----	3. Reapply any customizations, like JVM properties, from the old version to the new one. (3 min) | 3                  |            |          |                               |                                                        |
@@ -33,14 +33,14 @@ This implementation plan is for upgrading Confluence v5.9.5 to v6.4.3 and MySql 
 | -----	5. Global Pass – upgrade SAML Configuration (15 minutes) | 15                 |            |          |                               |                                                        |
 | -----	6. Upgrade Confluence plugins to the supported versions. (3 min) | 3                  |            |          |                               |                                                        |
 | -----	7. Post-Upgrade Checklist and other integration test (15 min) | 15                 |            |          |                               |                                                        |
-| 7. Upgrade Confluence – Node 2 (20 min)                      | 20                 | 5:22       | 5:42     |                               | Node 2 is up 5:42pm PST                                |
+| [7. Upgrade Confluence – Node 2 (20 min)](#7-upgrade-confluence--node-2-20-min)                      | 20                 | 5:22       | 5:42     |                               | Node 2 is up 5:42pm PST                                |
 | -----	1. Stop Confluence on the first node                | 1                  |            |          |                               |                                                        |
 | -----	2. Copy the installation directory and local home directory from the first node to the next node. (10 min) | 10                 |            |          |                               |                                                        |
 | -----	3. Start Confluence on second node, and confirm that you can log in and view pages on this node |                    |            |          |                               |                                                        |
 | -----	4. Post-Upgrade Checklist on Node 2 (10 min)        | 15                 |            |          |                               |                                                        |
-| 8. Final testing (30 min)                                    | 30                 | 5:42       | 6:12     |                               | Complete of MTP 6:12pm PST                             |
-| 9. Back-out Plan (30 min)                                    | 30                 |            |          |                               |                                                        |
-| 10. Coordination Needed                                      |                    |            |          |                               |                                                        |
+| [8. Final testing (30 min)](#8-final-testing-30min)                                    | 30                 | 5:42       | 6:12     |                               | Complete of MTP 6:12pm PST                             |
+| [9. Back-out Plan (30 min)](#9-back-out-plan-30-min)                                    | 30                 |            |          |                               |                                                        |
+| [10. Coordination Needed](#10coordination-needed)                                      |                    |            |          |                               |                                                        |
 
 
 ## AWS Production Information
@@ -744,9 +744,7 @@ NOTE: Most of the testing would have already occurred based on checklist. Review
 
 **Make go or no-go decision**
 If no-go, do back-out. See **9. Back-out Plan**
-If go, communicate to the users and update Announcement banner and celebrate!!
-
- **Enable the rsync script after the whole upgrade complete.
+If go, communicate to the users and update Announcement banner and reenable the root crontab entry that runs confluence-rsync-efs.sh.
 
 ## 9. Back-out Plan (30 min)
 - AWS
@@ -764,6 +762,7 @@ If go, communicate to the users and update Announcement banner and celebrate!!
 
      a.	Unmount the current EFS (Confluence-efs) from root folder “/efs”
      b.	Mount the backup EFS (Confluence-efs-backup) to the root folder “/efs”
+     c. Reenable the root crontab entry that runs confluence-rsync-efs.sh.
 
 - Global Pass
   1. Global Pass
@@ -772,9 +771,7 @@ If go, communicate to the users and update Announcement banner and celebrate!!
 
      ​	Contact Global Pass team to change the ACS URL and Entity ID back to previous setup, if issue 	
 
-  2. Test and confirm everything is working fine.
-  
-  **Enable the rsync script after the whole upgrade complete.
+  2. Test and confirm everything is working fine.    
 
 ## 10.	Coordination Needed
 
