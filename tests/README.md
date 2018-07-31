@@ -55,6 +55,10 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
     - See a page titled, "Managed Add Ons".
     - Review [pre-upgrade screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminManageAddOnsAllAddOns.pdf).
 
+## Automated Testing
+
+* Go to [here](../docs/'How to Run testcases.md') for instructions on running the automated test cases
+
 ## Unit Testing
 
 Please describe the tools used and how you are managing unit test generation and execution, linting, syntax checking, spell checking documentation, and variations of this for the languages in scope.
