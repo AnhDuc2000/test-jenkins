@@ -7,9 +7,9 @@
 Login into Jenkins using DXC global credentials using below URL <br>
 https://jenkins.csc.com <br>
 Once login to Jenkins ,click on New Item from Jenkins <br>
-![Image of New Job](https://github.dxc.com/DXC-Jira-Confluence/ConfluenceTestcaseAutomation/tree/master/Images/New-Item.png) <br>
+![Image of New Job](https://github.dxc.com/Platform-DXC/confluence/tree/DOE-237/docs/Images/New-Item.png) <br>
 Enter the Job name as _"Devcloud-confluence-AutoTest"_   and select the Maven job and click on Ok and please click on below image for more information <br>
-![Image of configure Job](https://github.dxc.com/DXC-Jira-Confluence/ConfluenceTestcaseAutomation/tree/master/Images/New-job.png)  <br>
+![Image of configure Job](https://github.dxc.com/Platform-DXC/confluence/tree/DOE-237/docs/Images/New-job.png)  <br>
 ## Configure the source code management  <br>
 select the git from the source code management and enter the below details
   * Repository URL	 ->git@github.dxc.com:Platform-DXC/confluence.git
@@ -17,7 +17,7 @@ select the git from the source code management and enter the below details
   * Branch Specifier (blank for 'any')	-> */DOE-236
   * Additional Behaviours -> check out to a sub-directory
      * Local subdirectory for repo -> tests/tests/ConfluenceAutomationTest <br>
-![Image of source code](https://github.dxc.com/DXC-Jira-Confluence/ConfluenceTestcaseAutomation/tree/master/Images/Sourcecode.png) 
+![Image of source code](https://github.dxc.com/Platform-DXC/confluence/tree/DOE-237/docs/Images/Sourcecode.png) 
 ## Configure the build environment <br>
 Goto Add Build step <br>
 Select the Execute Windows Batch Command <br>
@@ -39,7 +39,7 @@ Goto post build action section <br>
 select publish TestNg Results <br>
 Enter the path of TestNg report file <br>
 TestNG XML report pattern	 -> **/testng-results.xml <br>
-![Image of TestNG configuration](https://github.dxc.com/DXC-Jira-Confluence/ConfluenceTestcaseAutomation/tree/master/Images/TestNG.png)
+![Image of TestNG configuration](https://github.dxc.com/Platform-DXC/confluence/tree/DOE-237/docs/Images/TestNG.png)
 ## Apply & Save
 After configuring the above steps click on Apply and save <br>
 The new job confluenceAutomationTest wil be create and you can see in Jenkins Dashbiard.
