@@ -49,8 +49,11 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
     - The first result should be a space called "CPS Upgrade", with a small circle space icon.
     - CLick the "CPS Upgrade" space.
     - You should see the "CPS Upgrade" spac ehomepage titled "CPS Upgrade Home".
-* TEST-UNIT-6 View Add-Ons
-    - Adam doesn't have access in prod to do this.
+* TEST-UNIT-6 View Add Ons
+    - After logging in, click the Administration "cog wheel" at the far top right, and choose "Add Ons".
+    - Prompted to re-enter your password.
+    - See a page titled, "Managed Add Ons".
+    - Review [pre-upgrade screenshot](../confluence-5.9.5-screen-captures/ConfluenceAdminManageAddOnsAllAddOns.pdf).
 
 ## Unit Testing
 
