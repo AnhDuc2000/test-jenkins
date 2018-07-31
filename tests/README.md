@@ -53,7 +53,7 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
     - After logging in, click the Administration "cog wheel" at the far top right, and choose "Add Ons".
     - Prompted to re-enter your password.
     - See a page titled, "Managed Add Ons".
-    - Review [pre-upgrade screenshot](../confluence-5.9.5-screen-captures/ConfluenceAdminManageAddOnsAllAddOns.pdf).
+    - Review [pre-upgrade screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminManageAddOnsAllAddOns.pdf).
 
 ## Unit Testing
 
