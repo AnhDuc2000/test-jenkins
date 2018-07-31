@@ -652,7 +652,7 @@ Otherwise, continue below
     - d. Attachments
         - Confirm that attachments are accessible and searchable.
 
-    - e. Run through test cases at <https://github.dxc.com/Platform-DXC/confluence/blob/master/tests/README.md>.
+    - e. Review [test cases](../../../tests/)
 
 8. **Make go or no-go decision**
 
@@ -720,7 +720,7 @@ Copy upgraded Confluence v6.4.3 directories on Node 1 to Node 2
   - d. Attachments
     - Confirm that attachments are accessible and searchable.
 
-  - e. Run through test cases at <https://github.dxc.com/Platform-DXC/confluence/blob/master/tests/README.md>.
+  - e. Review [test cases](../../../tests/)
 
 **Make go or no-go decision**
 If no-go, do back-out. Go to **9. Backout**.
