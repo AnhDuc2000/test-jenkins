@@ -128,7 +128,7 @@ Need to open one Remote Desktop Connection to connect to the Jumpserver to get a
 Click on "Create"
 - Search for "confluence-mysql" and make the following changes
   - Change parameter value of "innodb_log_file_size" to 536870912	(512M)
-  - Change parameter value of "max_allowed_packet" to 536870912 	(512M )
+  	 Change parameter value of "max_allowed_packet" to 536870912 	(512M )
 
 
 3. Perform Confluence Update Check (this can be done in advance before starting MTP) (0 min)
@@ -158,10 +158,10 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
   - Go to Windows Jump Server "ec2-54-89-151-235.compute-1.amazonaws.com"
         Run the queries which are located under the folder "C:\Users\Administrator\Documents\sql\confluence" or stored in GitHub at <https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/Confluence-6.4.3-Upgrade/> 
 
-    - 1-List of users who assigned to spaces and groups  (1 mins)  
-    - 2-List Number of pages in a space ( < 1 min)  
-    - 3-List number of attachment size in a spaces ( < 1 min)  
-    - 4-List all tables with row count ( < 1 mins)
+        - 1-List of users who assigned to spaces and groups  (1 mins)  
+        - 2-List Number of pages in a space ( < 1 min)  
+        - 3-List number of attachment size in a spaces ( < 1 min)  
+        - 4-List all tables with row count ( < 1 mins)
   - Save the result of each query at <https://github.dxc.com/Platform-DXC/confluence/blob/master/docs/MTP/Confluence-6.4.3-Upgrade/> or in the following folders
 
     - C:\Users\Administrator\Documents\sql\confluence\report\1-Before-DB-Upgrade
@@ -184,14 +184,13 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
     ```
 
 2. Run rsynch to pull in recent changes since last run (40 min)
-	- Putty to confluence-node03-prod-backup--ec2-user@54.210.129.196 (54.210.129.196)
-	```
-		sudo su
-		cd /usr/local/bin
-		./confluence-rsync-efs.sh
-	```
-	- For copy of bash script, click [confluence-rsync-efs.sh](https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3/confluence-rsync-efs.sh)
-	
+  - Putty to confluence-node03-prod-backup--ec2-user@54.210.129.196 (54.210.129.196)
+  ```
+  	sudo su
+  	cd /usr/local/bin
+  	./confluence-rsync-efs.sh
+  ```
+  - For copy of bash script, click [confluence-rsync-efs.sh](https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3/confluence-rsync-efs.sh)
 
 3. Perform snapshot of xvda and xvdb (4 min, in parallel with efs)
 	- Node1:
@@ -262,21 +261,21 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
 
 				| Attribute          | Current Value         | New Value             |
 				| ------------------ | --------------------- | --------------------- |
-	   			| DB engine version  | 5.6.27 (MySQL 5.6.27) | 5.6.39 (mysql 5.6.39) |
-	   			| DB parameter group | default.mysql5.6	     | confluence-mysql      |
+	  		| DB engine version  | 5.6.27 (MySQL 5.6.27) | 5.6.39 (mysql 5.6.39) |
+	  		| DB parameter group | default.mysql5.6	     | confluence-mysql      |
 
 	
 		- Click on "Modify DB Instance", you will see the status of these below
-	
+		
 			- RDS > Instances -- you will see status = "upgrading" (22 min)
 				- RDS > Instances -- you will see status = "modifying" (1 min)
 				- RDS > Snapshots -- you will see status = "creating"  (navigate to the last page to see this)
-
-          - When you see in the parameter group with the status of "confluence-mysql (pending-reboot)", then perform in below to reboot.
-            - Select "cz-mysqldb"
-            - Click on "Instance actions" --> "Reboot" --> "Reboot" button
-              - Status: rebooting 
-              - After the status of db is "Available", in the "parameter group" it should said "cz-mysqldb (in-sync)"
+		
+    	  - When you see in the parameter group with the status of "confluence-mysql (pending-reboot)", then perform in below to reboot.
+    	    - Select "cz-mysqldb"
+    	    - Click on "Instance actions" --> "Reboot" --> "Reboot" button
+    	      - Status: rebooting 
+    	      - After the status of db is "Available", in the "parameter group" it should said "cz-mysqldb (in-sync)"
 
 
 3. Run DB queries and compare with pre db upgrade (5 min)
@@ -454,7 +453,7 @@ Otherwise, continue below
   ```
   - Change:
     - From:	CATALINA_OPTS="-Xms1024m -Xmx1024m -XX:+UseG1GC ${CATALINA_OPTS}"
-    - To:	CATALINA_OPTS="-Xms1024m -Xmx4096m -XX:+UseG1GC ${CATALINA_OPTS}"
+    	 To:	CATALINA_OPTS="-Xms1024m -Xmx4096m -XX:+UseG1GC ${CATALINA_OPTS}"
 
    - Add:
      - CATALINA_OPTS="-Dconfluence.cluster.node.name=node1 ${CATALINA_OPTS}"
@@ -491,15 +490,15 @@ Otherwise, continue below
            service confluence start
       	```
       - Check Tomcat log file for any errors
-    	```
+   		```
         	tail -f /opt/atlassian/confluence/logs/catalina.out
         ```
       
-      -	Check Confluence log file for any errors
+      		Check Confluence log file for any errors
       	```
       		tail -f /opt/atlassian/confluence-data/logs/atlassian-confluence.log
       	```
-            
+        
       - After you have completed an upgrade, you should see the following message in the atlassian-confluence.log file:
    	```
         2010-03-08 08:03:58,899 INFO [main] [atlassian.confluence.upgrade.AbstractUpgradeManager]
@@ -638,20 +637,7 @@ Otherwise, continue below
          - Released 2018-06-20
 
 7. Post-Upgrade Checklist and other integration test (15 min)
-        <https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html>
-    - a. Layout and Menu
-        - Visit the Confluence dashboard and check that it is accessible and displays as expected. Test the different Internet browsers that you have in use in your environment. In addition, confirm that the layout appears as expected and that the menus are clickable and functioning.
-
-    - b. Search
-      	- Try searching for content, for example pages, attachments or user names. Check that the expected results are returned.
-
-    - c. Permissions
-      	- Confirm that you can visit a page that has view restrictions, but you have permission to view. Confirm that you can edit a page that has edit restrictions but you have permission to edit. Make sure that the permissions of child pages are functioning as well. Involve as many space administrators as possible to confirm they are working. Confirm that anonymous or forbidden users cannot access or modify restricted pages.
-
-    - d. Attachments
-        - Confirm that attachments are accessible and searchable.
-
-    - e. Run through test cases - **<Tien, coordinate with Adam and what he has. Provide pointer>**
+    Run through test cases. Go [here](../../../tests/README.md).
 
 8. **Make go or no-go decision**
 
@@ -670,8 +656,15 @@ Copy upgraded Confluence v6.4.3 directories on Node 1 to Node 2
 2. Copy the installation directory and local home directory from the first node to the next node. (10 min)
   - On Node 1 as root user, create a tar file and copy it to destination node 2 (1 min)
   ```	
-		cd /opt
-		./tar-atlassian-6.4.3-node1-send-to-node2.sh  	
+  	cd /opt
+  	./tar-atlassian-6.4.3-node1-send-to-node2.sh  	
+  ```
+  ```
+
+  ```
+
+  ```
+
   ```
    - Putty to Node 2 and copy tar file from "/tmp" folder to "/opt" folder 
   ```
@@ -684,7 +677,7 @@ Copy upgraded Confluence v6.4.3 directories on Node 1 to Node 2
   ```
   - Change
     - From:	CATALINA_OPTS="-Dconfluence.cluster.node.name=node1 ${CATALINA_OPTS}"
-    - To:		CATALINA_OPTS="-Dconfluence.cluster.node.name=node2 ${CATALINA_OPTS}"
+    	 To:		CATALINA_OPTS="-Dconfluence.cluster.node.name=node2 ${CATALINA_OPTS}"
 
   - Confirm Node 2 Private IP address in the Confluence config file 
   ```
@@ -707,24 +700,14 @@ Copy upgraded Confluence v6.4.3 directories on Node 1 to Node 2
   Login to Confluence Dashboard and confirm you are login on node2.  This "node2" is displayed in the foot note like "Powered by Atlassian Confluence 6.4.3 (node2: xxxxxxxx)".  Or you can check if you are on node2 by goto "Confluence administration" --> Clustering --> Confirm "node2" has circle green and with black bolded color text.
 
 4. Post-Upgrade Checklist on Node 2 (10 min)
-  <https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html>
-  - a. Layout and Menu
-    -	Visit the Confluence dashboard and check that it is accessible and displays as expected. Test the different Internet browsers that you have in use in your environment. In addition, confirm that the layout appears as expected and that the menus are clickable and functioning.
 
-  - b. Search
-    - Try searching for content, for example pages, attachments or user names. Check that the expected results are returned.
-  - c. Permissions
-    - Confirm that you can visit a page that has view restrictions, but you have permission to view. Confirm that you can edit a page that has edit restrictions but you have permission to edit. Make sure that the permissions of child pages are functioning as well. Involve as many space administrators as possible to confirm they are working. Confirm that anonymous or forbidden users cannot access or modify restricted pages.
+     Run through 50% of test cases, randomly. Go [here](../../../tests/README.md).
 
-  - d. Attachments
-    - Confirm that attachments are accessible and searchable.
+5. **Make go or no-go decision**
 
-  - e. Run through **checklist describe what is left after coordinating with Adam**
+     If no-go, do back-out. Go to **9. Backout**.
 
-**Make go or no-go decision**
-If no-go, do back-out. Go to **9. Backout**.
-
-If go, continue below
+     If go, continue below
 
 
 
@@ -747,7 +730,7 @@ If no-go, do back-out. See **9. Back-out Plan**
 If go, communicate to the users and update Announcement banner and reenable the root crontab entry that runs confluence-rsync-efs.sh.
 
 ## 9. Back-out Plan (30 min)
-- AWS
+1. AWS
   1. Database
 
      a. Restore the database snapshot of MySql version 5.6.27 from step 2.b above.
@@ -760,20 +743,20 @@ If go, communicate to the users and update Announcement banner and reenable the 
 
   3. EFS
 
-     a.	Unmount the current EFS (Confluence-efs) from root folder “/efs”
-     b.	Mount the backup EFS (Confluence-efs-backup) to the root folder “/efs”
-     c. Reenable the root crontab entry that runs confluence-rsync-efs.sh.
+     a. Unmount the current EFS (Confluence-efs) from root folder “/efs”
+     b. Mount the backup EFS (Confluence-efs-backup) to the root folder “/efs”
+     c. Re-enable the root crontab entry that runs confluence-rsync-efs.sh.
 
-- Global Pass
+2. Global Pass
   1. Global Pass
 
      a.	Revert to previous setup using SAML Plugin
 
-     ​	Contact Global Pass team to change the ACS URL and Entity ID back to previous setup, if issue 	
+     	Contact Global Pass team to change the ACS URL and Entity ID back to previous setup, if issue 	
 
   2. Test and confirm everything is working fine.    
 
-## 10.	Coordination Needed
+## 10. Coordination Needed
 
 **NOTE:** Should setup an email invite with information on when folks would be on call
 
@@ -785,3 +768,4 @@ If go, communicate to the users and update Announcement banner and reenable the 
   - Ravi on-board for what he can attend, but on-call
 3. Communication with users
   - Upgrade starts and systems are inaccessible (3pm Pacific)
+
