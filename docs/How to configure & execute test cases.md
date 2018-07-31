@@ -33,7 +33,7 @@ In Additional test report features	section configure the Jira project and issue 
   * Issue Type -> Select Bug from the issue type list
   * Checked Auto raise issues	
   * Checked Auto Auto resolve issues	
-  <br>![Image of Junit configuration](https://github.dxc.com/DXC-Jira-Confluence/ConfluenceTestcaseAutomation/tree/master/Images/Junit.png)
+  <br>![Image of Junit configuration](https://github.dxc.com/Platform-DXC/confluence/tree/DOE-237/docs/Images/Images/Junit.png)
 ## Configure TestNg reports
 Goto post build action section <br>
 select publish TestNg Results <br>
