@@ -6,6 +6,6 @@ public interface auth {
 	String chromedriverpath = "C:/Chrome/chromedriver.exe";
 	String SAMLusername = "rbalusu3";
 	String SAMLpassword = "GP@jul12!RB";
-	String strURL  ="https://confluencepentest.dxcdevcloud.net/";
+	String strURL  ="https://confluence.csc.com/";
 	
 }
