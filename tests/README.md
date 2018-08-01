@@ -52,8 +52,37 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
 * TEST-UNIT-6 View Add Ons
     - After logging in, click the Administration "cog wheel" at the far top right, and choose "Add Ons".
     - Prompted to re-enter your password.
-    - See a page titled, "Managed Add Ons".
+    - See a page titled, "Managed Add Ons" and select "All add-ons"
     - Review [pre-upgrade screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminManageAddOnsAllAddOns.pdf).
+* TEST-UNIT-7 Backup Administration
+    * After logging in, click the Administration "cog wheel" at the far top right, and choose "General Configuration".
+    * Prompted to re-enter your password.
+    * Search and select "Backup Administration" via left-hand navigation
+    * Review [Backup Admin screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminBackupAdmin.pdf).
+* TEST-UNIT-8 Clustering
+    - After logging in, click the Administration "cog wheel" at the far top right, and choose "General Configuration".
+    - Prompted to re-enter your password.
+    - Search and select "Clustering" via left-hand navigation
+    - Review [Clustering screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminClustering.pdf)
+* TEST-UNIT-9 External Gadgets
+    * After logging in, click the Administration "cog wheel" at the far top right, and choose "General Configuration".
+    * Prompted to re-enter your password.
+    * Search and select "External Gadgets" via left-hand navigation
+    * Review [External Gadgets screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminExternalGadgets.pdf)
+* TEST-UNIT-10 General Configuration
+    - After logging in, click the Administration "cog wheel" at the far top right, and choose "General Configuration".
+    - Prompted to re-enter your password.
+    - Search and select "General Configuration" via left-hand navigation
+    - Review [General Configuration screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminGeneralConf.pdf)
+* TEST-UNIT-11 General Configuration
+    - After logging in, click the Administration "cog wheel" at the far top right, and choose "General Configuration".
+    - Prompted to re-enter your password.
+    - Search and select "Hip Chat Integration" via left-hand navigation
+    - Review [Hip Chat Integration screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminHipChatIntegration.pdf)
+
+## Automated Testing
+
+* Go to [here](ConfluenceAutomationTest/Readme.md) for instructions on running the automated test cases and follow the information on executing the test cases within JIRA. 
 
 ## Unit Testing
 
