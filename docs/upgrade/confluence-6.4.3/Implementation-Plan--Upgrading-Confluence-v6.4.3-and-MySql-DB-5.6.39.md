@@ -637,7 +637,11 @@ Otherwise, continue below
          - Released 2018-06-20
 
 7. Post-Upgrade Checklist and other integration test (15 min)
-    Run through test cases. Go [here](../../../tests/README.md).
+
+    - Some of the following test cases came from a recommendation from Atlassian
+      - <https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html> 
+
+    - Run through test cases. Go [here](../../../tests/README.md).
 
 8. **Make go or no-go decision**
 
@@ -659,6 +663,10 @@ Copy upgraded Confluence v6.4.3 directories on Node 1 to Node 2
   	cd /opt
   	./tar-atlassian-6.4.3-node1-send-to-node2.sh  	
   ```
+  ```
+
+  ```
+
   ```
 
   ```
@@ -701,7 +709,10 @@ Copy upgraded Confluence v6.4.3 directories on Node 1 to Node 2
 
 4. Post-Upgrade Checklist on Node 2 (10 min)
 
-     Run through 50% of test cases, randomly. Go [here](../../../tests/README.md).
+     - Some of the following test cases came from a recommendation from Atlassian
+       - <https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html> 
+
+     - Run through 50% of test cases, randomly. Go [here](../../../tests/README.md).
 
 5. **Make go or no-go decision**
 
@@ -768,4 +779,3 @@ If go, communicate to the users and update Announcement banner and reenable the 
   - Ravi on-board for what he can attend, but on-call
 3. Communication with users
   - Upgrade starts and systems are inaccessible (3pm Pacific)
-

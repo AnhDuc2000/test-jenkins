@@ -68,7 +68,7 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
     * After logging in, click the Administration "cog wheel" at the far top right, and choose "General Configuration".
     * Prompted to re-enter your password.
     * Search and select "External Gadgets" via left-hand navigation
-    * Review [Clustering screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminExternalGadgets.pdf)
+    * Review [External Gadgets screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminExternalGadgets.pdf)
 * TEST-UNIT-10 General Configuration
     - After logging in, click the Administration "cog wheel" at the far top right, and choose "General Configuration".
     - Prompted to re-enter your password.
