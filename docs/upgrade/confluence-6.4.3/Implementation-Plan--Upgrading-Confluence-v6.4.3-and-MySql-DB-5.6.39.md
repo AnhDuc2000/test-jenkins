@@ -663,17 +663,6 @@ Copy upgraded Confluence v6.4.3 directories on Node 1 to Node 2
   	cd /opt
   	./tar-atlassian-6.4.3-node1-send-to-node2.sh  	
   ```
-  ```
-
-  ```
-
-  ```
-
-  ```
-
-  ```
-
-  ```
    - Putty to Node 2 and copy tar file from "/tmp" folder to "/opt" folder 
   ```
 		cd /opt
