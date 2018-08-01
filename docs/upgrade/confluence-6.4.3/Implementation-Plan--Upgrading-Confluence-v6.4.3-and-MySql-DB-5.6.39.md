@@ -59,7 +59,7 @@ Zone:	us-east-1a
 
 All this work can be done in advance of the MTP downtime
 
-**Disable the root crontab until the manual rsync completed by comment out the line below**
+**Disable the root crontab until the manual rsync completed by comment out the line below**  
 	```
 	0 10,22 * * * /usr/local/bin/confluence-rsync-efs.sh
 	```
@@ -227,6 +227,12 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
 				 Key: 	Name;
 				 Value: 	confluence-node02-prod-ebs-volume-sdb-opt-mtp
 
+4. Update the keep alive in AWS
+	- Open AWS Console
+    	- Go to ELB Settings
+    	- Find the Confluence Prod ELB element
+    	- Open health checks
+    	- Change the health check from "/plugins/servlet/samlsso" to "/status"
 
 ## 4. Perform MySQL database upgrade (50 min)
 **Note**: Make sure the database is not in "backing up" status. Within RDS review the status prior to backing up. Also, this step is done in parallel with the previous: **Step 3: Backup** 
@@ -299,7 +305,11 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
       - On Confluence, go to [Space Directory](https://confluence.csc.com/spacedirectory/view.action) and try to navigate to any spaces and confirm it is working fine. (1 min)
         - Click on Confluence Home Page (Confluence Dashboard)
         - Click on "Spaces" --> ["Space Directory"](https://confluence.csc.com/spacedirectory/view.action)
-               
+	
+     - Check System Information to validate database version upgrade
+        - Go to [Confluence administrator](https://confluence.csc.com/admin/viewgeneralconfig.action)     
+        - Click on "System Information", search for a string "Database version" and confirm that is "5.6.39-log".
+                         
     		  
 **Go/No-go Decision on MySQL Upgrade**
 If not satisfied with MySQL upgrade
@@ -444,8 +454,6 @@ Otherwise, continue below
 
 
 3. Reapply any customizations, like JVM properties, from the old version to the new one. (3 min)
-
-  **Tien: recommend create the *.sh files in advance, along with the destination file. The source file, such as, setenv.sh, would be copied to bak-setenv.sh prior to running the script to replace the file.**
 
   - Modify Tomcat files
   ```
@@ -596,13 +604,6 @@ Otherwise, continue below
       cd /opt
       ./enhance-multiple-login.sh
   ```
-
-  - Update the keep alive in AWS
-    - Open AWS Console
-    		Go to ELB Settings
-    		Find the Confluence Prod ELB element
-    		Open health checks
-    		Change the health check from /plugins/servlet/samlsso to /status
 
 6. Upgrade Confluence plugins to the supported versions. (3 min, assuming parallel team effort)
   - Go to "Confluence administration"
