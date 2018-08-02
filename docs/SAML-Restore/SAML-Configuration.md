@@ -21,4 +21,6 @@ x/0+qkjaS75vDoSBzD45+O8kW+SRNp1MCwCFFONtC6vqVtoCtn+qGozdh1k0od/AhRfoS0Phs0BS
 ## SAML Identity Provider Settings
 * Goto to bottom of the page and select the Import XML button and select the **"samlSingleSignOn-confluence.xml"** from your local directory and click on ok and after importing the check whether the below values are appearing in the configuration <br>
 * Please check  ![Image of SAML settings](Images/SAML-settings.png) <br>
+/***<table><tr><th>Name</th><th>DXCGLOBALPASS</th></tr> </table> ***/
+
 ## SAML Template configuration
