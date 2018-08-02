@@ -21,7 +21,7 @@ x/0+qkjaS75vDoSBzD45+O8kW+SRNp1MCwCFFONtC6vqVtoCtn+qGozdh1k0od/AhRfoS0Phs0BS
 ## SAML Identity Provider Settings
 * Goto to bottom of the page and select the Import XML button and select the **"samlSingleSignOn-confluence.xml"** from your local directory and click on ok and after importing the check whether the below values are appearing in the configuration <br>
 * Please check  ![Image of SAML settings](Images/SAML-settings.png) <br>
-<table><tr><th>Name</th><th>DXCGLOBALPASS</th></tr>
+/***<table><tr><th>Name</th><th>DXCGLOBALPASS</th></tr>
     <tr><th>Description</th><th>DXCGLOBALPASS</th></tr>
     <tr><th>IdP POST Binding URL</th><th>https://gpl.amer.csc.com/affwebservices/public/saml2sso</th></tr>
      <tr><th>IdP Token Signing Certificate</th><th>-----BEGIN CERTIFICATE-----
@@ -54,12 +54,12 @@ EQmn71pmcp09mnC6tKM9ABqZRoOR6NpSKGn08oT9z/prM3vaQjAFVCyqyk3qf8xpe1qLjzmaBxvS
 ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
 /35sZWInV24=
 -----END CERTIFICATE-----</th></tr>
- <tr><th>Enable SSO Redirect</th><th>Should be checked</th></tr></table><br>
+ <tr><th>Enable SSO Redirect</th><th>Should be checked</th></tr></table>***/<br>
 ## Page Templates confguration <br>
 * click in show Page Template Settings and configure the below values <br>
 * Screen shot is available in   ![Image of SAML settings](Images/Page-template1.png) <br>
 * Screen shot is available in   ![Image of SAML settings](Images/Page-template2.png) <br>
-  <table><tr><th>IdP selection Page template</th><th><html>
+  /***<table><tr><th>IdP selection Page template</th><th><html>
  <head>
   <title>Select Identity Provider</title>
   $webResourceManager.requireResource("$pluginproperties.pluginkey:resources")
@@ -180,5 +180,5 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
  </div>
 </section>
 </body>
-</html> </th></tr> </table>
+</html> </th></tr> </table>***/
 
