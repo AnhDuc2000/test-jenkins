@@ -20,7 +20,7 @@
 * ![Image of Create file System](Images/cfs2.png) <br>
 * Enter the value for choose the other values and click on next <br>
 * Review the changes and click on crate file system <br>
-* ![Image of Create file System](Images/cfs3.png) <br>
+* ![Image of Create file System](Images/efs3.png) <br>
 # Install Dependencies <br>
 1.NFS utilities <br>
   a.	sudo yum -y install nfs-utils <br>
@@ -59,4 +59,4 @@
     * mount-target-DNS:/ efs-mount-point nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev,noresvport 0 0 <br>
     * us-east-1a.fs-55645d1d.efs.us-east-1.amazonaws.com:/ /efs nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0 <br>
     * Reboot the system using sudo reboot command and run the df -h command you can see the mount point and it will not be deleted.  <br>
-    *  ![Image of DF](Images/df1.png) <br>
+    *  ![Image of DF](Images/Df1.png) <br>
