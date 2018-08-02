@@ -20,6 +20,7 @@ x/0+qkjaS75vDoSBzD45+O8kW+SRNp1MCwCFFONtC6vqVtoCtn+qGozdh1k0od/AhRfoS0Phs0BS
 * After installing the plugin and expand the plugin and select the configure ![Image of SAML](Images/SAML.png) <br>
 # SAML Identity Provider Settings
 * Goto to bottom of the page and select the Import XML button and select the **"samlSingleSignOn-confluence.xml"** from your local directory and click on ok and after importing the check whether the below values are appearing in the configuration <br>
+* Please check  ![Image of SAML settings](Images/SAML-settings.png) <br>
 /*** <table><tr><th>Name</th><th>DXCGLOBALPASS</th></tr>
     <tr><th>Description</th><th>DXCGLOBALPASS</th></tr>
     <tr><th>IdP POST Binding URL</th><th>https://gpl.amer.csc.com/affwebservices/public/saml2sso</th></tr>
@@ -54,7 +55,7 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
 /35sZWInV24=
 -----END CERTIFICATE-----</th></tr>
  <tr><th>Enable SSO Redirect</th><th>Should be checked</th></tr></table> ***/ <br>
-* Please check  ![Image of SAML settings](Images/SAML-settings.png) <br>
+
 # Page Templates confguration <br>
 * click in show Page Template Settings and configure the below values <br>
 * Screen shot is available in   ![Image of SAML settings](Images/Page-template1.png) <br>
