@@ -58,7 +58,8 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
 </table>
 
 ## SAML Template configuration 
-* Screen shot is available in   ![Image of SAML settings](Images/Page-template1.png) <br>
+* Screen shot is available in ![Image of SAML settings](Images/Page-template1.png) <br>
+* Screen shot is available in   ![Image of SAML settings](Images/Page-template2.png) <br>
 <table> <tr><th>IdP selection Page template</th><th><html>
  <head>
   <title>Select Identity Provider</title>
@@ -182,4 +183,4 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
 </body>
 </html> </th> </tr>
 </table> ***/ <br>
-* Screen shot is available in   ![Image of SAML settings](Images/Page-template1.png) <br>
+
