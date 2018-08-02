@@ -57,6 +57,8 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
 Please check the ![Image of SAML settings](Images/SAML-settings.png)
 # Page Templates confguration
 * click in show Page Template Settings and configure the below values
+* ![Image of SAML settings](Images/Page-template1.png) <br>
+* ![Image of SAML settings](Images/Page-template2.png) <br>
   <table><tr><th>IdP selection Page template</th><th><html>
  <head>
   <title>Select Identity Provider</title>
@@ -179,5 +181,4 @@ Please check the ![Image of SAML settings](Images/SAML-settings.png)
 </section>
 </body>
 </html> </th></tr> </table>
-![Image of SAML settings](Images/Page-template1.png) <br>
-![Image of SAML settings](Images/Page-template2.png)
+
