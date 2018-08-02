@@ -153,5 +153,31 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
    </div>
  </body>
 </html> </th></tr>
-
+<tr><th>Logged out Page template</th><th><html>
+ <head>
+  <title>You are logged out now</title>
+  $webResourceManager.requireResource("$pluginproperties.pluginkey:resources")
+  <meta name="decorator" content="atl.general">
+ </head>
+ <body class="aui-layout aui-theme-default page-type-message" >
+  <section id="content" role="main">
+   <div class="aui-page-panel"><div class="aui-page-panel-inner">
+    <section class="aui-page-panel-content">
+     <div class="form-body">
+     <div class="aui-message info"><span class="aui-icon icon-info"></span><p class="title">
+      <strong>You are logged out now</strong></p>
+      <p>
+       <a href="$loginurl">Login again with username and password</a>
+      </p>
+      <p>
+       <a href="$ssourl">Login again with Single Sign On</a>  
+      </p>
+     </div>
+    </div>
+   </section>
+  </div>
+ </div>
+</section>
+</body>
+</html> </th> </tr>
 </table>
