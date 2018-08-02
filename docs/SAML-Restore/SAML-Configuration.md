@@ -58,7 +58,7 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
 </table>
 
 ## SAML Template configuration
-<table> <tr><th>IdP selection Page template</th><th> </th><html>
+<table> <tr><th>IdP selection Page template</th><th><html>
  <head>
   <title>Select Identity Provider</title>
   $webResourceManager.requireResource("$pluginproperties.pluginkey:resources")
@@ -125,6 +125,6 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
        </div>
      </section>
 	</body>
-</html>   </tr>
+</html> </th>   </tr>
 
 </table>
