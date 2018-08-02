@@ -126,5 +126,32 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
      </section>
 	</body>
 </html> </th>   </tr>
+<tr><th>Error Page template</th> <th><html>
+ <head>
+  <title>SAML Single Sign On failed</title>
+  $webResourceManager.requireResource("$pluginproperties.pluginkey:resources")
+  <meta name="decorator" content="atl.general">
+ </head>
+  <body class="aui-page-focused aui-page-medium" >
+   <div class="aui-page-panel">
+    <div class="aui-page-panel-inner">
+     <section class="aui-page-panel-content">
+      <h1>SAML Single Sign On failed</h1>
+      <div>Please contact your administrator or log in at the <a href="$loginurl">login page</a>.</div>
+      #if($userid)
+       <div class="aui-message error">$userid could not be authorized. This userid is unknown or the user does not have sufficient permissions.</div>
+      #end
+      #if($message)
+       <div class="aui-message error">$message</div>
+      #end
+      #if($stacktrace)
+      <a id="show-stacktrace-trigger" data-replace-text="Hide Stack Trace" class="aui-expander-trigger button" aria-controls="stacktrace">Show Stack Trace</a>
+      <div class="aui-expander-content" id="stacktrace">$stacktrace</div>
+      #end
+     </section>
+    </div>
+   </div>
+ </body>
+</html> </th></tr>
 
 </table>
