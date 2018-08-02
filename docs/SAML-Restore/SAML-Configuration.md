@@ -56,7 +56,7 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
 -----END CERTIFICATE-----</th></tr>
  <tr><th>Enable SSO Redirect</th><th>Should be checked</th></tr></table>***/
  <br>
-## Page Templates confguration 
+## Installing SAML vendor single-sign on plugin 
 * click in show Page Template Settings and configure the below values <br>
 * 
   
