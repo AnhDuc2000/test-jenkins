@@ -179,4 +179,4 @@ Please check the ![Image of SAML settings](Images/SAML-settings.png)
 </section>
 </body>
 </html> </th></tr> </table>
-
+![Image of SAML settings](Images/Page-template1.png) ![Image of SAML settings](Images/Page-template2.png)
