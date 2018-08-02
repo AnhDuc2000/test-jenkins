@@ -55,3 +55,4 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
 /35sZWInV24=
 -----END CERTIFICATE-----</th></tr>
  <tr><th>Enable SSO Redirect</th><th>Should be checked</th></tr></table>***/
+## SAML Template configuration
