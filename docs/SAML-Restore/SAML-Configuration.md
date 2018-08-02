@@ -57,7 +57,8 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
 <tr><th>Enable SSO Redirect</th><th>Should be checked</th></tr>
 </table>
 
-## SAML Template configuration
+## SAML Template configuration 
+* Screen shot is available in   ![Image of SAML settings](Images/Page-template1.png) <br>
 <table> <tr><th>IdP selection Page template</th><th><html>
  <head>
   <title>Select Identity Provider</title>
