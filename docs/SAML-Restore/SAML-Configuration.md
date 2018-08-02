@@ -58,3 +58,73 @@ ejRD6ys/weJU8A4va8Y/GwMHRGEZ6E6BW46WC+vG7WasmoaXQV4f7I/tDEXy8oNq0QGH2fr3lHsY
 </table>
 
 ## SAML Template configuration
+<table> <tr><th>IdP selection Page template</th><th> </th><html>
+ <head>
+  <title>Select Identity Provider</title>
+  $webResourceManager.requireResource("$pluginproperties.pluginkey:resources")
+  <meta name="decorator" content="atl.general">
+ </head>
+ <body class="aui-layout aui-theme-default page-type-message" >
+  <section id="content" role="main">
+   <div class="aui-page-panel"><div class="aui-page-panel-inner">
+    <section class="aui-page-panel-content">
+     <div class="form-body">
+     <h1>What kind of user are you?</h1>
+     #if($idpSelected)
+      <p>Select or wait 3 seconds to use $selectedName <span class="aui-icon aui-icon-wait"></span></p>
+        <script>
+          var timeout = setTimeout("location.href = '$selectedUrl';", 3000);
+          window.onclick= function () { clearTimeout(timeout); } 
+        </script>
+      #end
+      #foreach($idp in $idps)
+      <p>
+        <a href="$idp.ssoUrl">$idp.name</a> $idp.description
+      </p>
+      #end
+      <p>
+       <a href="$loginurl">Login with username and password</a>
+      </p>
+     </div>
+   </section>
+  </div>
+ </div>
+</section>
+</body>
+</html> </th></tr>
+<tr><th>IdP selection by Email Page template</th><th>#disable_html_escaping()
+<html>
+  <head>
+  <title>Enter your Email Address</title> 
+  $webResourceManager.requireResource("$pluginproperties.pluginkey:idpByEmailResources")
+  <meta name="decorator" content="atl.general">
+	<script type="text/javascript">
+	  var emailDomains = $emailDomainMap;
+	  var ssoURL = "$ssourl";
+	</script>
+	</head>
+	<body class="aui-layout aui-theme-default page-type-message">
+	  <section id="content" role="main"> 
+	    <div class="aui-page-panel">
+         <div class="aui-page-panel-inner">
+           <section class="aui-page-panel-content">
+             <h1>Single Sign On</h1>
+             <form class="aui top-label" id="emailAddressForm" >
+               <div class="field-group">
+                 <label for="emailAddressField">Enter your email address</label>
+                 <input type="text" class="text" id="emailAddressField" name="emailAddressField">
+                 <div class="description">
+                   <div id="notFound"   >No SSO destination found for this address</div>
+                   <div id="redirecting"><span class="aui-icon aui-icon-wait"></span>Redirecting...</div>
+                 </div>
+               </div>
+               <p><a href="$loginurl">Login with username and password</a></p>
+             </form>
+           </section> 
+         </div>
+       </div>
+     </section>
+	</body>
+</html>   </tr>
+
+</table>
