@@ -1,5 +1,5 @@
 # How to configure the SAML Vendor plugin version 0.14.7
-## Installing SAML vendor single-sign on plugin
+## Installing SAML vendor single-signon plugin
 * Download the samlsso-confluence-0.14.7.jar & samlSingleSignOn-confluence.xml into your local directory <br>
 * The above 2 files are available in /SAML-Restore folder
 * Login to confluence <br>
