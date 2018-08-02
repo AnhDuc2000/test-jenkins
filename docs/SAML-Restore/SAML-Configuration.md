@@ -5,7 +5,7 @@
 * Login to confluence <br>
 * Select the add-ons from confluence adminstartion menu <br>
 * select the Uplpad App link and click on Choose file and select the samlsso-confluence-0.14.7.jar from your local directory <br>
-* The screen shot is available in ![Image of How to add SAML add-on](Images/add-ons.png) <br>
+* Please check below screen shot ![Image of How to add SAML add-on](Images/add-ons.png) <br>
 * The installation will take 2 to 3 min and once done The **_"SAML SingleSignOn for Confluence"** will appear in the add-ons list
 * Expand the plugin and check the installed plugin version is 0.14.7
 * click on License Key and add the below license key and update (The licenes key automatically applied when you install the jar file and of if you not see the license key , copy the below licene key and apply<br>
@@ -17,7 +17,7 @@ VdLbQIDjTKmDX5kB54rj5hYcsjUWeCHV97z4ltZpQWySBchXq22qMF3sq9O0unqd977jWasoBq0N
 GfxPqfO+cu8FLKHGZ8cdS0NXVZmm8TPyWx+H8UPU3aJ8hfXaSUbaXF/7W1PHQ5RpkWeZ2/py3J9q
 x/0+qkjaS75vDoSBzD45+O8kW+SRNp1MCwCFFONtC6vqVtoCtn+qGozdh1k0od/AhRfoS0Phs0BS
 0MkwHuCQ7eBb+8j2Q==X02hp</th></tr></table> ***/<br>
-* After installing the plugin and expand the plugin and select the configure ![Image of SAML](Images/SAML.png) <br>
+* After installing the plugin and expand the plugin and select the configure button and configure the setting as per below instructions ![Image of SAML](Images/SAML.png) <br>
 ## SAML Identity Provider Settings
 * Goto to bottom of the page and select the Import XML button and select the **"samlSingleSignOn-confluence.xml"** from your local directory and click on ok and after importing the check whether the below values are appearing in the configuration <br>
 * Please check  ![Image of SAML settings](Images/SAML-settings.png) <br>
