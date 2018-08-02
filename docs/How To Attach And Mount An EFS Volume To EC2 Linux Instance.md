@@ -1,16 +1,16 @@
 ## How To Attach And Mount An EFS To EC2 Linux Instance
-* 1.	Login to AWS web console <br>
-* 2.	Select Elastic File System <br>
-* 3.	Select Create file system <br>
-* 4.	Select VPC <br>
-* 5.	Select Private subnets that the EC2 Instances are on for the availability zones <br>
-* 6.	Remove the default security group from each availability zone <br>
-* 7.	Paste or start typing the EFS Security Group ID in for each availability zone <br>
-* 8.	Select Next Step <br>
-* 9.	Add Name Tag and any others <br>
-* 10.	Select Generic or Max I/O type <br>
-* 11.	Select Next Step <br>
-* 12.	Select Create file system <br>
+* Login to AWS web console <br>
+* Select Elastic File System <br>
+* Select Create file system <br>
+* Select VPC <br>
+* Select Private subnets that the EC2 Instances are on for the availability zones <br>
+* Remove the default security group from each availability zone <br>
+* Paste or start typing the EFS Security Group ID in for each availability zone <br>
+* Select Next Step <br>
+* Add Name Tag and any others <br>
+* Select Generic or Max I/O type <br>
+* Select Next Step <br>
+* Select Create file system <br>
 # How to cofigure in AWS <br>
 * Search the EFS (managed file storage for EC2) from services <br>
 * ![Image of EFS](Images/efs.png) <br>
@@ -23,15 +23,15 @@
 * ![Image of Create file System](Images/efs3.png) <br>
 # Install Dependencies <br>
 1.NFS utilities <br>
-  a.	sudo yum -y install nfs-utils <br>
+    * sudo yum -y install nfs-utils <br>
 2.	amazon-efs-utlis <br>
-  a.	sudo yum -y install git <br>
-  b.	git clone https://github.com/aws/efs-utils <br>
-  c.	Because you need the bash command make, you can install it with the following command if your operating system doesn't already have it.<br>
-  d.	sudo yum -y install make <br>
-  e.	After you clone the package, you can build and install amazon-efs-utils using one of the following methods, depending on the package type supported by your Linux distribution: <br>
-  f.	RPM – This package type is supported by Amazon Linux, Red Hat Linux, CentOS, and similar.<br>
-  g.	DEB – This package type is supported by Ubuntu, Debian, and similar.<br>
+    * sudo yum -y install git <br>
+    * git clone https://github.com/aws/efs-utils <br>
+    * Because you need the bash command make, you can install it with the following command if your operating system doesn't already have it.<br>
+    * sudo yum -y install make <br>
+    * After you clone the package, you can build and install amazon-efs-utils using one of the following methods, depending on the package type supported by your Linux distribution: <br>
+    * RPM – This package type is supported by Amazon Linux, Red Hat Linux, CentOS, and similar.<br>
+    * DEB – This package type is supported by Ubuntu, Debian, and similar.<br>
  
 # To build and install amazon-efs-utils as an RPM package <br>
   1.	Open a terminal on your client and navigate to the directory that has the cloned amazon-efs-utils package from GitHub (for example "/home/centos/efs-utils").<br>
