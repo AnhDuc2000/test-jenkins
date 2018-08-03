@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<supportInfo>
+    <configurationData>
+        <overrideLoginUrl>true</overrideLoginUrl>
+        <overrideLogoutUrl>false</overrideLogoutUrl>
+        <logoutUrl></logoutUrl>
+        <enableUserForLogin>false</enableUserForLogin>
+        <redirectWithPOST>false</redirectWithPOST>
+        <enableIdPSelection>true</enableIdPSelection>
+        <enableIdPSelectionByEmailAddress>false</enableIdPSelectionByEmailAddress>
+        <nonSsoDestinations>%2Fplugins%2Fservlet%2Fapplinks,applicationlinks</nonSsoDestinations>
+        <nonSsoUserAgents>Jakarta Commons-HttpClient</nonSsoUserAgents>
+        <enforceSsoDestinations></enforceSsoDestinations>
+        <redirectServiceDeskLogin>false</redirectServiceDeskLogin>
+        <redirectDashboardUrl>false</redirectDashboardUrl>
+        <setRememberMeCookie>false</setRememberMeCookie>
+        <enforceResponseValidityDates>true</enforceResponseValidityDates>
+        <enforceResponseIDUniqueness>true</enforceResponseIDUniqueness>
+        <clockSkew>60</clockSkew>
+        <licensed>false</licensed>
+        <directoryList>
+            <entry>
+                <key>Confluence Internal Directory</key>
+                <value>327682</value>
+            </entry>
+        </directoryList>
+        <idpConfigurations>
+            <idpConfiguration>
+                <certificate>-----BEGIN CERTIFICATE-----
+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
+/35sZWInV24=
+-----END CERTIFICATE-----</certificate>
+                <description>DXCGLOBALPASS</description>
+                <emailAttribute></emailAttribute>
+                <emailDomains></emailDomains>
+                <enableUserUpdate>false</enableUserUpdate>
+                <fullnameAttribute></fullnameAttribute>
+                <groupAttribute></groupAttribute>
+                <groupsForNewUsers>confluence-users</groupsForNewUsers>
+                <id>1</id>
+                <idpAttributes/>
+                <issuer>urn:federation:csc</issuer>
+                <lowercaseConvert>false</lowercaseConvert>
+                <lowercaseConvertGroups>false</lowercaseConvertGroups>
+                <metadataignorecert>false</metadataignorecert>
+                <metadataurl></metadataurl>
+                <metadataxml></metadataxml>
+                <name>DXCGLOBALPASS</name>
+                <omitRequestedAuthnContext>true</omitRequestedAuthnContext>
+                <removeFromGroups>false</removeFromGroups>
+                <secondCertificate></secondCertificate>
+                <updateExisting>false</updateExisting>
+                <url>https://gpl.amer.csc.com/affwebservices/public/saml2sso</url>
+                <useMetadataxml>false</useMetadataxml>
+                <useridAttribute></useridAttribute>
+                <useridTransformationRegex></useridTransformationRegex>
+                <useridTransformationReplacement></useridTransformationReplacement>
+            </idpConfiguration>
+        </idpConfigurations>
+        <defaultIdpConfiguration>
+            <enableUserUpdate>false</enableUserUpdate>
+            <groupsForNewUsers>confluence-users</groupsForNewUsers>
+            <idpAttributes/>
+            <lowercaseConvert>false</lowercaseConvert>
+            <lowercaseConvertGroups>false</lowercaseConvertGroups>
+            <metadataignorecert>false</metadataignorecert>
+            <omitRequestedAuthnContext>true</omitRequestedAuthnContext>
+            <relayStateParameterName>RelayState</relayStateParameterName>
+            <removeFromGroups>false</removeFromGroups>
+            <updateExisting>false</updateExisting>
+            <useMetadataxml>false</useMetadataxml>
+        </defaultIdpConfiguration>
+    </configurationData>
+    <ssoPluginInfo>
+        <hostApplication>Confluence</hostApplication>
+        <hostApplicationVersion>5.9.5</hostApplicationVersion>
+        <licenseSize>10000</licenseSize>
+        <licenseType>LicenseType&lt;COMMERCIAL&gt;</licenseType>
+        <maintenanceExpires>2019-03-15T09:00:00.000-04:00</maintenanceExpires>
+        <pluginKey>com.resolution.atlasplugins.samlsso.Confluence</pluginKey>
+        <pluginVersion>0.14.7</pluginVersion>
+    </ssoPluginInfo>
+</supportInfo>
