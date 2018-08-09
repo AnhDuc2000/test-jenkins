@@ -20,12 +20,11 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
     - Access your given URL. See [architecture](../docs/architecture.md) for a list of URLs.
     - Expect to quickly see a page that presents a box which says: "Select Identity Provider, What kind of user are you?, DXCGLOBALPASS DXCGLOBALPASS, Login with username and password"
     - The page stops here.
-    - Verify the Confluence version in the footer of this page is 5.9.5
+    - Verify the Confluence version in the footer of this page is 6.4.3
     - Verify the dropdown menu at far top left has these values:
         * JIRA
         * Confluence
         * Artifactory
-        * Confluence (note - Yes, this is a duplicate in current production)
         * Github
         * Jenkins
         * sonarqube
@@ -49,7 +48,7 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
 * TEST-UNIT-5 Search Confluence Space
     - Click the search box at the top right
     - Search for the word "CPS Upgrade"
-    - You should see at least 1700 results.
+    - You should see at least 1700 results. **(Don't know what this means, and it isn't accurate for production)**
     - The first result should be a space called "CPS Upgrade", with a small circle space icon.
     - CLick the "CPS Upgrade" space.
     - You should see the "CPS Upgrade" spac ehomepage titled "CPS Upgrade Home".
@@ -115,6 +114,7 @@ Refer to: <https://confluence.atlassian.com/conf64/confluence-post-upgrade-check
       * Confirm that you do do not have permission to view this page
 * TEST-ATLASSIAN-4 Attachments
     *  Confirm that attachments are accessible and searchable. 
+    *  SULAMI space has some excel spreadsheets to test - https://confluence.csc.com/pages/viewpage.action?pageId=109674865&preview=/109674865/114066131/SULAMI%20Sprint%201%20140518_040618.xlsx
 
 ## Automated Testing
 

@@ -61,7 +61,7 @@ All this work can be done in advance of the MTP downtime
 
 **Disable the root crontab until the manual rsync completed by comment out the line below**  
 	```
-	0 10,22 * * * /usr/local/bin/confluence-rsync-efs.sh
+	0 10,22 * * * /usr/local/bin/confluence-rsync-efs.sh (Done)
 	```
 
 **Node 1**
@@ -146,6 +146,8 @@ cd /opt
 ```
 For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3/backup-atlassian-5.9.5.sh)
 
+**NOTE: need to update the script to remove the backup directory if it already exists?  had to manually run it as there was some issue**
+
 ## 2. Perform screen captures and DB queries (10 min)
 
 **NOTE:** we'll have to work together to create github pull requests and get them approved so we get github accurate right away.
@@ -165,8 +167,12 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
   - Save the result of each query at <https://github.dxc.com/Platform-DXC/confluence/blob/master/docs/MTP/Confluence-6.4.3-Upgrade/> or in the following folders
 
     - C:\Users\Administrator\Documents\sql\confluence\report\1-Before-DB-Upgrade
+
     - C:\Users\Administrator\Documents\sql\confluence\report\2-After-DB-Upgrade
+
     - C:\Users\Administrator\Documents\sql\confluence\report\3-After-Confluence-Upgrade
+
+      **NOTE: Just stored on the jumpserver as not going to put into Github, anyway**
   - Atom software, pre-installed on the jumper windows server, will be used later to compare before and after cvs files.
 
 ## 3. Back up (40 min)
@@ -193,46 +199,51 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
   - For copy of bash script, click [confluence-rsync-efs.sh](https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3/confluence-rsync-efs.sh)
 
 3. Perform snapshot of xvda and xvdb (4 min, in parallel with efs)
-	- Node1:
-	  - Take snapshot of confluence-node01-prod root  -- confluence-node01-prod-new -- vol-bdd98219 -- 80 GiB
-			<https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-bdd98219;sort=desc:createTime>
-		- Action --> Create Snapshot
-		  - Description:  confluence-node01-prod-ebs-volume-sda1-root
-		  - Tag:
-				 Key: 	Name;
-				 Value: 	confluence-node01-prod-ebs-volume-sda1-root-mtp
-	
-	  - Take snapshot of confluence-node01-prod opt  -- confluence-node01-prod-new -- vol-74da81d0 -- 100 GiB
-			<https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-74da81d0;sort=desc:createTime>
-		- Action --> Create Snapshot
-		  - Description:  confluence-node01-prod-ebs-volume-sdb-opt
-		  - Tag:
-				 Key: 	Name;
-				 Value: 	confluence-node01-prod-ebs-volume-sdb-opt-mtp
+  - Node1:
+    - Take snapshot of confluence-node01-prod root  -- confluence-node01-prod-new -- vol-bdd98219 -- 80 GiB
+      <https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-bdd98219;sort=desc:createTime>
 
-	- Node2:
-	  - Take snapshot of confluence-node02-prod root  -- confluence-node02-prod-new -- vol-0de1a38ce41034c1b -- 80 GiB
-			<https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-0de1a38ce41034c1b;sort=desc:createTime>
-		- Action --> Create Snapshot
-		  - Description:  confluence-node02-prod-ebs-volume-sda1-root
-		  - Tag:
-				 Key: 	Name;
-				 Value: 	confluence-node02-prod-ebs-volume-sda1-root-mtp
-	
-	  - Take snapshot of confluence-node02-prod opt  -- confluence-node02-prod-ebs-xvdb-opt -- vol-0eff49e243c56dbb8 -- 100 GiB
-			<https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-0eff49e243c56dbb8;sort=desc:createTime>
-		- Action --> Create Snapshot
-		  - Description:  confluence-node02-prod-ebs-volume-sdb-opt
-		  - Tag:
-				 Key: 	Name;
-				 Value: 	confluence-node02-prod-ebs-volume-sdb-opt-mtp
+    - Action --> Create Snapshot
+      - Description:  confluence-node01-prod-ebs-volume-sda1-root
+      - Tag:
+      	 Key: 	Name;
+      	 Value: 	confluence-node01-prod-ebs-volume-sda1-root-mtp
+
+    - Take snapshot of confluence-node01-prod opt  -- confluence-node01-prod-new -- vol-74da81d0 -- 100 GiB
+      <https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-74da81d0;sort=desc:createTime>
+
+    - Action --> Create Snapshot
+      - Description:  confluence-node01-prod-ebs-volume-sdb-opt
+      - Tag:
+         Key: 	Name;
+          Value: 	confluence-node01-prod-ebs-volume-sdb-opt-mtp
+
+      **NOTE: Only really need to do node 1**
+
+  - Node2:
+    - Take snapshot of confluence-node02-prod root  -- confluence-node02-prod-new -- vol-0de1a38ce41034c1b -- 80 GiB
+    	<https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-0de1a38ce41034c1b;sort=desc:createTime>
+    - Action --> Create Snapshot
+      - Description:  confluence-node02-prod-ebs-volume-sda1-root
+      - Tag:
+    		 Key: 	Name;
+    		 Value: 	confluence-node02-prod-ebs-volume-sda1-root-mtp
+
+    - Take snapshot of confluence-node02-prod opt  -- confluence-node02-prod-ebs-xvdb-opt -- vol-0eff49e243c56dbb8 -- 100 GiB
+    	<https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Volumes:search=vol-0eff49e243c56dbb8;sort=desc:createTime>
+    - Action --> Create Snapshot
+      - Description:  confluence-node02-prod-ebs-volume-sdb-opt
+      - Tag:
+    		 Key: 	Name;
+    		 Value: 	confluence-node02-prod-ebs-volume-sdb-opt-mtp
 
 4. Update the keep alive in AWS
-	- Open AWS Console
-    	- Go to ELB Settings
-    	- Find the Confluence Prod ELB element
-    	- Open health checks
-    	- Change the health check from "/plugins/servlet/samlsso" to "/status"
+  - Open AWS Console
+     - On left-hand navigation go to Load Balancer Settings
+       - Select target groups
+       - Find the Confluence Prod ELB element
+       - Open health checks (bottom of middle screen)
+       - Change the health check from "/plugins/servlet/samlsso" to "/status"
 
 ## 4. Perform MySQL database upgrade (50 min)
 **Note**: Make sure the database is not in "backing up" status. Within RDS review the status prior to backing up. Also, this step is done in parallel with the previous: **Step 3: Backup** 
@@ -252,42 +263,52 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
       - Find "cz-mysqldb" and click on it
       - Scroll down to the middle of the page and click on "Modify" button
         - Change "DB engine version"
-      		  - From: mysql 5.6.27
-      		  - To:   mysql 5.6.39 (default)
+            - From: mysql 5.6.27
+              - To:   mysql 5.6.39 (default)
 
         - Change "DB parameter group"
-      		  - From:  default.mysql5.6
-      		  - To:	  confluence-mysql
+            - From:  default.mysql5.6
+              - To:	  confluence-mysql
 
-      		- Click on "Continue" button
+            - Click on "Continue" button
 
-      		- Select "Apply immediately"  
-    	  - Summary of Modifications
-      			- You are about to submit the following modifications. Only values that will change are displayed. Carefully verify your changes and click Modify DB Instance.
+            - Select "Apply immediately"  
+        - Summary of Modifications
+           - You are about to submit the following modifications. Only values that will change are displayed. Carefully verify your changes and click Modify DB Instance.
 
-				| Attribute          | Current Value         | New Value             |
-				| ------------------ | --------------------- | --------------------- |
-	  		| DB engine version  | 5.6.27 (MySQL 5.6.27) | 5.6.39 (mysql 5.6.39) |
-	  		| DB parameter group | default.mysql5.6	     | confluence-mysql      |
+             **NOTE: changed current value of DB parameter group to custzeromysql56**
 
-	
-		- Click on "Modify DB Instance", you will see the status of these below
-		
-			- RDS > Instances -- you will see status = "upgrading" (22 min)
-				- RDS > Instances -- you will see status = "modifying" (1 min)
-				- RDS > Snapshots -- you will see status = "creating"  (navigate to the last page to see this)
-		
+             **NOTE2: AWS now has 5.6.40, but we didn't choose it as didn't test it**
+
+           | Attribute          | Current Value         | New Value             |
+           | ------------------ | --------------------- | --------------------- |
+           | DB engine version  | 5.6.27 (MySQL 5.6.27) | 5.6.39 (mysql 5.6.39) |
+           | DB parameter group | **custzeromysql56**   | confluence-mysql      |
+
+
+    	- Click on "Modify DB Instance", you will see the status of these below
+    	
+    		- RDS > Instances -- you will see status = "upgrading" (22 min)
+    			- RDS > Instances -- you will see status = "modifying" (1 min)
+    			- RDS > Snapshots -- you will see status = "creating"  (navigate to the last page to see this)
+    	
     	  - When you see in the parameter group with the status of "confluence-mysql (pending-reboot)", then perform in below to reboot.
     	    - Select "cz-mysqldb"
     	    - Click on "Instance actions" --> "Reboot" --> "Reboot" button
     	      - Status: rebooting 
     	      - After the status of db is "Available", in the "parameter group" it should said "cz-mysqldb (in-sync)"
 
+**NOTE: In production, we have multi-zone. Important to know that we only have one DB and should not select failover option during the reboot.**
 
 3. Run DB queries and compare with pre db upgrade (5 min)
+
   - Run the DB queries at step 2-b and save the results as this sub-folder "2-After-DB-Upgrade"
 
-   - Compare these results with the previous ran db queries at this sub-folder "1-Before-DB-Upgrade" from step 2-b using Atom software        
+   - Compare these results with the previous ran db queries at this sub-folder "1-Before-DB-Upgrade" from step 2-b using Atom software  
+
+     **NOTE: Definitely could automate the queries and diff comparisons. And build confidence where we don't need to check at all.**      
+
+     **NOTE 1: Did see slight immaterial differences which could be related to the time zone when the queries were run? Have the results on Jumpserver**
 
 4. Start Confluence on Node 1 (5 min)
     - Putty to Node 1 and start Confluence (3 min)
@@ -310,7 +331,7 @@ For bash script of this file, click [backup-atlassian-5.9.5.sh](https://github.d
         - Go to [Confluence administrator](https://confluence.csc.com/admin/viewgeneralconfig.action)     
         - Click on "System Information", search for a string "Database version" and confirm that is "5.6.39-log".
                          
-    		  
+    		
 **Go/No-go Decision on MySQL Upgrade**
 If not satisfied with MySQL upgrade
 
@@ -323,14 +344,16 @@ Otherwise, continue below
 1. Shutdown Confluence on Node 1 (1 min)
    ```
         service confluence stop
-	```
+   ```
 
 2. Deleting the content of the indexes, old add-on cache and temp files (2 min)
     ```
         cd /opt/
         ./cleanup-file.sh
     ```
-	- For bash script of this file, click [cleanup-file.sh](https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3/cleanup-file.sh)
+    - For bash script of this file, click [cleanup-file.sh](https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3/cleanup-file.sh)
+
+    **NOTE: Something wrong with the copy of all the *.sh files. Won't run. Looks like something to do with winscp copy?**
 
 
 ## 6. Upgrade Confluence – Node 1 (1 hr + 15 min)
@@ -446,11 +469,14 @@ Otherwise, continue below
 ```
 
 2. For MySQL database, replace the latest jdbc driver and backup older one. (1 min)
+
+   **NOTE: this script also didn't work. Running manually.**
+
    ```    
     cd /opt
     ./update-mysql-driver.sh       
-	```
-	- For bash script of this file, click [update-mysql-driver.sh](https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3/update-mysql-driver.sh)
+   ```
+   - For bash script of this file, click [update-mysql-driver.sh](https://github.dxc.com/Platform-DXC/confluence/blob/master/code/upgrade/confluence-6.4.3/update-mysql-driver.sh)
 
 
 3. Reapply any customizations, like JVM properties, from the old version to the new one. (3 min)
@@ -472,8 +498,10 @@ Otherwise, continue below
   	vi /opt/atlassian/confluence/conf/server.xml
   ```
    - Change:
+
+     **NOTE: pentest is 8090, but production is 8080.**
   ```
-  	<Connector port="8090" connectionTimeout="60000" redirectPort="8443"
+  	<Connector port="8080" connectionTimeout="60000" redirectPort="8443"
   		proxyName="confluence.csc.com"
   		proxyPort="443"
   		scheme="https"
@@ -548,10 +576,15 @@ Otherwise, continue below
    ```
 
     - iv. Run the DB queries at step 2-b and perform screen captures
-		- Run the DB queries at step 2-b
-		- Save the result at this sub-folder "3-After-Confluence-Upgrade"      
-		- Compare these results with the previous ran db queries at this sub-folder "2-After-DB-Upgrade"    
-		- Perform screen captures
+     - Run the DB queries at step 2-b
+
+     - Save the result at this sub-folder "3-After-Confluence-Upgrade"      
+
+     - Compare these results with the previous ran db queries at this sub-folder "2-After-DB-Upgrade"    
+
+       **NOTE: Did see some slight differences with users, may have to review later. Don't seem to be important.**
+
+     - Start compare of screen captures now rather than wait for later during testing
 
     - v. Check Clustering (< 1 min)
       - Go to [Confluence administrator](https://confluence.csc.com/admin/viewgeneralconfig.action)
@@ -563,7 +596,7 @@ Otherwise, continue below
       - Click on "Instance health" tab and make sure very thing is passed checks.
 
         - Except "Administration" is failed because we use an user "Administrator" instead of "admin" and both Internal directory and Jira directory have same account of "Administrator".
-   	  - Result: Confluence has an enabled internal user directory, however its administrator account does not exist or is disabled
+        - Result: Confluence has an enabled internal user directory, however its administrator account does not exist or is disabled
           - Resolution: For this check to pass Confluence will need to be using an SSO solution or:
             - 1. An Internal User Directory that is active.
             - 2. A System Admin User in that Internal Directory.
@@ -579,8 +612,8 @@ Otherwise, continue below
         - Database Driver Version: mysql-connector-java-5.1.46
 
     - viii. On Confluence, go to "Space Directory" and try to navigate to any spaces and confirm it is working fine (< 3 min)
-   			   Click on Confluence Home Page (Confluence Dashboard)
-   			   Click on "Spaces" --> ["Space directory"]([https://confluence.csc.com/spacedirectory/view.action)
+           Click on Confluence Home Page (Confluence Dashboard)
+        		   Click on "Spaces" --> ["Space directory"]([https://confluence.csc.com/spacedirectory/view.action)
 
     - ix. Check and confirm re-Index automatically started right after 1 or 2 min from this message "init Confluence is ready to serve" on Node 1 (40 min)
       - Go to [Confluence administrator](https://confluence.csc.com/admin/viewgeneralconfig.action)
@@ -664,9 +697,15 @@ Copy upgraded Confluence v6.4.3 directories on Node 1 to Node 2
   	cd /opt
   	./tar-atlassian-6.4.3-node1-send-to-node2.sh  	
   ```
+  ```
+
+  ```
    - Putty to Node 2 and copy tar file from "/tmp" folder to "/opt" folder 
+
+     NOTE: Added the mv atlassian directory to step prior to copy
   ```
 		cd /opt
+		mv atlassian atlassian-5.9.5
 		./copy-tar-file-from-tmp-2-opt-folder.sh 
   ```
   - Change node name from node1 to node2
@@ -769,3 +808,6 @@ If go, communicate to the users and update Announcement banner and reenable the 
   - Ravi on-board for what he can attend, but on-call
 3. Communication with users
   - Upgrade starts and systems are inaccessible (3pm Pacific)
+  ```
+
+  ```
