@@ -8,7 +8,12 @@ There is no CI/CD pipeline currently, and nothing that automatically processes o
 
 Description.
 
-Possible brainstorming: lint Shell scripts https://github.com/koalaman/shellcheck#user-content-installing
+https://github.com/aws-quickstart/quickstart-atlassian-jira
+
+https://github.com/aws-quickstart/quickstart-atlassian-confluence
+
+https://docs.atlassian.com/software/jira/docs/api/REST/7.5.3/
+
 
 ## Next Target Condition
 
@@ -18,6 +23,6 @@ In X weeks, we will have changed/upgraded/improved/deployed.
 
 This section outlines the next three steps the team will take to get to the next target condition.
 
-1. 
+1.  
 2. 
 3. 

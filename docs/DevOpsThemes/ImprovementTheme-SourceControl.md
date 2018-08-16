@@ -2,7 +2,7 @@
 
 ## Current State/Problem
 
-Description.
+In the initial state, there is no Confluence code that is controlled, tested, or maintained.
 
 ## Definition of Awesome
 
@@ -16,6 +16,7 @@ In X weeks, we will have changed/upgraded/improved/deployed.
 
 This section outlines the next three steps the team will take to get to the next target condition.
 
-1.
-2.
-3.
+1. 
+
+2. 
+3. 

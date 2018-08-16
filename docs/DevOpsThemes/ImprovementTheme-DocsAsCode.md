@@ -16,6 +16,6 @@ In X weeks, we will have changed/upgraded/improved/deployed.
 
 This section outlines the next three steps the team will take to get to the next target condition.
 
-1.
-2.
-3.
+1. All team members complete DevOps White Belt Dojo training, earning their White Belt Badge.
+2. 
+3. 
