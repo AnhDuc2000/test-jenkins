@@ -1,0 +1,24 @@
+<EntityDescriptor ID="SM1ee79942ea7fa0500866bb2ed1a32a3975633bc96e" entityID="urn:federation:csc" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <IDPSSODescriptor WantAuthnRequestsSigned="false" ID="SM19b767ca740a23a6367b1880d1212377eaa4aad4ad2" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <KeyDescriptor use="signing">
+            <ns1:KeyInfo Id="SM367353c6d7e18aa0c63851f8c9a0ff5d79233ac533" xmlns:ns1="http://www.w3.org/2000/09/xmldsig#">
+                <ns1:X509Data>
+                    <ns1:X509IssuerSerial>
+                        <ns1:X509IssuerName>CN=CSC Global Pass CA,OU=Identity and Access Management,O=CSC,L=Newark,ST=Delaware,C=US</ns1:X509IssuerName>
+                        <ns1:X509SerialNumber>226</ns1:X509SerialNumber>
+                    </ns1:X509IssuerSerial>
+                    <ns1:X509Certificate>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</ns1:X509Certificate>
+                    <ns1:X509SubjectName>CN=CSC Global Pass Federation Test,OU=Identity and Access Management,O=CSC,L=Newark,ST=Delaware,C=US</ns1:X509SubjectName>
+                </ns1:X509Data>
+            </ns1:KeyInfo>
+        </KeyDescriptor>
+        <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://gpl.tst.csc.com/affwebservices/public/saml2sso"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://gpl.tst.csc.com/affwebservices/public/saml2sso"/>
+        <ns2:Attribute Name="mail" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" xmlns:ns2="urn:oasis:names:tc:SAML:2.0:assertion"/>
+        <ns3:Attribute Name="uid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" xmlns:ns3="urn:oasis:names:tc:SAML:2.0:assertion"/>
+        <ns4:Attribute Name="fullName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" xmlns:ns4="urn:oasis:names:tc:SAML:2.0:assertion"/>
+        <ns5:Attribute Name="givenName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" xmlns:ns5="urn:oasis:names:tc:SAML:2.0:assertion"/>
+        <ns6:Attribute Name="sn" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" xmlns:ns6="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    </IDPSSODescriptor>
+</EntityDescriptor>
