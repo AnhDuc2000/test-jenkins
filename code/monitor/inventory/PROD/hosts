@@ -1,0 +1,25 @@
+all:
+  vars:
+    aws_account:
+      aws_account_id: "035015258033"
+    url_monitor:
+      monitor_name: "PlatformDXCDevOpsCheckUrlConfluenceStatus"
+      site_url: "https://confluence.csc.com/status"
+      expected_text: "state"
+      metric_namespace: "PlatformDXCDevOps"
+      metric_name: "ConfluenceStatusOK"
+      # schedule_expression: "rate(1 minute)"
+      # alarm_period: 60
+      # alarm_evaluation_periods: 5
+      alarm_description: "Confluence status URL not reachable"
+      sms_topic_name: PlatformDXCDevOpsConfluenceSmsAlerts
+      sms_topic_display_name: "CONF ALERT"
+      sms_topic_subscriptions:
+        - protocol: "sms"
+          endpoint: "+33661226484"
+        - protocol: "sms"
+          endpoint: "+12674086744"
+        - protocol: "sms"
+          endpoint: "+14083864294"
+        - protocol: "sms"
+          endpoint: "+14084068976"

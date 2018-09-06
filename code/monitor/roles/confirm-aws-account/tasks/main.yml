@@ -1,0 +1,8 @@
+- name: Get AWS caller identity
+  aws_caller_facts:
+  register: caller_facts
+
+- name: Confirm correct Ansible inventory is used for AWS account
+  fail:
+    msg: AWS account ID does not match the value in inventory. This means you are using TEST inventory for PROD account or vice versa.
+  when: caller_facts.account != params.aws_account_id

@@ -1,0 +1,9 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  roles:
+    - role: confirm-aws-account
+      params: "{{ aws_account }}"
+    - role: setup-url-monitor
+      params: "{{ url_monitor }}"
