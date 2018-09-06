@@ -37,7 +37,9 @@
     schedule_expression: "{{ params.schedule_expression | default('rate(1 minute)') }}"
     targets:
       - id: "MainRule"
-        arn: "{{ lambda_function.configuration.function_arn }}"
+        # Strip off the lambda version number that will be returned when the function is created.
+        # FYI: it is not returned when the function already exists.
+        arn: "{{ lambda_function.configuration.function_arn | regex_replace(':\\d+$', '') }}"
   register: lambda_rule
 
 - name: Create schedule permission for Lambda function
