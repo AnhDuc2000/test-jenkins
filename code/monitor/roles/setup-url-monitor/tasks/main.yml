@@ -1,0 +1,79 @@
+- name: Create zip file with Lambda
+  archive:
+    path: "{{ role_path }}/files/lambda/check_url.py"
+    dest: PlatformDXCDevOpsCheckUrl.zip
+    format: zip
+
+- name: Create role for Lambda function
+  iam_role:
+    name: "{{ params.monitor_name }}"
+    assume_role_policy_document: "{{ lookup('file','lambda_policy.json') }}"
+    managed_policy:
+      - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      - arn:aws:iam::aws:policy/AmazonSSMFullAccess
+  register: lambda_role
+
+- name: Give some time for role creation to propagate
+  pause:
+    seconds: 10
+
+- name: Create Lambda function
+  lambda:
+    name: "{{ params.monitor_name }}"
+    zip_file: PlatformDXCDevOpsCheckUrl.zip
+    runtime: 'python3.6'
+    role: "{{ lambda_role.iam_role.arn }}"
+    handler: 'check_url.lambda_handler'
+    environment_variables:
+      SITE_URL:  "{{ params.site_url }}"
+      EXPECTED_TEXT: "{{ params.expected_text }}"
+      METRIC_NAMESPACE: "{{ params.metric_namespace }}"
+      METRIC_NAME: "{{ params.metric_name }}"
+  register: lambda_function
+
+- name: Create CloudWatch schedule for Lambda function
+  cloudwatchevent_rule:
+    name: "{{ params.monitor_name }}"
+    schedule_expression: "{{ params.schedule_expression | default('rate(1 minute)') }}"
+    targets:
+      - id: "MainRule"
+        arn: "{{ lambda_function.configuration.function_arn }}"
+  register: lambda_rule
+
+- name: Create schedule permission for Lambda function
+  lambda_policy:
+    function_name: "{{ lambda_function.configuration.function_name }}"
+    statement_id: default
+    action: lambda:InvokeFunction
+    principal: events.amazonaws.com
+    source_arn: "{{ lambda_rule.rule.arn }}"
+
+- set_fact:
+    should_create_alarm: "{{ params.sms_topic_subscriptions is defined and (params.sms_topic_subscriptions | length) > 0 }}"
+
+- name: Create SNS topic for SMS notifications
+  sns_topic:
+    name: "{{ params.sms_topic_name }}"
+    state: present
+    display_name: "{{ params.sms_topic_display_name }}"
+    subscriptions: "{{ params.sms_topic_subscriptions }}"
+  register: sms_sns
+  when: should_create_alarm
+
+- name: Create alarm
+  ec2_metric_alarm:
+    name: "{{ params.monitor_name }}"
+    metric: "{{ params.metric_name }}"
+    namespace: "{{ params.metric_namespace }}"
+    statistic: "Average"
+    comparison: "<"
+    threshold: 1.0
+    period: "{{ params.alarm_period | default(60) }}"
+    evaluation_periods: "{{ params.alarm_evaluation_periods | default(5) }}"
+    unit: "Count"
+    description: "{{ params.alarm_description }}"
+    dimensions:
+      SiteUrl: "{{ params.site_url }}"
+    alarm_actions:
+      - "{{sms_sns.sns_arn}}"
+  when: should_create_alarm
