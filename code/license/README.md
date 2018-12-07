@@ -51,7 +51,7 @@ setup_license_monitor.sh
 
 After this runs you will need to,
 
-* Add environment vars to the Lambda function: CONF_HOST, CONF_ENV, and CONF_API_SECRET. Note, the API Secret fo rnow is common across both the JIRA and Confluence License Lambda functions as they use the same account.
+* Add environment vars to the Lambda function: CONF_HOST, CONF_ENV, and CONF_API_SECRET. Note, the API Secret for now is common across both the JIRA and Confluence License Lambda functions as they use the same account.
 * Setup (or reuse!) the LicenseMonitor account in Confluence and set a complex password. Put the user in the `confluence-administrators` and `confluence-users` user groups to obtain the proper permissions. Then login with the password to make sure the CAPTCHA is not set and the user can login.
 * Setup a schedule by modifying the Lambda to run off a CloudWatch event. Click triggers, select CloudWatchEvents, and under rule selection, reuse the AtlassianLicenseMonitorRule which is common to both JIRA and Confluence Lambda functions. It is recommended to run every 3 hours, though the period can be adjusted.
 
@@ -83,7 +83,7 @@ When ready to put back into AWS Lambda, you simply return the `def lambda_handle
 ## Troubleshooting
 
 * If response code is HTTP 403, it's possible the account is locked out. Authenticate using the password to make sure the user is not being challenged for a CAPTCHA.
-* If response code is HTTP 401, the user may not have the proper gruop permissions to login. Validate the user's group assignments.
+* If response code is HTTP 401, the user may not have the proper group permissions to login. Validate the user's group assignments.
 
 ## Reference
 
