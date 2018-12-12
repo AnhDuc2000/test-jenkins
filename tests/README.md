@@ -1,4 +1,4 @@
-cd .# Test Content
+# Test Content
 
 This folder contains tests for the project.
 
