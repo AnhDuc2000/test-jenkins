@@ -135,7 +135,7 @@ Please describe the tools used and how you are managing integration test generat
     - Access AWS Account
     - Run the AWS Lambda Function `AtlassianConfluenceLicenseMonitor`
     - Make sure it runs cleanly.
-    - Validate a new record was added to the AWS CloudWatch metric namespace "PlatformDXCDevops" for Confluence* metrics, recordin gboth the current users and the total licensed users.
+    - Validate a new record was added to the AWS CloudWatch metric namespace "PlatformDXCDevops" for Confluence metrics, recording both the current users and the total licensed users.
 
 ## Functional Testing
 
