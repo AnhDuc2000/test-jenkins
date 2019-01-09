@@ -85,11 +85,8 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
 
 * TEST-UNIT-11 Hip Chat Integration
     - After logging in, click the Administration "cog wheel" at the far top right, and choose "General Configuration".
-
     - Prompted to re-enter your password.
-
     - Search and select "Hip Chat Integration" via left-hand navigation
-
     - Review [Hip Chat Integration screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminHipChatIntegration.pdf)
 
 ## Other Tests Recommended by Atlassian for Post-Upgrade Checking
@@ -120,10 +117,11 @@ Refer to: <https://confluence.atlassian.com/conf64/confluence-post-upgrade-check
 
 * Go to [here](ConfluenceAutomationTest/Readme.md) for instructions on running the automated test cases and follow the information on executing the test cases within JIRA. 
 
-## Unit Testing
+## Automated Unit Testing
 
 Please describe the tools used and how you are managing unit test generation and execution, linting, syntax checking, spell checking documentation, and variations of this for the languages in scope.
 
+> NONE YET
 
 ## Integration Testing
 
@@ -133,7 +131,11 @@ Please describe the tools used and how you are managing integration test generat
     - Access your given URL. See [architecture](../docs/architecture.md) for a list of URLs.
     - Expect to quickly see a page that presents a box which says: "Select Identity Provider, What kind of user are you?, Select or wait 3 seconds to use DXCGLOBALPASS,DXCGLOBALPASS DXCGLOBALPASS, Login with username and password"
     - After three seconds, you should be redirected either to a) a black and yellow DXC GlobalPass login screen, or b) directly to your Confluence homepage.
-* TEST-INT-2 Integration with JIRA?
+* TEST-INT-2 License Monitoring
+    - Access AWS Account
+    - Run the AWS Lambda Function `AtlassianConfluenceLicenseMonitor`
+    - Make sure it runs cleanly.
+    - Validate a new record was added to the AWS CloudWatch metric namespace "PlatformDXCDevops" for Confluence metrics, recording both the current users and the total licensed users.
 
 ## Functional Testing
 
