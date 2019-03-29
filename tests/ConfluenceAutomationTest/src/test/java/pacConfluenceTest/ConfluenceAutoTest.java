@@ -1,3 +1,10 @@
+/**
+ * Runs a set of Selenium web tests to validate Confluence is working correctly.
+ *
+ * @author ravi.balusu@dxc.com
+ * @link https://github.dxc.com/Platform-DXC/confluence/tree/master/tests
+ */
+
 package pacConfluenceTest;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
@@ -13,27 +20,25 @@ import com.gargoylesoftware.htmlunit.javascript.host.URL;
 public class ConfluenceAutoTest {
 	public static void main(String[] args) {
 
-		// System.out.println("Hello");
 		ConfluenceAutoTest conft = new ConfluenceAutoTest();
 		/*conft.tcaseforLogin();
 		conft.tcaseLoginWithUserIdAndPassword();
 		conft.tcaseloginWithSAML();
 		conft.tcaseforLogout();
 		conft.tcaseforConfluenceviewspaces();
-		conft.tcaseforseacrhconfluencespace();
+		conft.tcaseforsearchConfluenceSpace();
 		conft.tcaseforintegrationwithJira();*/
 		//conft.tcaseforViewAddons();
 	}
 
 	@Test(alwaysRun = true)
-	public void tcaseforLogin()
-
-	{
+	public void tcaseforLogin() {
+	
 		System.setProperty("webdriver.chrome.driver", auth.chromedriverpath);
-		// Initiate.chromedriverpath);
-
 		WebDriver driver = new ChromeDriver();
+		
 		try {
+
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			// Navigate to URL
 			driver.get(auth.strURL);
@@ -42,6 +47,7 @@ public class ConfluenceAutoTest {
 			driver.manage().window().maximize();
 
 		} catch (Exception e) {
+
 			System.out.println(e);
 			org.testng.Assert.fail("Test case failed for Login");
 			driver.quit();
@@ -58,11 +64,10 @@ public class ConfluenceAutoTest {
 	public void tcaseLoginWithUserIdAndPassword() {
 
 		System.setProperty("webdriver.chrome.driver", auth.chromedriverpath);
-		// Initiate.chromedriverpath)
 		WebDriver driver = new ChromeDriver();
-		try {
 
-			
+        try {
+	
 			// Navigate to URL
 			driver.get(auth.strURL);
 			// Maximize the window.
@@ -76,30 +81,29 @@ public class ConfluenceAutoTest {
 			driver.findElement(By.id("loginButton")).click();
 
 		} catch (Exception e) {
-			System.out.println(e);
+		
+            System.out.println(e);
 			org.testng.Assert.fail("Test case failed for Login with user ID & Password");
 			driver.quit();
-
+			
 		} finally {
-
+		
 			System.out.println("tcaseLoginWithUserIdAndPassword");
 			driver.quit();
+			
 		}
 
 	}
 
 	@Test(alwaysRun = true)
 	public void tcaseloginWithSAML() {
-		System.setProperty("webdriver.chrome.driver", auth.chromedriverpath);
-		;
-		// Initiate.chromedriverpath);
 
+        System.setProperty("webdriver.chrome.driver", auth.chromedriverpath);
 		WebDriver driver = new ChromeDriver();
 		
-		// Navigate to URL
-		
 		try {
-			//driver.get("https://confluence.csc.com/");
+		
+            // Navigate to URL
 			driver.get(auth.strURL);
 			// Maximize the window.
 			driver.manage().window().maximize();
@@ -114,25 +118,29 @@ public class ConfluenceAutoTest {
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			// Click on 'Sign In' button
 			driver.findElement(By.id("loginbtn")).click();
+			
 		} catch (Exception e) {
+		
 			System.out.println(e);
 			org.testng.Assert.fail("Test case failed for Login with SAML");
 			driver.quit();
 
 		} finally {
-
+		
 			System.out.println("tcaseloginWithSAML");
 			driver.quit();
+			
 		}
 	}
 
 	@Test(alwaysRun = true)
 	public void tcaseforLogout() {
-		System.setProperty("webdriver.chrome.driver", auth.chromedriverpath);
-		// Initiate.chromedriverpath);
 
+        System.setProperty("webdriver.chrome.driver", auth.chromedriverpath);
 		WebDriver driver = new ChromeDriver();
+		
 		try {
+		
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			// Navigate to URL
 			driver.get(auth.strURL);
@@ -147,19 +155,20 @@ public class ConfluenceAutoTest {
 			// enter the login button
 			driver.findElement(By.id("loginButton")).click();
 			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			// driver.findElement(By.id("content-hover-20")).click();
 			driver.findElement(By.id("user-menu-link")).click();
 			driver.findElement(By.id("logout-link")).click();
 		
 		} catch (Exception e) {
+		
 			System.out.println(e);
 			org.testng.Assert.fail("Test case failed for Logout");
 			driver.quit();
 
 		} finally {
-
+		
 			System.out.println("tcaseforLogout");
 			driver.quit();
+			
 		}
 
 	}
@@ -168,9 +177,10 @@ public class ConfluenceAutoTest {
 	public void tcaseforConfluenceviewspaces() {
 
 		System.setProperty("webdriver.chrome.driver", auth.chromedriverpath);
-
 		WebDriver driver = new ChromeDriver();
+		
 		try {
+		
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			// Navigate to URL
 			driver.get(auth.strURL);
@@ -192,25 +202,28 @@ public class ConfluenceAutoTest {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		} catch (Exception e) {
+		
 			System.out.println(e);
-			org.testng.Assert.fail("Test case failed for view confluence spaces ");
+			org.testng.Assert.fail("Test case failed for View Confluence Spaces ");
 			driver.quit();
 
 		} finally {
 
 			System.out.println("tcaseforConfluenceviewspaces");
 			driver.quit();
+			
 		}
 
 	}
 
 	@Test(alwaysRun = true)
-	public void tcaseforseacrhconfluencespace() {
+	public void tcaseforsearchConfluenceSpace() {
 
 		System.setProperty("webdriver.chrome.driver", auth.chromedriverpath);
-
 		WebDriver driver = new ChromeDriver();
+
 		try {
+
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			// Navigate to URL
 			driver.get(auth.strURL);
@@ -225,22 +238,24 @@ public class ConfluenceAutoTest {
 			// enter the login button
 			driver.findElement(By.id("loginButton")).click();
 			// Wait For Page To Load
-
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.findElement(By.id("space-menu-link")).click();
 			driver.findElement(By.id("view-all-spaces-link")).click();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.findElement(By.id("space-search-query")).sendKeys("client demo");
 			driver.findElement(By.id("space-search-query")).sendKeys(Keys.ENTER);
+
 		} catch (Exception e) {
+
 			System.out.println(e);
 			org.testng.Assert.fail("Test case failed for confluenc space search");
 			driver.quit();
 
 		} finally {
 
-			System.out.println("tcaseforseacrhconfluencespace");
+			System.out.println("tcaseforsearchConfluenceSpace");
 			driver.quit();
+
 		}
 
 	}
@@ -249,9 +264,10 @@ public class ConfluenceAutoTest {
 	public void tcaseforintegrationwithJira() {
 
 		System.setProperty("webdriver.chrome.driver", auth.chromedriverpath);
-
 		WebDriver driver = new ChromeDriver();
+
 		try {
+
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			// Navigate to URL
 			driver.get(auth.strURL);
@@ -275,28 +291,16 @@ public class ConfluenceAutoTest {
 			driver.findElement(By.id("space-search-query")).sendKeys(Keys.ENTER);
 			driver.findElement(By.linkText("Client Demo")).click();
 			driver.findElement(By.linkText("CDP Requirements Tractability Matrix - Release CDP-3.2")).click();
-			//driver.findElement(By.id("editPageLink")).click();
-			//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			//driver.findElement(By.id("rte-button-insert")).click();
-			//driver.findElement(By.id("jiralink")).click();
-			//driver.findElement(By.name("jiraSearch")).sendKeys("CDP-654");
-			//driver.findElement(By.name("jiraSearch")).sendKeys(Keys.ENTER);
-			// driver.findElement(By.xpath("//button[@class='button-panel-button
-			// insert-issue-button']")).click();
-			// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-			// driver.findElement(By.linkText("CDP Requirements Tractability Matrix -
-			// Release CDP-3.2")).click();
-
-			// driver.findElement(By.id("rte-button-publish")).click();
 		} catch (Exception e) {
+
 			System.out.println(e);
 			org.testng.Assert.fail("Test case failed for confluence integration with Jira");
 			driver.quit();
 
 		} finally {
 
-			System.out.println("tcaseforConfluenceIntegration");
+			System.out.println("tcaseforintegrationwithJira");
 			driver.quit();
 		}
 
@@ -306,8 +310,8 @@ public class ConfluenceAutoTest {
 	public void tcaseforViewAddons() {
 
 		System.setProperty("webdriver.chrome.driver", auth.chromedriverpath);
-
 		WebDriver driver = new ChromeDriver();
+
 		try {
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			// Navigate to URL
@@ -334,20 +338,21 @@ public class ConfluenceAutoTest {
 			
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		} 
-		catch (NoSuchElementException  e1)
-		{
+		} catch (NoSuchElementException  e1) {
+
 			driver.quit();
-		}
-		catch (Exception e) {
+
+		} catch (Exception e) {
+
 			System.out.println(e);
-			org.testng.Assert.fail("Test case failed for view Add-Ons ");
-		driver.quit();
+			org.testng.Assert.fail("Test case failed for View Add Ons");
+		    driver.quit();
 
 		} finally {
 
 			System.out.println("tcaseforConfluenceviewAdd-ons");
-		driver.quit();
+    		driver.quit();
+
 		}
 
 	}	
