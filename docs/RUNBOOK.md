@@ -65,7 +65,7 @@ Table of Contents
 | DNS Name    | confluence-applicationLB-1817892664.us-east-1.elb.amazonaws.com        |
 | VPC ID    | vpc-5b49163f|
 | Availability Zones    | us-east-1a,us-east-1c        |
-| Load Balancer Type    | Classic        |
+| Load Balancer Type    | Application        |
 
 ## OUCH - Outage Update Checklist for Happiness
 - If the users are not able to access confluence.csc.com due to the server or database not responding, this is considered as an outage.
