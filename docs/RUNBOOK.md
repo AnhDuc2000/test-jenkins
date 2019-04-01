@@ -2,17 +2,28 @@
 
 Table of Contents
 
-* [Overview](#overview)
-* [OUCH - Outage Update Checklist for Happiness](#ouch---outage-update-checklist-for-happiness)
-* [Vendor Support](#vendor-support)
-* [Security and Access Control](#security-and-access-control)
-* [Monitoring and Alerting](#monitoring-and-alerting)
-* [Operational Tasks](#operational-tasks)
-* [Failure and Recovery](#failure-and-recovery)
-* [Maintenance Tasks](#maintenance-tasks)
-* [Backup and Restore](#backup-and-restore)
-* [Contact Details](#contact-details)
-* [Onboarding Access](#onboarding-access)
+- [Confluence Operations Manual](#confluence-operations-manual)
+  - [Overview](#overview)
+    - [Environment Details](#environment-details)
+    - [Load Balancer Details](#load-balancer-details)
+  - [OUCH - Outage Update Checklist for Happiness](#ouch---outage-update-checklist-for-happiness)
+  - [Vendor Support](#vendor-support)
+  - [Security and Access Control](#security-and-access-control)
+  - [Monitoring and Alerting](#monitoring-and-alerting)
+    - [System Up/Down Monitoring](#system-updown-monitoring)
+    - [License Monitoring](#license-monitoring)
+    - [Enhanced AWS EC2 Metrics](#enhanced-aws-ec2-metrics)
+  - [Operational Tasks](#operational-tasks)
+      - [Space Creation & granting the permission](#space-creation--granting-the-permission)
+      - [Migration of spaces](#migration-of-spaces)
+  - [Failure and Recovery](#failure-and-recovery)
+    - [How to Stop and start the server from AWS console](#how-to-stop-and-start-the-server-from-aws-console)
+  - [Symantec SSL certificates renewals](#symantec-ssl-certificates-renewals)
+    - [Maintenance Timing](#maintenance-timing)
+  - [Backup and Restore](#backup-and-restore)
+    - [Backup](#backup)
+  - [Escalations & Contact Details](#escalations--contact-details)
+  - [Onboarding Access](#onboarding-access)
 
 ## Overview
 - This document should be used to capture application-specific information, operational procedures etc. It should continue to be updated throughout delivery as the environment and support processes mature.
@@ -23,13 +34,12 @@ Table of Contents
  - Below is the complete description of each layer of Architecture<br>
     * **Amazon VPC:** AWS Virtual Private Cloud configured with public and private. An Internet gateway to provide access to the Internet
     * **Private subnet:**  In the private subnets, Amazon Relational Database Service (Amazon RDS) MySQL as the database for JIRA and Confluence.
-    * **User Access:** Integrated with DXC global pass. https –443 port open to Internet for user access. All other port traffic denied
-   Jump servers RDP port 3389 open to internet for administrator access. Port 22 ( SSH ) open to only Application Server Admins
-   from Jump server.
+    * **User Access:** Integrated with DXC Global Pass and MFA. https –443 port opens to Internet for user access. All other port traffic is denied.
+   Port 22 ( SSH ) opens to only Application Server Admins using local port forwarding via SSH (SSH tunneling) to create a secure connection between a local computer and a remote machine through which services can be replayed.
     * No access to AWS EC2 Instances, backend shared storage and data bases directly.</br>
     * **Load balancers:** Elastic Load Balancer (ELB) to distributes requests from users to the cluster nodes.
    * If a cluster node goes down, the load balancer immediately detects the failure and automatically directs requests to the other nodes
-    * **Jump Server:** Administrator access using RDP. Once Remote connectivity established then allowing to use SSH to logging Jira and confluence nodes.
+    * **SSH tunneling:** Administrator access using local port forwarding via SSH (SSH tunneling). Once Remote connectivity established then allowing to use SSH to logging Jira nodes, Confluence nodes, and MySQL database.
     * **Database servers:** The database hosted on AWS RDS for MySQL Server. There is a master & a stand by replica with support for multiple availability zones. 
    database instances placed in private subnets not public access.
     * **Amazon EFS:** EFS provides scalable file storage for use with Amazon EC2 instances.
@@ -42,7 +52,6 @@ Table of Contents
 | Confluence -Node1    | Production        | 52.73.177.83   | https://confluence.csc.com/|https://035015258033.signin.aws.amazon.com/console|
 | Confluence-Node2     | Production        | 35.153.252.171| https://confluence.csc.com/|https://035015258033.signin.aws.amazon.com/console
 | Confluence-Pentest   | PenTest           |52.73.186.115  | https://confluencepentest.dxcdevcloud.net/|https://gis-training.signin.aws.amazon.com/console|
-| jumpserver-win2016-jira-confluence   | Production           |54.84.37.216  | https://035015258033.signin.aws.amazon.com/console |
 
 
 | Database                                      | Environment | DB Endpoint URL | AWS URL                                              |
@@ -77,7 +86,7 @@ To contact the vendor directly for high-priority issues, use this link:  https:/
 
 ## Security and Access Control
 
-Confluence uses Atlassian Crowd, which is a centralized single sign-on provider that is actually hosted by our [JIRA instance](https://github.dxc.com/platform-dxc/jira/). In effect, configuring JIRA for single sign-on, and then Confluence with Crowd pointing to JIRA, means Confluence users can use DXC GlobalPass.
+Confluence uses Atlassian Crowd, which is a centralized single sign-on provider that is actually hosted by our [JIRA instance](https://github.dxc.com/platform-dxc/jira/). In effect, configuring JIRA for single sign-on, and then Confluence with Crowd pointing to JIRA, means Confluence users can use DXC Global Pass and MFA.
 
 In addition, we also support external user access control provided Account Manager/Project Manager accepts the Risk 
 
@@ -85,7 +94,7 @@ In addition, Confluence uses the same internal user directly as JIRA, however ha
 
 Only DevCloud support have Administrative access to the application, using admin access, support users can onboard the users and granting the space permissions.
 
-Confluence server login through public & private key authentication. Support created the jump server , the support people login to production server from jump server for upgrades and start/stop the confluence services
+Confluence server login through public & private key authentication. The support people login to production server using SSH tunneling for upgrades and start/stop the confluence services.
 
 ## Monitoring and Alerting
 We have a Grafana dashboard that displays certain monitoring metrics for confluence here:
@@ -185,7 +194,7 @@ If you have any clarifications please send a mail to devcloud_Support@csc.com
 * DevCloud support will send the onboarding template and the project manager will fill the template and send back to devcloud support
 * support will create users in Jira and groups and the users to confluence-user group
 * Onboarding template is available in See [Onboarding Template](https://github.dxc.com/Platform-DXC/JIRA/blob/master/docs/Onboarding_Request_Template..xlsx) 
-* All DXC internal users should login with DXC global pass and external users should login with user id & password 
+* All DXC internal users should login with DXC Global Pass and MFA and external users should login with user id & password 
 * External users will be onboarded into the confluence user database system (managed in the JIRA/Crowd app) provided they agree the risk acceptance  & provide the business justification
 * Below is the risk acceptance for external users 
     **I, (insert name), accept the risk of providing external access to the Jira project (insert project name) and will promptly inform the devcloud team if and when some or all of the external users no longer need access.**
