@@ -21,17 +21,21 @@ The public key is appended to the authorized_keys file in this repo. For each sy
 ```
 
 ## List of systems where keys are applied
-These are elastic IP addresses. You best check AWS Console to get the latest IPs
+Check AWS Console to get the latest IPs as some are elastic IPs.
 
-| Pentest Systems           | IP            |
-| ------------------------- | ------------- |
-| confluence-node02-pentest | DO NOT USE    |
-| confluence-node05-pentest | DO NOT USE    |
+Pentest Systems
+* confluence-node-01a-pentest 
+* confluence-node-02a-pentest
 
-| Production Systems            | Public IP      |
-| ----------------------------- | -------------- |
-| confluence-node03-prod-backup | 54.210.129.196 |
-| confluence-node02a-prod       | 3.85.24.71     |
-| confluence-node01a-prod       | 54.198.74.216  |
-| confluence-node01-prod        | DO NOT USE     |
-| confluence-node02-prod        | DO NOT USE     |
+Production Systems
+* confluence-node01a-prod
+* confluence-node02a-prod
+* confluence-node03-prod-backup
+
+Obsolete Pentest Systems (DO NOT USE or Restart in AWS)          
+* confluence-node02-pentest
+* confluence-node05-pentest 
+
+Obsolete Production Systems (DO NOT USE or Restart in AWS)
+* confluence-node01-prod 
+* confluence-node02-prod 
