@@ -1,6 +1,9 @@
 # Implementation Plan for Upgrading Confluence
+
 ## Send Notification to the users
+
 ## Update Banner
+
 ## Install Open JDK 5 mins for each node (make sure wget is available in the node)
 ```
 cd /tmp
@@ -11,16 +14,24 @@ sudo mv jdk8u212-b03 /usr/lib/jvm/jdk8u212-b03
 sudo yum install fontconfig 
 ```
 ## Do the EFS rsync 45 min
-### Update JAVA_HOME in confluence service script /etc/init.d/confluence 3 mins
+- Make sure both thecurrent EFS and the Backup EFS are mounted in the node03
+- Stop the cron job
+- Run the rsync
+- Restart the cron job
+
+## Preconfigurations
+### Update JAVA_HOME to /usr/lib/jvm/jdk8u212-b03 in confluence service script /etc/init.d/confluence 3 mins
 ### Update /opt/atlassian/confluence/bin/setenv.sh
-* Add at the end CATALINA_OPTS="-Dconfluence.upgrade.recovery.file.enabled=false ${CATALINA_OPTS}" 2 min
-### Update confluence.cfg.xml change line <property name="hibernate.c3p0.max_size">60</property> 2 min
+- Add at the end CATALINA_OPTS="-Dconfluence.upgrade.recovery.file.enabled=false ${CATALINA_OPTS}" 2 min
+### Update confluence.cfg.xml
+- Change line <property name="hibernate.c3p0.max_size">60</property> 2 min
 ### Run the clean file
-* /opt/atlassian/confluence-data/cleanup-file.sh 1 min
+- /opt/atlassian/confluence-data/cleanup-file.sh 1 min
+
 ## Running the Upgrade Script on node01
 - Stop confluence on node 2
-- Take the DB snapshot 10 mins
 - Run Upgrade Script first-task.sh 10 min
+- Take the DB snapshot 10 mins
 - Run service confluence start 10 min 
 - Verify the startup execution 5 min
 ```
@@ -32,7 +43,7 @@ Update /opt/atlassian/confluence/bin/setenv.sh
 - change memory CATALINA_OPTS="-Xms1024m -Xmx4096m -XX:+UseG1GC ${CATALINA_OPTS}"
 - add node name CATALINA_OPTS="-Dconfluence.cluster.node.name=node1 ${CATALINA_OPTS}" 
 
-Update /opt/atlassian/confluence/conf/server.xml
+## Update /opt/atlassian/confluence/conf/server.xml
 - Replace server connection with
 ```
 <Connector port="8090" connectionTimeout="20000" redirectPort="8443"
@@ -80,6 +91,7 @@ Update /opt/atlassian/confluence/conf/server.xml
 # Roll Back
 ## RDS 10 min:
 - Restore RDS snapshot to a db instance
+
 ## EC2 10 min:
 - Rename
     - /opt/atlassian to somename
@@ -90,6 +102,9 @@ Update /opt/atlassian/confluence/conf/server.xml
 ```export JAVA_HOME=/usr/java/default```
 ## EFS 3 min:
 - Rename confluence.cfg.xml --> confluence.cfg.xml--6.15.2
+
 ## Restart Confluence and confirm it is working as expected 10 min
+
 ## Send Notification to the users
+
 ## Update Banner
