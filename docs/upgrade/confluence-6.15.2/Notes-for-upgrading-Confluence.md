@@ -3,6 +3,7 @@
 ## Send Notification to the users
 
 ## Update Banner
+- You can use this as reference https://confluence.atlassian.com/confkb/how-to-add-a-site-wide-banner-165609599.html
 
 ## Install Open JDK 5 mins for each node (make sure wget is available in the node)
 ```
