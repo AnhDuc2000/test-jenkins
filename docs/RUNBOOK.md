@@ -68,7 +68,11 @@ Table of Contents
 | Load Balancer Type    | Application        |
 
 ## OUCH - Outage Update Checklist for Happiness
-- If the users are not able to access confluence.csc.com due to the server or database not responding, this is considered as an outage.
+- The following things may occur which signal an outage on one or more of the Confluences.
+  - If the users are not able to access confluence.csc.com due to the server or database not responding. This can occur on either or both nodes
+  - The load balancer in AWS might not have one or both nodes showing heathly, but unhealthy.
+  - The Confluence cluster may not be seeing both nodes. 
+  - Proceed to the the [Failure and Recovery](#Failure-and-Recovery) section to troubleshoot.
 - Publish the information in DXC Facebook i.e https://dxc.facebook.com/groups/212949325934065/ and keep updating the status on regular intervals.
 - If the application is not coming up after troubleshooting, immediately raise a critical/high priority ticket with Atlassian support and below is the link for raising the ticket 
 - https://support.atlassian.com/contact/#/ 
@@ -121,12 +125,12 @@ onboarding the users can be done throgh Jira and once the users onboarded they w
 - Only sys admins can create the space
 - Login as sys admin and create the space and provide the access to required users.
 - From Space tab , select the create space and 
-- ![Image of Create Space](images/createspace.png) 
+- ![Image of Create Space](Images/createspace.png) 
 - Select the blank space and click on Next
 - Enter the space namd and Space key and cick on create and space will be created
--![Image of Create Space](images/spacename.png) 
+- ![Image of Create Space](Images/spacename.png) 
 - once space has been created , grant the permissions from space tools
- -![Image of Space Permissions](images/Spaceperm.png) 
+- ![Image of Space Permissions](Images/Spaceperm.png) 
 - Add the groups or users to space permissons to space and save it.
 #### Migration of spaces 
 - The requester should export the space as XML.zip and share the same zip file to devcloud support
@@ -137,19 +141,72 @@ onboarding the users can be done throgh Jira and once the users onboarded they w
 - Check the Index Tab for both the options
 ## Failure and Recovery
 - All confluence servers are configured in AWS 
-- Confluence servers are deployed on Load balancers
-- If the application is not responding and if the monitoring is in places we will come to know what would be root cause. If we need to restart the server and below is the process.
-- Login to Confluence server as super user
-- go to /opt/atlassian/confluence/bin directory
-- use this command for stopping the server - ./stop-confluence.sh
-- use this command for starting the server - ./start-confluence.sh
+- Confluence server targets are deployed within the [Confluence Load Balancer](https://console.aws.amazon.com/ec2/home?region=us-east-1#LoadBalancers:sort=loadBalancerName)
+- https://confluence.csc.com is DNS friendly name to the load balancer
+  - Check the status of each of the targets from within the AWS Console
+![](Images/lb_targets.png)
+  - If one or both targets show as unhealthy then either the load balancer isn't seeing the target or the node is inaccessible.
+  - Another indicator can be done using curl
+    ``` 
+     curl https://confluence.csc.com/status
+     ```
+     with an expected response from the Confluence REST API being
+     ```
+     {"state":"RUNNING"}
+     ```
+- If one of the targets is unhealthy, then
+  - Review the [Confluence Cluster](https://confluence.csc.com/plugins/servlet/cluster-monitoring) to learn which or if both nodes are not currently responding
+    ![](Images/cluster.png)
+  - Confluence should still be running, in this case, but only on one node. The Confluence Cluster will indicate which node is alive in the cluster.
+  - Proceed to below to stop and start the confluence server on the bad node
+- If both nodes are unhealthy than the goal is to get only one node operating via the load balancer before addressing the second. Only one node can be brought into the Confluence Cluster at a time
+  - On each of the bad confluence nodes, shutdown the service
+    - Connect via ssh
+      ```
+       sudo su -
+       service confluence stop # which should kill the java/confluence processes
+       ps -ef |grep java       # validates no java process running
+       ps -ef |grep confluence # validates no confluence process running
+      ```
+    - Start the service on just one of the nodes
+      ```
+      service confluence start
+      ps -ef |grep java        # should see a java process running
+      ```
+    - Review the log file and wait for the server start message
+      ```
+      cd /opt/atlassian/confluence-data/logs
+      tail -f atlassian-confluence.log
+      ```
+    - Next step is check if the web service is running
+      ```
+      curl http://<private-ip-of-confluence-node>:8080/status
+      ```
+      |HTTP Status|Response entity|Description|
+      ------------|---------------|-----------|
+      |200        | RUNNING       |Running normally|
+      |500        | ERROR         |An error state|
+      |503        | STARTING      |Application is starting|
+      |503        | STOPPING      |Application is stopping|
+      |200        | FIRST_RUN     |Application is running for the first time|
+      |404        |               |Application failed to startup in an unexpected way|
+      |           |               |                                    |
+
+    - Once it is in the RUNNING state, wait for the AWS Confluence Load Balancer to catch up and show the node as healthy.
+    
+  - In the event, one or both nodes are not coming back online and showing healthy, then it might be necessary to [hard reboot the EC2 server in AWS](#How-to-Stop-and-start-the-server-from-AWS-console)
+
+
 ### How to Stop and start the server from AWS console
-- Login to AWS using this URL -> https://035015258033.signin.aws.amazon.com/console
+- Login to AWS Console
 - Once login click on EC2 instances
 - Search for confluence
 - Select running confluence instance state and right click and select the stop/start from Instant state.
-- Only stop one instance at a time and please do not stop both instance or this will lead to an outage.
-- Once confluence is up, login into confluence and validate
+- If one server is known to healthy, stop and start the bad node.
+  - Proceed to evaluate whether the node comes back up by looking at the Confluence Cluster and the AWS Load Balanceer as explained above. This will prevent an outage
+- If both nodes aren't shown to be running, then stop both nodes and start only node at a time and wait until the Confluence Cluster and the AWS Load Balancer is healthy for that node.
+  - Then and only then can you proceed with start the second node.
+
 ## Symantec SSL certificates renewals
  - Please click [here](https://github.dxc.com/Platform-DXC/JIRA/blob/DOE-1014/docs/SSL/SSL%20Configure.MD) and it will gives the     complete details i.e how to procure and configure the SSL certificates for confluence web server.
  ## Maintenance Tasks
