@@ -5,17 +5,10 @@
 ## Update Banner
 - You can use this as reference https://confluence.atlassian.com/confkb/how-to-add-a-site-wide-banner-165609599.html
 
-## Install Open JDK 5 mins for each node (make sure wget is available in the node)
-```
-cd /tmp
-wget -q https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u212-b03/OpenJDK8U-jdk_x64_linux_hotspot_8u212b03.tar.gz
-tar -xf OpenJDK8U-jdk_x64_linux_hotspot_8u212b03.tar.gz
-sudo mkdir /usr/lib/jvm
-sudo mv jdk8u212-b03 /usr/lib/jvm/jdk8u212-b03 
-sudo yum install fontconfig 
-```
+## Install the Font Config
+```sudo yum install fontconfig```
 ## Do the EFS rsync 45 min
-- Make sure both thecurrent EFS and the Backup EFS are mounted in the node03
+- Make sure both the current EFS and the Backup EFS are mounted in the node03
 - Stop the cron job
 - Run the rsync
 - Restart the cron job
