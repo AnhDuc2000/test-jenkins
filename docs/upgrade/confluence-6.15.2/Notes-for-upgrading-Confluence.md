@@ -69,7 +69,7 @@ Update /opt/atlassian/confluence/bin/setenv.sh
 ## Time for validations 5 min
 - Start the service once again
 - try to login https://confluencepentest.dxcdevcloud.net/
-- JIRA Pentest Domain https://jirapentest.dxcdevcloud.net
+- JIRA Pentest Domain URL just for Reference https://jirapentest.dxcdevcloud.net
 - Make sure the user base can syncronize
 
 ## Enable Plugins (might need to clean-file.sh and restart service)
