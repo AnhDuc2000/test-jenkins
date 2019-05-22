@@ -13,7 +13,7 @@
 - Run the rsync
 - Restart the cron job
 
-## Preconfigurations
+## Preconfigurations (Lead time 30 mins)
 ### Update JAVA_HOME to /usr/lib/jvm/jdk8u212-b03 in confluence service script /etc/init.d/confluence 3 mins
 ### Update /opt/atlassian/confluence/bin/setenv.sh
 - Add at the end CATALINA_OPTS="-Dconfluence.upgrade.recovery.file.enabled=false ${CATALINA_OPTS}" 2 min
@@ -21,6 +21,8 @@
 - Change line <property name="hibernate.c3p0.max_size">60</property> 2 min
 ### Run the clean file
 - /opt/atlassian/confluence-data/cleanup-file.sh 1 min
+
+# Down Time Starts Right Here
 
 ## Running the Upgrade Script on node01
 - Stop confluence on node 2
