@@ -1,0 +1,11 @@
+[
+    {
+      "DeviceName": "/dev/sda1", 
+      "Ebs": {
+        "SnapshotId": "snap-085fb53eb82e1fd89", 
+        "VolumeSize": 80,
+        "DeleteOnTermination": true,
+        "VolumeType": "gp2"
+        }
+    }
+]

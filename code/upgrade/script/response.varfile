@@ -1,0 +1,10 @@
+#install4j response file for Confluence
+executeLauncherAction$Boolean=true
+app.install.service$Boolean=true
+sys.confirmedUpdateInstallationString=true
+launch.application$Boolean=false
+existingInstallationDir=/opt/atlassian/confluence
+app.confHome=/opt/atlassian/confluence-data
+sys.languageId=en
+sys.installationDir=/opt/atlassian/confluence
+backupConfluence$Boolean=false

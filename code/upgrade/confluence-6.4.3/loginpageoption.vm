@@ -28,7 +28,7 @@
                         <section class="aui-page-panel-content">
                                 <div class="form-body">
                                         <h1>What kind of user are you?</h1>
-                                        <p>Select or wait 3 secoonds to use DXCGLOBALPASS <div id="redirecting"><span class="aui-icon aui-icon-wait"></span>Redirecting...</div>        </p>
+                                        <p>Select or wait 3 seconds to use DXCGLOBALPASS <div id="redirecting"><span class="aui-icon aui-icon-wait"></span>Redirecting...</div>        </p>
                                          <p>
                                                 <a href="https://confluencepentest.dxcdevcloud.net/plugins/servlet/external-login">DXCGLOBALPASS</a> DXC GLOBAL PASS
                                         </p>
