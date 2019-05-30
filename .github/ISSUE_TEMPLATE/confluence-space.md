@@ -2,7 +2,7 @@
 name: Confluence Space
 about: Create a new Confluence Space to create new content
 title: Create a new Space for ...
-labels: ''
+labels: ':star2: new space'
 assignees: ''
 
 ---
@@ -23,7 +23,7 @@ A short, unique identifier for the space that will be shown in the URL for your 
 For more information on the differences: https://confluence.atlassian.com/doc/spaces-139459.html
 
 **Describe the purpose of the space**
-A clear and concise description of the purposes/value of the pace.
+A clear and concise description of the purpose/value of the space.
 
 **Space Administrator**
 The person opening this GitHub issue will be assigned as the Space administrator, and you can then change settings after it is created.  If you would prefer someone else, let us know.
