@@ -1,0 +1,25 @@
+<script>
+	if(window.location.href.indexOf(contextPath+"/loginpageoption.vm")!=-1)
+   {
+   
+   var selectedUrl='https://confluencepentest.dxcdevcloud.net/plugins/servlet/external-login'
+   var timeout = setTimeout("location.href = selectedUrl;", 3000);
+			 window.onclick= function () { clearTimeout(timeout); } 
+   
+   }
+   </script>
+
+
+
+
+	<script>
+   
+   if(window.location.href.indexOf(contextPath+"/login.action?logout=true")!=-1)
+   {
+   
+   window.location = contextPath+"/loginpageoption.vm"
+   
+   
+   }
+   
+   </script>
