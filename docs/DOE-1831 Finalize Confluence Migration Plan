@@ -1,7 +1,7 @@
 Confluence cloud site migration steps to Confluence Server
 
 ## Overview
-This document will detail a high level serviceMesh migration plan for Confluence. We will migrate data from our cloud site to our site Server. 
+This document will detail a high level migration plan for Confluence. We will migrate data from our cloud site to our site Server. 
 It encompasses using the backup manager at the server level to import an already snapshot of our cloud site..
 
 ###
