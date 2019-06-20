@@ -1,0 +1,64 @@
+Confluence cloud site migration steps to Confluence Server
+
+## Overview
+This document will detail a high level serviceMesh migration plan for Confluence. We will migrate data from our cloud site to our site Server. 
+It encompasses using the backup manager at the server level to import an already snapshot of our cloud site..
+
+###
+Pre-migration checklist
+* Check that you have System Administrator global permissions in Confluence Server, and Site Administrator permissions in your cloud site.
+* It is recommended backing up our current Confluence Cloud site. If the destination Server site has existing data, back up our Confluence Server site as well
+* Work with and notify users prior to migration effort
+* Determine duplicate spacekeys and rename or move to a different name
+
+
+### Systems
+
+* ConfluencePentest: https://confluencepentest.dxcdevcloud.net
+* Confluence Cloud : https://dxcconfluence.atlassian.net
+
+
+### Assumptions
+
+* Required plug-ins and versions are compared and aligned
+* Backup Manager is configured for Export and Import.
+
+
+## Perform Analysis and Cleanup of both CONFLUENCE Services
+*Spot check at end of the day
+*reindex at end of day
+ 
+## Migrate Waves of Projects
+### Create Backup on Cloud site 
+*Export and downlaod as .xml file to local computer 
+	* Select Spaces.
+	* Search and Select a space to export
+	* Select Space Settings
+	* Select Content Tools
+	* Select Export
+	* Choose XML and click NEXT
+	* Choose Full Export.
+	* click Export.
+	* Click Download afer export is completed 
+	* Download snapshot to your local computer
+		* Migration of smaller batch of upto 500mb will be done on the UI
+		* Migrating a medium batch of 500mb upto 1000mb will also be done through the UI
+		* Space larger than 1000mb will be moved to the server restore directory and import run from there
+
+* Upload Snapshot on destination system
+	* Navigate to destination system to General Configuration
+	* Select Backup Manager
+	* Select Backup & Restore
+	* Uncheck index button as we will reindex at end of day
+	* Select import in the case of UI OR
+	* Select the imported zip file from list if using the server restore directory filesystem
+	* Check Content Indexing as file imports
+
+Post-Migration:
+Review migrated data of confluence server: 
+to ensure your data and attachments have migrated successfully. 
+
+Recommendations:
+Check spaces for common things, e.g. comments, attachments, and permissions.
+Allow time for different teams and users to test the operation and functionality of the application to identify 
+any behavior gaps. If needed, we may want to document them for our users.
