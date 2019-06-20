@@ -1,4 +1,4 @@
-# Confluence cloud site migration steps to Confluence Server
+# ServiceMesh Confluence Migration DOE Confluence Instance
 
 ## Overview
 * This document will detail a high level serviceMesh migration plan for Confluence. We will migrate data from ServiceMesh Confluence Cloud site to our DevOps Enablement Confluence instance. 
