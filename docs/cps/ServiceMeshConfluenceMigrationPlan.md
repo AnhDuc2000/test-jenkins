@@ -16,6 +16,9 @@
   * Optionally select Also save a copy to the Backups directory
   * Click Export
     * This will export all content in this site to a zipped XML file
+  * To backup MySQL database
+    * Log into the production instance
+    * run sudo mysqldump -p <dbname> > /backup-location
 * Work with and notify users prior to migration effort and setup as readonly after export
   * Navigate to space permissions
   * Click Permissions tab
