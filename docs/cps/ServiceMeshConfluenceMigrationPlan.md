@@ -9,7 +9,14 @@
 * Check that you have System Administrator global permissions in DOE Confluence System, and Site Administrator permissions in your ServiceMesh Cloud site.
 * ServiceMesh Confluence Users and Groups are created on DOE Confluence System
 * Backup DOE Confluence DB by performing a snapshot prior to the start of migration.
-* Work with and notify users prior to migration effort
+* Work with and notify users prior to migration effort and setup as readonly after export
+  * Navigate to space permissions
+  * Click Permissions tab
+  * Take screenshot of existing permissions
+  * Click Edit Permissions
+  * Update group permissions of the listed groups to only have view access
+  * Update individual users to have view access
+  * Click Save All
 * Determine duplicate spacekeys and rename or move to a different name
 
 
@@ -34,7 +41,25 @@
   * Startup the service again
   * Bring down service on the other node
   * Copy the indexes
-  * Restart the service on the other nodee
+  * Restart the service on the other node
+* Rebuild index without downtime
+  * Perform a rolling restart of every node and add the following JVM argument to startup script 
+  -Dconfluence.cluster.index.recovery.num.attempts=0
+  * Once all nodes are up again, choose the node to run the full reindex and disable traffic to that node on the loadbalancer. Ex node 1
+  * Stop node 1
+  * Clear the journal and index folders in the local home of node 1
+  * Remove any snapshots from the <shared-home/snapshots folder
+  * Start node 1
+  * Check startup logs to notice that Index Recovery Service will kick start a full reindex.
+  * Wait for full reindex to finish
+  * Re-enable node 1 on the loadbalancer
+* Node recovering the new index
+  * Disable node 2 from the loadbalancer
+  * Stop node 2
+  * Remove the JVM argument added earlier
+  * Clear the jurnal and index folders in the local home of node 2
+  * Start node 2
+  * The index recovery service will recover the index from node 1
 
 ## Performing Migration of Waves of Spaces
 ### Create Backup - creates export file - on ServiceMesh Cloud site 
