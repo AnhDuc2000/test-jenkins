@@ -9,6 +9,13 @@
 * Check that you have System Administrator global permissions in DOE Confluence System, and Site Administrator permissions in your ServiceMesh Cloud site.
 * ServiceMesh Confluence Users and Groups are created on DOE Confluence System
 * Backup DOE Confluence DB by performing a snapshot prior to the start of migration.
+  * Navigate to General Configuration
+  * Choose Backup Administration
+  * Choose Backup & Restore
+  * Select Include attachments 
+  * Optionally select Also save a copy to the Backups directory
+  * Click Export
+    * This will export all content in this site to a zipped XML file
 * Work with and notify users prior to migration effort and setup as readonly after export
   * Navigate to space permissions
   * Click Permissions tab
