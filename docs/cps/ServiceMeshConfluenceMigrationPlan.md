@@ -18,6 +18,10 @@
   * Update individual users to have view access
   * Click Save All
 * Determine duplicate spacekeys and rename or move to a different name
+  * Create new Site e.g dup key = PE
+  * Create a new Site = CPSPE
+  * Open old Site PE and click (3 dots) and move to the new Site
+  * Compare both Sites to validate everything moved.
 
 
 ### Systems
@@ -93,6 +97,12 @@
 ### Post-Migration
 
 * Review migrated data of confluence server to ensure the data and attachments have migrated successfully. 
-
+  * Manually migrate pages that did not move
+    * Select the space 
+    * select the pages individually
+    * click the 3 breadcrumps on the right to open up settings
+    * choose move
+    * move to the new site
+    * click save
 * Check spaces for common things, e.g.: comments, attachments, and permissions.
 * Allow time for different teams and users to test the operation and functionality of the application to identify any behavior gaps. If needed, we may want to document them for our users.
