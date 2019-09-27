@@ -15,4 +15,4 @@ You can request more than one user by just copying the section above.
 
 Notes:
 * We do not currently support external users. All users must provide a DXC GlobalPass Short Name for authentication purposes.
-* After obtaining your user account in Confluence, you may not see any sppaces when logging in.  After getting your account setup, you can request your space administrator to add you to their space roles.
+* After obtaining your user account in Confluence, you may not see any spaces when logging in.  After getting your account setup, you can request your space administrator to add you to their space roles.
