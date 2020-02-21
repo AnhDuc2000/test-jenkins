@@ -28,7 +28,7 @@ Table of Contents
 ## Overview
 - This document should be used to capture application-specific information, operational procedures etc. It should continue to be updated throughout delivery as the environment and support processes mature.
 - DXC Confluence is deployed in AWS with load balancing, EBS and EFS capabilities.
-    ** Application URL : https://confluence.csc.com**
+    ** Application URL : https://confluence.dxc.com**
 - Below is Architecture diagram of Confluence 
   ![Image of confluence Architecture](images/confluence-Arch.png) 
  - Below is the complete description of each layer of Architecture<br>

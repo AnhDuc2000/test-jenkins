@@ -2,8 +2,8 @@
 
 ## Instances
 
-* Production - https://confluence.csc.com
-* PenTest - https://confluencepentest.dxcdevcloud.net
+* Production - https://confluence.dxc.com
+* Dev/Test - https://confluence-test.dxc.com
 
 ## Licensing
 
