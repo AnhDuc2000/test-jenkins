@@ -102,7 +102,8 @@ Confluence server login through public & private key authentication. The support
 
 ## Monitoring and Alerting
 We have a Grafana dashboard that displays certain monitoring metrics for confluence here:
-[https://grafana.platformdxc-mg.com/d/2uaHm9Qmz/21-confluence](https://grafana.platformdxc-mg.com/d/2uaHm9Qmz/21-confluence).
+[https://grafana.platformdxc-mg.com/d/qxIZv-PWk/confluence?orgId=1&refresh=1m](https://grafana.platformdxc-mg.com/d/qxIZv-PWk/confluence?orgId=1&refresh=1m).
+
 
 ### System Up/Down Monitoring
 
