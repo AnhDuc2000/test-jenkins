@@ -8,7 +8,7 @@ introduce any new features; this is strictly a collection of bug fixes. This Con
 **Implementation End time:**  Tuesday March 3rd, 2020 @ 17:00 CST
 
 **Confluence 6.15 Bug Fixes**  
-Feel free to read Release Notes on bug fixes from 6.15.2 to 6.15.9 on Atlassian site: [Confluence 6.15 Release Notes](https://confluence.atlassian.com/doc/confluence-6-15-release-notes-965554120.html)
+Feel free to read Release Notes on bug fixes from 6.15.2 to 6.15.10 on Atlassian site: [Confluence 6.15 Release Notes](https://confluence.atlassian.com/doc/confluence-6-15-release-notes-965554120.html)
 
 If there are any questions or issues, please submit a Confluence GitHub issue at:  https://github.dxc.com/Platform-DXC/confluence/issues
 
