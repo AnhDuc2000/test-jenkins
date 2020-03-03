@@ -7,12 +7,18 @@ assignees: ''
 
 ---
 
-E-mail Address:  
-Full Name to Display in Confluence:  
-DXC GlobalPass Short Name:  
+Hello,
+Rob our automated support assistant will help you with this request.
 
-You can request more than one user by just copying the section above.
+Before going any further, please be aware that <b>GitHub</b> is the DXC tool of choice for documentation and that you only should use Confluence for very specific use cases.
+
+For detailed information on the recommended DevOps toolchain, including a presentation video, visit the <a href="https://github.dxc.com/pages/bionix/storefront/products/devops/devcloud/">DevCloud</a> page.
+
+If you still require a Confluence account just enter your email address below and submit the issue.
 
 Notes:
-* We do not currently support external users. All users must provide a DXC GlobalPass Short Name for authentication purposes.
-* After obtaining your user account in Confluence, you may not see any spaces when logging in.  After getting your account setup, you can request your space administrator to add you to their space roles.
+* We do not currently support external users. All users must provide a DXC email for authentication purposes.
+* It might take up to 1 hour before the new account is visible in Confluence.
+* After obtaining your user account in Confluence, you may not see any spaces when logging in. After getting your account setup, you can request your space administrator to add you to their space roles.
+
+E-mail Address:
