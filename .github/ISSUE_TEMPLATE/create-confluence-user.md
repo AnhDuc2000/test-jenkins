@@ -8,6 +8,7 @@ assignees: ''
 ---
 
 Hello,
+
 Rob our automated support assistant will help you with this request.
 
 Before going any further, please be aware that <b>GitHub</b> is the DXC tool of choice for documentation and that you only should use Confluence for very specific use cases.
