@@ -22,4 +22,4 @@ Notes:
 * It might take up to 1 hour before the new account is visible in Confluence.
 * After obtaining your user account in Confluence, you may not see any spaces when logging in. After getting your account setup, you can request your space administrator to add you to their space roles.
 
-E-mail Address:
+E-mail Address: <your email address here>
