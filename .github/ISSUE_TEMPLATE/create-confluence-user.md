@@ -11,9 +11,9 @@ Hello,
 
 Rob our automated support assistant will help you with this request.
 
-Before going any further, please be aware that [**GitHub**] (https://github.dxc.com) is the DXC tool of choice for managing documentation (as code) for your products. You only should use Confluence for very specific use cases.
+Before going any further, please be aware that [**GitHub**](https://github.dxc.com) is the DXC tool of choice for managing documentation (as code) for your products. You only should use Confluence for very specific use cases.
 
-For detailed information on the recommended DevOps toolchain, including a presentation video, visit the [**DevCloud**] (https://github.dxc.com/pages/bionix/storefront/products/devops/devcloud/) page.
+For detailed information on the recommended DevOps toolchain, including a presentation video, visit the [**DevCloud**](https://github.dxc.com/pages/bionix/storefront/products/devops/devcloud/) page.
 
 If you still require a Confluence account just enter your email address below and submit the issue.
 
