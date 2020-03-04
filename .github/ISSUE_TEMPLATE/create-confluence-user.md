@@ -11,7 +11,7 @@ Hello,
 
 Rob our automated support assistant will help you with this request.
 
-Before going any further, please be aware that <b>GitHub</b> is the DXC tool of choice for managing code and product documentation. You only should use Confluence for very specific use cases like for example a private team wiki / collaboration space.
+Before going any further, please be aware that <b><a href="https://github.dxc.com">GitHub</a></b> is the DXC tool of choice for managing documentation (as code) for your products. You only should use Confluence for very specific use cases.
 
 For detailed information on the recommended DevOps toolchain, including a presentation video, visit the <a href="https://github.dxc.com/pages/bionix/storefront/products/devops/devcloud/">DevCloud</a> page.
 
