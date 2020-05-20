@@ -1,0 +1,17 @@
+---
+name: request space migration
+about: request for migrating an existing space into confluence.dxc.com
+title: 'Request space migration: NAME HERE'
+labels: "space migration"
+assignees: ''
+---
+
+**Space name**:
+
+**Space key**:
+
+**Who is the admin for the Space (Please provide Full Name and email id also)**:  
+
+**Please share us the file location**: 
+
+**Other details if any**:
