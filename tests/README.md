@@ -8,7 +8,7 @@ For more information about testing within Platform DXC, and the guidelines we tr
 
 Our primary testing mechanism at the moment is manual testing, though we intend to improve this through our [DevOps Test Automation Theme](../docs/DevOpsThemes/ImprovementTheme-TestAutomation.md).
 
-To enable a user to be able to test, they must first have a User ID created on the JIRA PenTest System with their DXC _short name_.  JIRA acts as an authentication source for Confluence.
+To enable a user to be able to test, they must first have a User ID created on the Jira PenTest System with their DXC _short name_.  Jira acts as an authentication source for Confluence.
 
 In addition, the user must then be granted access to Confluence (`confluence-users` group). In most cases for our team this will be to the administrators group (`confluence-administrators`).
 
@@ -22,12 +22,11 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
     - The page stops here.
     - Verify the Confluence version in the footer of this page is 6.4.3
     - Verify the dropdown menu at far top left has these values:
-        * JIRA
+        * Jira
         * Confluence
         * Artifactory
-        * Github
+        * GitHub
         * Jenkins
-        * sonarqube
     - This is a success of this step, do not worry about any further redirection or entering credentials.
 
 * TEST-UNIT-2 Login with User ID and Password
@@ -98,24 +97,24 @@ Refer to: <https://confluence.atlassian.com/conf64/confluence-post-upgrade-check
   * In addition, confirm that the layout appears as expected and that the menus are clickable and functioning.
 * TEST-ATLASSIAN-2 Search
   * In upper right-corner, search (via magnifying glass) for "Customer Zero Desk" and select "Customer Zero Service Desk Home"
-    * This should take you to [https://confluence.csc.com/display/CZSD/Customer+Zero+Service+Desk+Home](https://confluence.csc.com/display/CZSD/Customer+Zero+Service+Desk+Home)
+    * This should take you to [https://confluence.dxc.com/display/CZSD/Customer+Zero+Service+Desk+Home](https://confluence.csc.com/display/CZSD/Customer+Zero+Service+Desk+Home)
   * Search for "tester1"
-    * This should take you to [https://confluence.csc.com/dosearchsite.action?queryString=tester1](https://confluence.csc.com/dosearchsite.action?queryString=tester1)
+    * This should take you to [https://confluence.dxc.com/dosearchsite.action?queryString=tester1](https://confluence.csc.com/dosearchsite.action?queryString=tester1)
 * TEST-ATLASSIAN-3 Permissions
-  * Logout and login as "tester1" into Confluence [Confluence](https://confluence.csc.com) using user name / password
-  * Go to [https://confluence.csc.com/display/CZSD/View+Restrictions](https://confluence.csc.com/display/CZSD/View+Restrictions)
+  * Logout and login as "tester1" into [Confluence](https://confluence.dxc.com) using user name / password
+  * Go to [https://confluence.dxc.com/display/CZSD/View+Restrictions](https://confluence.dxc.com/display/CZSD/View+Restrictions)
     * Confirm that you can visit a page that has view restrictions, but you cannot edit the page
-  * Go to [https://confluence.csc.com/display/CZSD/Editing+allowed](https://confluence.csc.com/display/CZSD/Editing+allowed)
+  * Go to [https://confluence.dxc.com/display/CZSD/Editing+allowed](https://confluence.dxc.com/display/CZSD/Editing+allowed)
       *  Confirm that you can view and edit the page
-  * Go to [https://confluence.csc.com/display/CZSD/No+editing+or+viewing+allowed](https://confluence.csc.com/display/CZSD/No+editing+or+viewing+allowed)
+  * Go to [https://confluence.dxc.com/display/CZSD/No+editing+or+viewing+allowed](https://confluence.dxc.com/display/CZSD/No+editing+or+viewing+allowed)
       * Confirm that you do do not have permission to view this page
 * TEST-ATLASSIAN-4 Attachments
     *  Confirm that attachments are accessible and searchable. 
-    *  SULAMI space has some excel spreadsheets to test - https://confluence.csc.com/pages/viewpage.action?pageId=109674865&preview=/109674865/114066131/SULAMI%20Sprint%201%20140518_040618.xlsx
+    *  SULAMI space has some excel spreadsheets to test - https://confluence.dxc.com/pages/viewpage.action?pageId=109674865&preview=/109674865/114066131/SULAMI%20Sprint%201%20140518_040618.xlsx
 
 ## Automated Testing
 
-* Go to [here](ConfluenceAutomationTest/Readme.md) for instructions on running the automated test cases and follow the information on executing the test cases within JIRA. 
+* Go to [here](ConfluenceAutomationTest/Readme.md) for instructions on running the automated test cases and follow the information on executing the test cases within Jira.
 
 ## Automated Unit Testing
 
