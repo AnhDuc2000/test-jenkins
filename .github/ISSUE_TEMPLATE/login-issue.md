@@ -1,6 +1,6 @@
 ---
 name: activate or solve an account issue
-about: request to activate or solve an account issue
+about: request to activate a user account or solve a login issue
 title: 'Activate or solve an account issue: NAME HERE'
 labels: "login issue"
 assignees: ''
