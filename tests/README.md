@@ -20,7 +20,7 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
     - Access your given URL. See [architecture](../docs/architecture.md) for a list of URLs.
     - Expect to quickly see a page that presents a box which says: "Select Identity Provider, What kind of user are you?, DXCGLOBALPASS DXCGLOBALPASS, Login with username and password"
     - The page stops here.
-    - Verify the Confluence version in the footer of this page is 6.4.3
+    - Verify the Confluence version in the footer of this page is the version you expect (e.g., 6.15.10)
     - Verify the dropdown menu at far top left has these values:
         * Jira
         * Confluence
@@ -82,12 +82,6 @@ Before testing, it is recommended to open a Chrome Incognito or Microsoft Edge/I
     - Search and select "General Configuration" via left-hand navigation
     - Review [General Configuration screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminGeneralConf.pdf)
 
-* TEST-UNIT-11 Hip Chat Integration
-    - After logging in, click the Administration "cog wheel" at the far top right, and choose "General Configuration".
-    - Prompted to re-enter your password.
-    - Search and select "Hip Chat Integration" via left-hand navigation
-    - Review [Hip Chat Integration screenshot](confluence-5.9.5-screen-captures/ConfluenceAdminHipChatIntegration.pdf)
-
 ## Other Tests Recommended by Atlassian for Post-Upgrade Checking
 Refer to: <https://confluence.atlassian.com/conf64/confluence-post-upgrade-checks-936511832.html>
 
@@ -97,9 +91,9 @@ Refer to: <https://confluence.atlassian.com/conf64/confluence-post-upgrade-check
   * In addition, confirm that the layout appears as expected and that the menus are clickable and functioning.
 * TEST-ATLASSIAN-2 Search
   * In upper right-corner, search (via magnifying glass) for "Customer Zero Desk" and select "Customer Zero Service Desk Home"
-    * This should take you to [https://confluence.dxc.com/display/CZSD/Customer+Zero+Service+Desk+Home](https://confluence.csc.com/display/CZSD/Customer+Zero+Service+Desk+Home)
+    * This should take you to [https://confluence.dxc.com/display/CZSD/Customer+Zero+Service+Desk+Home](https://confluence.dxc.com/display/CZSD/Customer+Zero+Service+Desk+Home)
   * Search for "tester1"
-    * This should take you to [https://confluence.dxc.com/dosearchsite.action?queryString=tester1](https://confluence.csc.com/dosearchsite.action?queryString=tester1)
+    * This should take you to [https://confluence.dxc.com/dosearchsite.action?queryString=tester1](https://confluence.dxc.com/dosearchsite.action?queryString=tester1)
 * TEST-ATLASSIAN-3 Permissions
   * Logout and login as "tester1" into [Confluence](https://confluence.dxc.com) using user name / password
   * Go to [https://confluence.dxc.com/display/CZSD/View+Restrictions](https://confluence.dxc.com/display/CZSD/View+Restrictions)
