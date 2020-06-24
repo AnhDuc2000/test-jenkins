@@ -2,7 +2,7 @@
 name: Create new Confluence User
 about: Create a new Confluence User Account to use the tool
 title: 'Create Confluence User: NAME HERE'
-labels: ":bust_in_silhouette: new user, :robot:"
+labels: ":robot:"
 assignees: ''
 
 ---
