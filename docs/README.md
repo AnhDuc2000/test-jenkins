@@ -2,9 +2,9 @@
 
 ## Sections
 
-[Architecture](architecture.md)
+Architecture
 
-- Addresses the specific component architecture of the project
+- See [Confluence Architecture in devops-confluence-infra](https://github.dxc.com/Platform-DXC/devops-confluence-infra/tree/master/docs#architecture).
 
 [Deployment](deployment.md)
 
@@ -23,6 +23,10 @@
 [Support](support.md)
 
 - How to interact with the team for support of the component
+
+[RUNBOOK](RUNBOOK.md)
+
+- Administrative reference to how to run the service for the team that operates it
 
 [Testing](../tests/)
 
