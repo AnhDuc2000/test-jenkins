@@ -1,0 +1,42 @@
+# Rob's configuration file 
+# auto-label: 
+#   - intent: LEX intent to react on
+#     label: label to add when intent is confirmed
+#     on-error / assignees: assign issue to a given GitHub user in case of any error
+# event-labels: Assign labels on specific events
+#     on: label to use Rob handles the issue (that is, automatically)
+#     on-error: label to use when Rob encounters an error
+#     on-fulfilled: label to use when request is fulfilled (except "Greetings")
+auto_label:
+ - intent: ConfluenceUserCreation
+   label: ':bust_in_silhouette: new user'
+   on_resolve: ':white_check_mark: done'
+   on_error_assignees: [melfelah,yvalette]
+ - intent: ConfluenceUserActivation
+   on_resolve: ':white_check_mark: done'
+   label : ':lock: unlock user'
+   on_error_assignees: [melfelah,yvalette]
+ - intent: Greetings
+   label: ':robot:'
+   on_resolve: 'help wanted'
+   on_error_assignees: [melfelah,yvalette]
+ - intent: assignIssue
+   label: ':robot:'
+   on_resolve: 'help wanted'
+   on_error_assignees: [melfelah,yvalette]
+ - intent: welcomeOpeningIssue
+   label: ':robot:'
+   on_resolve: 'help wanted'
+   on_error_assignees: [melfelah,yvalette]
+ - intent: Null
+   on_error_assignees: [melfelah,yvalette]
+
+
+event_labels:
+   robot: ':robot:'
+   on_error: ':robot: Confused'
+   on_fulfilled: ':white_check_mark: done'
+
+action_labels:
+   create_user: ':bust_in_silhouette: new user'
+   activate_user: ':lock: unlock user'
