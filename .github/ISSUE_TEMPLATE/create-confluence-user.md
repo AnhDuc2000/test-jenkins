@@ -2,7 +2,7 @@
 name: Create new Confluence User
 about: Create a new Confluence User Account to use the tool
 title: 'Create Confluence User: NAME HERE'
-labels: ":bust_in_silhouette: new user"
+labels: ":bust_in_silhouette: new user, :robot:"
 assignees: ''
 
 ---
@@ -21,5 +21,7 @@ Notes:
 * We do not currently support external users. All users must provide a DXC email for authentication purposes.
 * It might take up to 1 hour before the new account is visible in Confluence.
 * After obtaining your user account in Confluence, you may not see any spaces when logging in. After getting your account setup, you can request your space administrator to add you to their space roles.
+
+> YOU MUST PROVIDE AN E-MAIL ADDRESS BELOW OR WE CANNOT PROCESS YOUR REQUEST.
 
 E-mail Address: <your email address here>
