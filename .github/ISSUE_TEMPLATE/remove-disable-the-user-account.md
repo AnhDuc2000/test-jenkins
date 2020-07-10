@@ -2,8 +2,9 @@
 name: Request to remove or disable a user account
 about: Request to remove or disable a user account
 title: 'Request to remove or disable the user account: NAME HERE'
-labels: "remove or disable the user account"
+labels: remove or disable the user account
 assignees: ''
+
 ---
 
 This request is for removing or disabling the user account

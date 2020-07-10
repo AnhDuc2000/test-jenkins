@@ -2,8 +2,9 @@
 name: request space migration
 about: request for migrating an existing space into confluence.dxc.com
 title: 'Request space migration: NAME HERE'
-labels: "space migration"
+labels: space migration
 assignees: ''
+
 ---
 
 **Space name**:

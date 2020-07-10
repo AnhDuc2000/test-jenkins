@@ -2,8 +2,9 @@
 name: Login issue - activation or any other cause
 about: request to activate a user account or solve a login issue
 title: 'Activate a user account or solve a login issue: NAME HERE'
-labels: "login issue"
+labels: ":robot:, login issue"
 assignees: ''
+
 ---
 
 **E-mail Address**:
