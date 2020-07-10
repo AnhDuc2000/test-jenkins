@@ -7,13 +7,9 @@ assignees: ''
 
 ---
 
-**E-mail Address**:
+E-mail Address: <your email address here>
 
-**Full Name to Display in Confluence**:
-
-**DXC GlobalPass Short Name**:
-
-You can request more than one user by just copying the section above.
+Providing your e-mail address above will let our ChatBot help to try to review your account and fix the access issue.
 
 **Notes**:
 * We do not currently support external users. All users must provide a DXC GlobalPass Short Name for authentication purposes.
