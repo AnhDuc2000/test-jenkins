@@ -24,4 +24,4 @@ Notes:
 
 > YOU MUST PROVIDE AN E-MAIL ADDRESS BELOW OR WE CANNOT PROCESS YOUR REQUEST.
 
-E-mail Address: <your email address here>
+E-mail Address:  Replace with the email address here
