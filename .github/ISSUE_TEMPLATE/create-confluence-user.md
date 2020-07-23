@@ -6,10 +6,12 @@ labels: ":robot:"
 assignees: ''
 
 ---
+> Rob our automated support assistant will help you with this request
+>
+> YOU MUST PROVIDE AN E-MAIL ADDRESS BELOW OR WE CANNOT PROCESS YOUR REQUEST.
 
-Hello,
+E-mail Address: Put the email address here
 
-Rob our automated support assistant will help you with this request.
 
 Before going any further, please be aware that [**GitHub**](https://github.dxc.com) is the DXC tool of choice for managing documentation (as code) for your products. You only should use Confluence for very specific use cases.
 
@@ -22,6 +24,4 @@ Notes:
 * It might take up to 1 hour before the new account is visible in Confluence.
 * After obtaining your user account in Confluence, you may not see any spaces when logging in. After getting your account setup, you can request your space administrator to add you to their space roles.
 
-> YOU MUST PROVIDE AN E-MAIL ADDRESS BELOW OR WE CANNOT PROCESS YOUR REQUEST.
 
-E-mail Address:  Replace with the email address here
