@@ -10,7 +10,7 @@ assignees: ''
 >
 > YOU MUST PROVIDE AN E-MAIL ADDRESS BELOW OR WE CANNOT PROCESS YOUR REQUEST.
 
-E-mail Address: Put the email address here
+E-mail Address: 
 
 
 Before going any further, please be aware that [**GitHub**](https://github.dxc.com) is the DXC tool of choice for managing documentation (as code) for your products. You only should use Confluence for very specific use cases.
