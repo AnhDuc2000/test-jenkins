@@ -6,6 +6,9 @@ labels: ":robot:"
 assignees: ''
 
 ---
+> <b>IMPORTANT !!! Please be aware that Gainwell employees cannot be given a Confluence user account because the service agreement with DXC does not include access to any of the DevCloud tools (GitHub, Jira, Confluence, Jenkins, Artifactory).</b>
+> If this is an issue for you please have your business lead contact the DXC account team to work on a solution.
+>
 > Rob our automated support assistant will help you with this request
 >
 > YOU MUST PROVIDE AN E-MAIL ADDRESS BELOW OR WE CANNOT PROCESS YOUR REQUEST.
@@ -17,7 +20,7 @@ Before going any further, please be aware that [**GitHub**](https://github.dxc.c
 
 For detailed information on the recommended DevOps toolchain, including a presentation video, visit the [**DevCloud**](https://github.dxc.com/pages/bionix/storefront/products/devops/devcloud/) page.
 
-If you still require a Confluence account just enter your email address below and submit the issue.
+If you still require a Confluence account just enter your email address above and submit the issue.
 
 Notes:
 * We do not currently support external users. All users must provide a DXC email for authentication purposes.
