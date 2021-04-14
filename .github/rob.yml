@@ -11,25 +11,25 @@ auto_label:
  - intent: ConfluenceUserCreation
    label: ':bust_in_silhouette: new user'
    on_resolve: ':white_check_mark: done'
-   on_error_assignees: [melfelah,yvalette]
+   on_error_assignees: pkavyasree
  - intent: ConfluenceUserActivation
    on_resolve: ':white_check_mark: done'
    label : ':lock: unlock user'
-   on_error_assignees: [melfelah,yvalette]
+   on_error_assignees:  pkavyasree
  - intent: Greetings
    label: ':robot:'
    on_resolve: 'help wanted'
-   on_error_assignees: [melfelah,yvalette]
+   on_error_assignees: pkavyasree
  - intent: assignIssue
    label: ':robot:'
    on_resolve: 'help wanted'
-   on_error_assignees: [melfelah,yvalette]
+   on_error_assignees: pkavyasree
  - intent: welcomeOpeningIssue
    label: ':robot:'
    on_resolve: 'help wanted'
-   on_error_assignees: [melfelah,yvalette]
+   on_error_assignees: pkavyasree
  - intent: Null
-   on_error_assignees: [melfelah,yvalette]
+   on_error_assignees: pkavyasree
 
 
 event_labels:
