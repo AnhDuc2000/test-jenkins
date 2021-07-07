@@ -16,6 +16,4 @@ all:
       sms_topic_display_name: "CONF ALERT"
       sms_topic_subscriptions:
         - protocol: "sms"
-          endpoint: "+33661226484"
-        - protocol: "sms"
           endpoint: "+919740755226"
