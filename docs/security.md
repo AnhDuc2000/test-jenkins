@@ -1,6 +1,6 @@
 # Security
 
-In this section please describe all of the security principles that apply to the project and the necessary steps required to protect the resulting artifacts and or deployments of this Platform DXC Component
+Recent vulnerabilities in the confluence software suite reported by Security Incident Response Control Center (SIRCC). We applied the access log script in the server.xml file and the the related document which is available in this link - [Security-vulnerability](../docs/Security-vulnerability/Security-vulnerability-Confluence.md)
 
 ## Networking
 
