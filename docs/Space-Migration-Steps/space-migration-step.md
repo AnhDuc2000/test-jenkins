@@ -38,7 +38,7 @@ There are two ways to import the space based on the file size. We need to follow
 # sudo su
 # cd /media/atl/confluence/shared-home/restore
 # aws s3 cp s3://<bucket name>/<filename with ext> filename with extension like below
-# aws s3 cp s3://conf-import-file/CAIXA BI Space.zip CAIXA BI Space.zip
+# aws s3 cp s3://conf-spaceimport-file/CAIXA BI Space.zip CAIXA BI Space.zip
 # ls – Showing copied file in the same directory
 ![](../Images/Homefile.jpg)
 
