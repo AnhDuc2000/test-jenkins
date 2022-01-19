@@ -1,6 +1,6 @@
 # Confluence Space Migration procedure and steps
 
-This document describes the space migration method. We are getting user from request to import their space into our confluence instance
+This document describes the space migration method. Now a days We are getting user request to import their space into our confluence instance
 
 Whenever we receive the space migration request, we need to verify the file size and that extension should be in zip format
 
