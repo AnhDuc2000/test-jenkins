@@ -108,7 +108,7 @@ Before proceeding to the steps below, create an user as **resource owner**.  Thi
 * click on **Create User** and create the user
 ![create Image](images/new-user.png)
 * Once user is created add the user to only **confluence-oauth-api** and delete other user groups. 
-![Jira api](images/jira-api.png)
+![Confluence api](images/confluence-api.png)
 
 1. In your Terminal, navigate to the target directory of the sample OAuth client project that you did on **Step 0**. 
 2. Run the following command: 
