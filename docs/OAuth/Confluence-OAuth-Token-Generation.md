@@ -1,5 +1,5 @@
 # OAuth
-Authentication is a key process when integrating with Confluence. OAuth is one of a number of authentication methods used with Jira and it is typically used for server-to-server authentication, especially for behind the firewall applications.
+Authentication is a key process when integrating with Confluence. OAuth is one of a number of authentication methods used with Confluence and it is typically used for server-to-server authentication, especially for behind the firewall applications.
 
 OAuth is an authentication protocol that allows a user (that is, resource owner) to grant a third-party application (that is, consumer/client) access to their information on another site (that is, resource).  Confluence uses 3-legged OAuth (3LO), which means that the user is involved in the authentication process by authorizing access to their data on the resource (as opposed to 2-legged OAuth, where the user is not involved).  For details, please see [here](https://developer.atlassian.com/server/jira/platform/oauth/).
 
@@ -153,68 +153,50 @@ An access code is all that we need to make an authenticated request to the Confl
 
 Here’s an example of a request to GET an issue, using the sample OAuth client. The following command gets the DOE-583 issue via the Confluence REST API:
 ```
-java -jar OAuthTutorialClient-1.0.jar request https://jira.csc.com/rest/api/latest/issue/DOE-583
+java -jar OAuthTutorialClient-1.0.jar request https://confluence.dxc.com/rest/api/space?spaceKey=Sundar+Test+Home&spaceKey=ST
 ```
 The above method returns an issue like this:
 ```
 {
-  "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
-  "self": "https://jira.csc.com/rest/api/latest/issue/508568",
-  "id": "508568",
-  "fields": {
-    "customfield_13100": null,
-    "customfield_13101": null,
-    "customfield_13104": null,
-    "resolution": null,
-    "customfield_13103": null,
-    "customfield_13106": null,
-    "customfield_10510": null,
-    "customfield_13105": null,
-    "customfield_10503": null,
-    "customfield_10504": null,
-    "customfield_10505": null,
-    "customfield_10506": null,
-    "customfield_10507": null,
-    "customfield_10508": null,
-    "customfield_10509": null,
-    "lastViewed": null,
-    "customfield_12000": {
-      "self": "https://jira.csc.com/rest/api/2/customFieldOption/14703",
-      "id": "14703",
-      "value": "Yes"
-    },
-    "customfield_14301": null,
-    "customfield_12001": {
-      "self": "https://jira.csc.com/rest/api/2/customFieldOption/14708",
-      "id": "14708",
-      "value": "No"
-    },
-
-    |
-    V
-
-      },
-  "key": "DOE-583"
+  results: [
+    {
+      id: 15630337,
+      key: 'ST',
+      name: 'Sundar Test',
+      type: 'global',
+      _links: [Object],
+      _expandable: [Object]
+    }
+  ],
+  start: 0,
+  limit: 25,
+  size: 1,
+  _links: {
+    self: 'https://confluence.dxc.com/rest/api/space?spaceKey=Sundar+Test+Home&spaceKey=ST',
+    base: 'https://confluence.dxc.com',
+    context: ''
+  }
 }
+
 ```
 In the code, the OAuth client actually stores the access code in the **config.properties** file when it is obtained. When a request is made, the  client passes the stored access code rather than you having to enter it. 
 
 See an example below is the content of **config.properties** file:
 ```
 secret=<secret>
-jira_home=https\://jira.csc.com
+confluence_home=https\://confluence.dxc.com
 consumer_key=DevOpsEnablement
 private_key=<private key>
 ```
 
-That is how to use OAuth to make an authenticated request to the Jira REST API.
+That is how to use OAuth to make an authenticated request to the Confluence REST API.
 
 
 ## Revoking OAuth access tokens
 You can revoke an OAuth access token to deny a CONFLUENCE gadget access to your CONFLUENCE data. When you revoke access, the gadget can only access public data on your CONFLUENCE instance.
 
 1. Choose your user name at top right of the screen, then choose Profile .
-2. Click **Tools** > **View OAuth Access Tokens**.
+2. Click **Settings** > **View OAuth Access Tokens**.
 3. The **Authorized Applications** page displays a list of your OAuth tokens.
 4. Next to the application whose OAuth access you wish to revoke, click **Revoke Access**.
 5. You may be prompted to confirm this action. If so, click OK. 
