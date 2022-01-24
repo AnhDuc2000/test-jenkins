@@ -60,7 +60,7 @@ This generates a 2048-bit private key, creates an X509 certificate, and extracts
 
 3. Navigate to the target directory in the sample OAuth client project. Open the **config.properties** file  and make the following changes:
    - a. Paste the private key from your clipboard over the value of private_key field. Remove all line breaks.
-   - b. Change the jira_home to the URL of your Jira development instance, for example, https://confluence.dxc.com
+   - b. Change the confluence_home to the URL of your Confluence development instance, for example, https://confluence.dxc.com
    - c. Change the consumer_key to your desired consumer key.
 4. Save the **config.properties** file.
 
@@ -93,7 +93,7 @@ This generates a 2048-bit private key, creates an X509 certificate, and extracts
 
 7. Click Continue. You should end up with an application link that looks like this example:![Link applications dialog 1](images/OAuthSetup-Link-applications-dialog3.png)
 
-That’s it! You’ve now configured the client as an OAuth consumer in Jira.
+That’s it! You’ve now configured the client as an OAuth consumer in Confluence.
 
 ## Step 2. Do the “OAuth dance”
 The “OAuth dance” is a term that’s used to describe the process of getting an access token from the resource, that the consumer can use to access information on the resource. This involves a “dance” where different tokens are passed between the consumer, resource owner, and resource.  These are the roles in the OAuth authentication process, and how they relate to authenticating with Confluence:
