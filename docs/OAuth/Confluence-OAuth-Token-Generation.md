@@ -151,7 +151,7 @@ We now have what we wanted from the OAuth dance: an access token that we can use
 ## Step 3. Make an authenticated request to the Confluence REST API
 An access code is all that we need to make an authenticated request to the Confluence REST API. Requests are made as the **Resource owner** user that you created earlier in **Step 2** who authorized the initial request token. The access token will persist for 5 years, unless it is revoked. 
 
-Here’s an example of a request to GET an issue, using the sample OAuth client. The following command gets the DOE-583 issue via the Confluence REST API:
+Here’s an example of a request to GET an issue, using the sample OAuth client. The following command gets the ST space details via the Confluence REST API:
 ```
 java -jar OAuthTutorialClient-1.0.jar request https://confluence.dxc.com/rest/api/space?spaceKey=Sundar+Test+Home&spaceKey=ST
 ```
