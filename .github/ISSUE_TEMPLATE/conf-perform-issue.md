@@ -13,7 +13,7 @@ You must provide all below required details in order to proceed further
 
 ***Please mention your issue with clear details in the next line:***
 
-Please provide us the detail of the issue and how it is impacting your projects. 
+Please provide us the detail of the issue and how it is impacting your spaces. 
 
 
 
