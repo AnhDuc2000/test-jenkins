@@ -15,7 +15,7 @@ You must provide all below required details in order to proceed further
 
 ***Please provide the detail explanation about an incident in the next line:***
 
-Please provide us the detail of the issue and how long the application which is not down/inaccessible. When it is happened
+Please provide us the detail of the issue and how long the application which is down/inaccessible. When it is happened
 
 
 
