@@ -25,4 +25,4 @@ Please provide us the detail of the issue and how it is impacting your routine p
 If you want to understand our Devcloud Incident and Request Management process https://github.dxc.com/pages/Platform-DXC/devops-framework/standards/service-management/incident-and-request/
 
 
-***Please provide if any other commands in the next line:***
+***Please provide if any other comments in the next line:***
