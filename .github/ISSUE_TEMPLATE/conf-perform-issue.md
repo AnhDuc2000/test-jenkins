@@ -23,6 +23,6 @@ Please provide us the detail of the issue and how it is impacting your spaces.
 If you want to understand our Devcloud Incident and Request Management process https://github.dxc.com/pages/Platform-DXC/devops-framework/standards/service-management/incident-and-request/
 
 
-***Any other commands in the next line:***
+***Any other comments in the next line:***
 
 Please mention below if any other information poiting to your issue 
