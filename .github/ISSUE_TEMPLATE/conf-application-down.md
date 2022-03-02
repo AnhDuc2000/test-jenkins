@@ -13,9 +13,9 @@ You must provide all below required details in order to proceed further
 
 
 
-***Please provide the complete details explanation about an incident in the next line:***
+***Please provide the detail explanation about an incident in the next line:***
 
-Please provide us the detail of the issue and how it is impacting your routine process and what scenario and which situation that you are facing this issue.
+Please provide us the detail of the issue and how long the application which is not accessible. When it is happened
 
 
 
