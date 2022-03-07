@@ -1,6 +1,6 @@
 ---
 name: Confluence performance issue
-about: Create an issue for Confluence performance issue
+about: Create an issue for Confluence performance issue (Whole instance is slow or unresponsive, Specific functions in the application are slow, Application server is overloaded, Database server is overloaded, OutOfMemory errors or high memory usage)
 title: Create an issue ...
 labels: 'High (P2), bug'
 assignees: ''
@@ -13,7 +13,7 @@ You must provide all below required details in order to proceed further
 
 ***Please mention your issue with clear details in the next line:***
 
-Please provide us the detail of the issue and how it is impacting your spaces. 
+Please provide us the detail of the issue and how it is impacting your spaces. Example:- Whole instance is slow or unresponsive, Specific functions in the application are slow, Application server is overloaded, Database server is overloaded, OutOfMemory errors or high memory usage
 
 
 
