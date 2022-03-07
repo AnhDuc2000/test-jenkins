@@ -15,7 +15,7 @@ You must provide all below required details in order to proceed further
 
 ***Please provide the detail explanation about an incident in the next line:***
 
-Please provide us the detail of the issue and how long the application which is down/inaccessible. When it is happened
+Please provide us the detail of the issue for example:- unexpected HTTP response, authentication failure, Page not found, Internal server error, Gateway timeout, Network response timed out, A firewall is blocking requests etc.,
 
 
 
