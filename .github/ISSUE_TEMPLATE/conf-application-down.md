@@ -15,7 +15,7 @@ You must provide all below required details in order to proceed further
 
 ***Please provide the detail explanation about an incident in the next line:***
 
-Please elaborate your issue in detail and if you have any other proof to describe the issue, please attach the same to proceed further level of investigation 
+Please provide us the detail of the issue for example:- unexpected HTTP response, authentication failure, Page not found, Internal server error, Gateway timeout, Network response timed out etc., 
 
 
 
