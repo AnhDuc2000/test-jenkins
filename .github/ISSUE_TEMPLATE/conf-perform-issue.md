@@ -1,9 +1,9 @@
 ---
-Name: Confluence performance issue
-About: Create an issue for Confluence performance (Whole instance is slow or unresponsive, Specific functions in the application are slow)
-Title: Create an issue ...
-Labels: 'High (P2), bug'
-Assignees: ''
+name: Confluence performance issue
+about: Create an issue for Confluence performance (Whole instance is slow or unresponsive, Specific functions in the application are slow)
+title: Create an issue ...
+labels: 'High (P2), bug'
+assignees: ''
 
 ---
 
