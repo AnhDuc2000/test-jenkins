@@ -24,4 +24,4 @@ If you want to understand our Devcloud Incident and Request Management process h
 
 ***Any other comments in the next line:***
 
-Please mention below if any other information poiting to your issue 
+Please mention below if there is any other information pointing to the issue 
