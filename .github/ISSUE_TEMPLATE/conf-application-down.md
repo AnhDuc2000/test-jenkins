@@ -1,9 +1,9 @@
 ---
-Name: Confluence is down
-About: Create an issue for Confluence is down
-Litle: Create an issue ...
-Labels: 'Critical (P1), bug'
-Assignees: ''
+name: Confluence is down
+about: Create an issue for Confluence is down
+title: Create an issue ...
+labels: 'Critical (P1), bug'
+assignees: ''
 
 ---
 
