@@ -28,6 +28,8 @@ A clear and concise description of the purpose/value of the space.
 **Space Administrator**
 The person opening this GitHub issue will be assigned as the Space administrator, and you can then change settings after it is created.  If you would prefer someone else, let us know.
 
+**If your space creation request is in urgent basis, please provide the details how exactly impacting your business process and number of users impacted** (The reason in details why it is required in priority basis) 
+
 
 **Note:**
 
