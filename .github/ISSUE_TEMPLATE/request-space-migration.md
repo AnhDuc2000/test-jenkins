@@ -18,3 +18,7 @@ assignees: ''
 **Please share us the file location**: 
 
 **Other details if any**:
+
+**Note:**
+
+If you want to understand our Devcloud Incident and Request Management process https://github.dxc.com/pages/Platform-DXC/devops-framework/standards/service-management/incident-and-request/
