@@ -43,3 +43,7 @@ If you consider that this request is critical to your business, please detail yo
 For the testing, validation and maintenance of this access:
   * WBS code: 
   * Contact person:
+
+**Note:**
+
+If you want to understand our Devcloud Incident and Request Management process https://github.dxc.com/pages/Platform-DXC/devops-framework/standards/service-management/incident-and-request/
