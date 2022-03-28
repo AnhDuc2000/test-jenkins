@@ -15,5 +15,5 @@ This request is for removing or disabling the user account
 #### Other Information
 <!-- *If anything apart, please provide us the details here* -->
 
-**If remove/disable the account is in urgent basis. Please provide the reason in detail why this account to be deactivated/removed from Confluence** 
+**If the remove/disable the account is urgent. Please provide the reason in detail why this account to be deactivated/removed from Confluence** 
 
