@@ -2,7 +2,7 @@
 name: Request an OAuth token / access to the REST API
 about: Request an OAuth token / access to the REST API
 title: 'Request an OAuth token from: NAME HERE'
-labels: "OAuth Token, High(P2)"
+labels: "OAuth Token, High (P2)"
 assignees: ''
 
 ---
