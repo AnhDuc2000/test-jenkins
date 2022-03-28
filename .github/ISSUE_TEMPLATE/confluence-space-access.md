@@ -2,7 +2,7 @@
 name: Confluence Space Access
 about: Provide the Confluence Space Access
 title: Provide the Confluence Space Access
-labels: "space access, Medium(P3)"
+labels: space access
 assignees: ''
 
 ---
