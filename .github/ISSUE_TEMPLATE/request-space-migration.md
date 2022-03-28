@@ -17,7 +17,7 @@ assignees: ''
 
 **Please share us the file location**: 
 
-**If your space migration request is in urgent basis, please provide the details how exactly impacting your business routine process and number of users impacted** (The reason in details why it is required as priority basis)
+**If this space migration is urgent, please provide the details how exactly impacting your business routine process and number of users impacted** (The reason in details why it is required as priority basis)
 
 
 **Other details if any**:
