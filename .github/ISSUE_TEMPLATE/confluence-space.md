@@ -2,7 +2,7 @@
 name: Confluence Space
 about: Create a new Confluence Space to create new content
 title: Create a new Space for ...
-labels: ":star2: new space, Medium(P3)"
+labels: ":star2: new space, Medium (P3)"
 assignees: ''
 
 ---
