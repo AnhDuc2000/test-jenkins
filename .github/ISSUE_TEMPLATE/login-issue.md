@@ -10,6 +10,8 @@ assignees: ''
 E-mail Address: <your email address here>
 
 Providing your e-mail address above will let our ChatBot help to try to review your account and fix the access issue.
+  
+**Is that request is in urgent basis, please provide us the business reason in detail why this account to be activated soon and any business impact**
 
 **Notes**:
 * We do not currently support external users. All users must provide a DXC GlobalPass Short Name for authentication purposes.
