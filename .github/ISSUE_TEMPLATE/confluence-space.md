@@ -2,7 +2,7 @@
 name: Confluence Space
 about: Create a new Confluence Space to create new content
 title: Create a new Space for ...
-labels: ":star2: new space"
+labels: ":star2: new space, Medium (P3)"
 assignees: ''
 
 ---
@@ -27,3 +27,9 @@ A clear and concise description of the purpose/value of the space.
 
 **Space Administrator**
 The person opening this GitHub issue will be assigned as the Space administrator, and you can then change settings after it is created.  If you would prefer someone else, let us know.
+
+**If your space creation is urgent, please provide the details how this space is important in your routine business movement and number of users benefited** (The reason in details why it is required in priority basis) 
+
+**Note:**
+
+If you want to understand our Devcloud Incident and Request Management process https://github.dxc.com/pages/Platform-DXC/devops-framework/standards/service-management/incident-and-request/
