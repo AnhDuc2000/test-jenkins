@@ -25,7 +25,9 @@ If you still require a Confluence account just enter your email address above an
 
 #### Impact/Urgency:
 
-**Is this account needed as an urgent basis, please share us the reason why this account is important in your project deliverable** (Any impact)
+**Is this account needed as an urgent basis, please share us the reason why this account is important in your project deliverable**
+
+**Please share us the information how it is impacting in your routine process/deliverable**
 
 **Notes:**
 
