@@ -30,7 +30,7 @@ The person opening this GitHub issue will be assigned as the Space administrator
 
 #### Impact/Urgency:
 
-**If your space creation is urgent, please provide the details how this space is important in your routine business movement** (The reason in details why it is required in priority basis)
+**If your space creation is urgent, please provide the details how this space is important in your routine business movement** (The reason in details why it is required to resolve asap)
 
 **Please provide the details how exactly impacting your business routine process and number of users impacted**
 
