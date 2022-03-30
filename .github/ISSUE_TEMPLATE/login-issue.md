@@ -17,4 +17,6 @@ Providing your e-mail address above will let our ChatBot help to try to review y
 
 #### Impact/Urgency:
   
-**If this account is urgent to your business, please provide us the details why this account required to be created earlier, is there any impact**
+**If this account is urgent to your business, please provide us the details why this account required to be created earlier**
+  
+**If any impact on the business side, please provide us the details to move further level of progression**
