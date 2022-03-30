@@ -26,4 +26,7 @@ assignees: ''
 
 #### Impact/Urgency:
 
-**If this request is urgent, please provide us the business justification in detail why this plugin required for your project or any impact on the business side**
+**If this request is urgent, please provide us the business justification in detail**
+
+**Please share us the details if any significant business impact and Number of users impacted**
+
