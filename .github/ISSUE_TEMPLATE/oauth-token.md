@@ -46,8 +46,9 @@ For the testing, validation and maintenance of this access:
 
 #### Impact/Urgency:
 
-**If you consider that this request is critical to your business, please provide us the detail your use case and how it is important in your routine process as an urgent basis.**
+**If you consider that this request is urgent to your business, please provide us the detail your use case.**
 
+**Please share us the information about the impact on business and number of users impacted**
 
 **Note:**
 
