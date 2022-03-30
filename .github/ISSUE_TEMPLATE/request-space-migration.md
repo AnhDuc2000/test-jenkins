@@ -21,7 +21,7 @@ assignees: ''
 
 **If your space migration is urgent to business, please provide the details how it is impacting your business and number of users impacted** (The reason in details why it is required as priority basis)
 
-**If it is vastly important to migrate the space ASAP. Need more details of your business urgency and timeline**
+**If it is highly important to migrate the space ASAP. Need more details of your business urgency and timeline**
 
 
 **Other details if any**:
