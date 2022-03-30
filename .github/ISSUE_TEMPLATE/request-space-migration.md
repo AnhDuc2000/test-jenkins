@@ -19,7 +19,7 @@ assignees: ''
 
 #### Impact/Urgency:
 
-**If your space migration request is urgent, please provide the details how it is impacting your business and number of users impacted** (The reason in details why it is required as priority basis)
+**If your space migration is urgent to business, please provide the details how it is impacting your business and number of users impacted** (The reason in details why it is required as priority basis)
 
 
 **Other details if any**:
