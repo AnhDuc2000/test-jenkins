@@ -23,3 +23,7 @@ assignees: ''
 **Team Size:**
 
 **Organization /project:**
+
+#### Impact/Urgency:
+
+**Is that request is urgent, please provide us the business justification in detail why this plugin required for your project or any impact on the business side*
