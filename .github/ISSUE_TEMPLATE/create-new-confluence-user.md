@@ -23,6 +23,10 @@ For detailed information on the recommended DevOps toolchain, including a presen
 
 If you still require a Confluence account just enter your email address above and submit the issue.
 
+#### Impact/Urgency:
+
+**Is this account needed as an urgent basis, please share us the reason why this account is important in your project deliverable** (Any impact)
+
 **Notes:**
 
 *We do not currently support external users. All users must provide a DXC email for authentication purposes.
