@@ -32,7 +32,7 @@ The person opening this GitHub issue will be assigned as the Space administrator
 
 **If your space creation is urgent, please provide the details how this space is important in your routine business movement** (The reason in details why it is required to resolve asap)
 
-**Please provide us the details how exactly impacting to your business and number of users impacted**
+**Please provide us the details of how exactly impacting to your business and number of users impacted**
 
 **Note:**
 
