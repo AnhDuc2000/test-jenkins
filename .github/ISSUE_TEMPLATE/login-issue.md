@@ -21,3 +21,6 @@ Providing your e-mail address above will let our ChatBot help to try to review y
   
 **If any impact on the business side, please provide us the details**
 
+**Note**
+
+If you want to understand our Devcloud Incident and Request Management process https://github.dxc.com/pages/Platform-DXC/devops-framework/standards/service-management/incident-and-request/
