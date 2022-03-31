@@ -22,3 +22,6 @@ This request is for removing or disabling the user account
 
 **If it is urgent request to business. Please provide details on the time constraints to deactivate/remove this account from Confluence**
 
+**Note**
+
+If you want to understand our Devcloud Incident and Request Management process https://github.dxc.com/pages/Platform-DXC/devops-framework/standards/service-management/incident-and-request/
