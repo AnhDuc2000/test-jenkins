@@ -30,3 +30,6 @@ assignees: ''
 
 **Please share us the details if any significant business impact and Number of users impacted**
 
+**Note**
+
+If you want to understand our Devcloud Incident and Request Management process https://github.dxc.com/pages/Platform-DXC/devops-framework/standards/service-management/incident-and-request/
