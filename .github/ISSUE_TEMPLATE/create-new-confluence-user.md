@@ -23,8 +23,16 @@ For detailed information on the recommended DevOps toolchain, including a presen
 
 If you still require a Confluence account just enter your email address above and submit the issue.
 
+#### Impact/Urgency:
+
+**Is this account needed as an urgent basis, please share us the reason why this account is urgent for your project timeline**
+
+**Please share us the information how it is impacting in your routine process/deliverable**
+
 **Notes:**
 
 *We do not currently support external users. All users must provide a DXC email for authentication purposes.
 *It might take up to 1 hour before the new account is visible in Confluence.
 *After obtaining your user account in Confluence, you may not see any spaces when logging in. After getting your account setup, you can request your space administrator to add you to their space roles.
+
+If you want to understand our Devcloud Incident and Request Management process https://github.dxc.com/pages/Platform-DXC/devops-framework/standards/service-management/incident-and-request/

@@ -17,7 +17,11 @@ assignees: ''
 
 **Please share us the file location**: 
 
-**If this space migration is critical to your business, please provide us the details your use case**
+#### Impact/Urgency:
+
+**If your space migration is important to business, please provide the details how it is impacting your business and number of users impacted** (The reason in details why it is required as priority basis)
+
+**If it is important to migrate the space ASAP. Need more details of your business urgency and timeline**
 
 
 **Other details if any**:
