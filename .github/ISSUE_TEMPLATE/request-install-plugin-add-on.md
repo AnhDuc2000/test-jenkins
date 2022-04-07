@@ -2,7 +2,7 @@
 name: Request Install Plugin/Add-on
 about: Propose a new plugin to install
 title: Propose a new plugin to install
-labels: plugin/add-ons
+labels: "plugin/add-ons, enhancement"
 assignees: ''
 
 ---
