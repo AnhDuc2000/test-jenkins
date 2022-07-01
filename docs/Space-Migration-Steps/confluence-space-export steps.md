@@ -14,11 +14,11 @@ Log into Confluence and view the space you want to export.
  
   <img width="700" alt="image" src=https://github.dxc.com/storage/user/98562/files/8d45c6d2-6129-4233-befb-c8b7a15ba538>
   
-* Choose full export if Generates an XML file for each page in this space, including those not visible to you. The export includes comments and attachments, but excludes blog posts.  
+* Choose **full export** to generate an XML file for each page in this space, including those not visible to you. The export includes comments and attachments, but excludes blog posts.  
   
   <img width="700" alt="image" src=https://github.dxc.com/storage/user/98562/files/6c46e8f9-9e43-4ba6-b6d6-b52781dd7c79>
   
-* Generates a XML file of selected pages based on options that you choose from below.
+* Choose **custom export** to generate an XML file of selected pages based on options that you choose from below.
 
   <img width="700" alt="image" src=https://github.dxc.com/storage/user/98562/files/ba9a4022-d680-4cb8-8793-e01390dd4b1f>
 
